@@ -10,6 +10,7 @@ import {
   Link,
   Button,
 } from "@heroui/react";
+import { ThemeSwitcher } from "@/components";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -64,6 +65,9 @@ export const Header = () => {
           <Button as={Link} color="primary" href="#" variant="flat">
             Sign Up
           </Button>
+        </NavbarItem>
+        <NavbarItem>
+          <ThemeSwitcher />
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu>
