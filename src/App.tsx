@@ -1,9 +1,9 @@
-import { Button } from "@heroui/react";
+import { Header } from "@/components";
 
 export const App = () => {
   return (
     <>
-      <Button variant="bordered">Click me</Button>
+      <Header />
     </>
   );
 };
