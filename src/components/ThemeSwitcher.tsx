@@ -21,7 +21,7 @@ export const ThemeSwitcher = () => {
     <Dropdown>
       <DropdownTrigger>
         <Button
-          variant="flat"
+          variant="light"
           size="sm"
           isIconOnly
           aria-label={`Theme: ${currentTheme}`}

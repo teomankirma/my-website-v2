@@ -8,63 +8,40 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   Link,
-  Button,
 } from "@heroui/react";
-import { ThemeSwitcher } from "@/components";
+import { ThemeSwitcher, LanguageSwitcher } from "@/components";
+import { useAppStore } from "@/hooks/useAppStore";
+import { translations } from "@/i18n";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-
-  const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
-  ];
+  const { language } = useAppStore();
+  const { name, menuItems } = translations[language];
 
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
+          className="lg:hidden cursor-pointer"
         />
         <NavbarBrand>
-          <p className="font-bold text-inherit">Teoman Kirma</p>
+          <p className="font-bold text-inherit">{name}</p>
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Features
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive>
-          <Link aria-current="page" href="#">
-            Customers
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Integrations
-          </Link>
-        </NavbarItem>
+      <NavbarContent className="hidden lg:flex gap-8 px-4" justify="center">
+        {menuItems.map((item) => (
+          <NavbarItem key={item}>
+            <Link color="foreground" href="#">
+              {item}
+            </Link>
+          </NavbarItem>
+        ))}
       </NavbarContent>
       <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
-        </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Sign Up
-          </Button>
+          <LanguageSwitcher />
         </NavbarItem>
         <NavbarItem>
           <ThemeSwitcher />
@@ -75,15 +52,9 @@ export const Header = () => {
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
               className="w-full"
-              color={
-                index === 2
-                  ? "primary"
-                  : index === menuItems.length - 1
-                  ? "danger"
-                  : "foreground"
-              }
               href="#"
               size="lg"
+              onClick={() => setIsMenuOpen(false)}
             >
               {item}
             </Link>
