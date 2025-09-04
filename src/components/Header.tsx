@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -12,14 +11,22 @@ import {
 import { ThemeSwitcher, LanguageSwitcher } from "@/components";
 import { useAppStore } from "@/hooks/useAppStore";
 import { translations } from "@/i18n";
+import { toSectionHref } from "@/utils";
 
 export const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const { language } = useAppStore();
+  const { language, isMenuOpen, updateState } = useAppStore();
   const { name, menuItems } = translations[language];
 
+  const handleMenuOpen = (open: boolean) => {
+    updateState({ isMenuOpen: open });
+  };
+
+  const handleMenuClose = () => {
+    updateState({ isMenuOpen: false });
+  };
+
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen}>
+    <Navbar isMenuOpen={isMenuOpen} onMenuOpenChange={handleMenuOpen}>
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -30,10 +37,10 @@ export const Header = () => {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden lg:flex gap-8 px-4" justify="center">
+      <NavbarContent className="hidden lg:flex gap-8 pl-8" justify="center">
         {menuItems.map((item) => (
           <NavbarItem key={item}>
-            <Link color="foreground" href="#">
+            <Link color="foreground" href={toSectionHref(item)}>
               {item}
             </Link>
           </NavbarItem>
@@ -52,9 +59,10 @@ export const Header = () => {
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
               className="w-full"
-              href="#"
+              href={toSectionHref(item)}
               size="lg"
-              onClick={() => setIsMenuOpen(false)}
+              color="foreground"
+              onClick={handleMenuClose}
             >
               {item}
             </Link>

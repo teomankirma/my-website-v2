@@ -27,7 +27,7 @@ export const LanguageSwitcher = () => {
       <DropdownTrigger>
         <Button
           variant="light"
-          size="md"
+          size="sm"
           isIconOnly
           aria-label={`Language: ${currentLabel}`}
         >

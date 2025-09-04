@@ -4,6 +4,7 @@ import { Language } from "@/types";
 
 type AppState = {
   language: Language;
+  isMenuOpen: boolean;
 };
 
 type AppActions = {
@@ -15,6 +16,7 @@ type AppStore = AppState & AppActions;
 
 const initialState: AppState = {
   language: Language.EN,
+  isMenuOpen: false,
 };
 
 export const useAppStore = create<AppStore>()(
