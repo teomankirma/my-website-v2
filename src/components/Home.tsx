@@ -1,5 +1,5 @@
 import { Typewriter } from "react-simple-typewriter";
-import { Button, Spacer, Avatar } from "@heroui/react";
+import { Button, Spacer, Avatar, Link } from "@heroui/react";
 import { useAppStore } from "@/hooks/useAppStore";
 import { translations } from "@/i18n";
 import me from "@/assets/me.png";
@@ -9,7 +9,7 @@ export const Home = () => {
   const { welcome, typewriter, location, hireMe } = translations[language];
 
   return (
-    <div className="home section" id="home">
+    <div id="home">
       <div>
         <Spacer y={1} />
         <div>
@@ -44,7 +44,7 @@ export const Home = () => {
       </div>
       <div>
         <div>
-          <a href="#contactMe">
+          <Link href="#contactMe">
             <Button
               color="success"
               size="lg"
@@ -54,7 +54,7 @@ export const Home = () => {
             >
               {hireMe}
             </Button>
-          </a>
+          </Link>
         </div>
       </div>
       <Spacer y={1} />
