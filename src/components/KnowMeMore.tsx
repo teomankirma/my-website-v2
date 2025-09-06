@@ -40,7 +40,7 @@ export const KnowMeMore = () => {
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Left: Intro copy */}
           <div className="lg:col-span-7 space-y-6">
-            <h3 className="text-2xl md:text-3xl font-semibold leading-snug">
+            <h3 className="text-2xl md:text-3xl font-semibold tracking-tight leading-snug">
               {whoAmIA} <span className="text-accent font-bold">{name}</span>,{" "}
               {whoAmIB}.
             </h3>
@@ -62,7 +62,11 @@ export const KnowMeMore = () => {
               <li className="py-2 border-b border-foreground/20">
                 <div className="flex items-baseline gap-2">
                   <b className="min-w-16 opacity-80">{emailLabel}:</b>
-                  <Link href={`mailto:${email}`} color="success">
+                  <Link
+                    href={`mailto:${email}`}
+                    className="font-bold"
+                    color="success"
+                  >
                     {email}
                   </Link>
                 </div>
@@ -98,7 +102,7 @@ export const KnowMeMore = () => {
         {/* Stats */}
         <div className="mt-16 grid grid-cols-2 gap-8 items-center">
           <div className="text-center">
-            <h2 className="text-4xl md:text-5xl font-bold">
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">
               {experienceYear}+
             </h2>
             <p className="mt-1 text-sm md:text-base opacity-80">
@@ -106,7 +110,7 @@ export const KnowMeMore = () => {
             </p>
           </div>
           <div className="text-center border-l border-foreground/20 pl-8">
-            <h2 className="text-4xl md:text-5xl font-bold">
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">
               {projectsNumber}+
             </h2>
             <p className="mt-1 text-sm md:text-base opacity-80">
