@@ -23,3 +23,7 @@ export type Translations = Record<
     hireMe: string;
   }
 >;
+
+export type SectionHeaderProps = {
+  header: string;
+};

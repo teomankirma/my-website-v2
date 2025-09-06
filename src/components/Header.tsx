@@ -8,7 +8,7 @@ import {
   NavbarMenuItem,
   Link,
 } from "@heroui/react";
-import { ThemeSwitcher, LanguageSwitcher } from "@/components";
+import { ThemeSwitcher, LanguageSwitcher } from "@/components/common";
 import { useAppStore } from "@/hooks/useAppStore";
 import { translations } from "@/i18n";
 import { toSectionHref } from "@/utils";
