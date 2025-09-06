@@ -10,3 +10,24 @@
 @theme {
   --color-accent: #17c964;
 }
+
+/* Global typography (system stacks, no remote fetch) */
+:root {
+  --nextui-fonts-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
+  --nextui-fonts-mono: Menlo, Monaco, 'Lucida Console', 'Liberation Mono',
+    'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace;
+  --font-sans-primary: 'Manrope', var(--nextui-fonts-sans);
+}
+
+html,
+body {
+  font-family: var(--font-sans-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code, pre, kbd, samp {
+  font-family: var(--nextui-fonts-mono);
+}

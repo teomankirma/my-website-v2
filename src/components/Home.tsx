@@ -1,5 +1,5 @@
 import { Typewriter } from "react-simple-typewriter";
-import { Button, Avatar } from "@heroui/react";
+import { Button, Avatar, Link } from "@heroui/react";
 import { useAppStore } from "@/hooks/useAppStore";
 import { translations } from "@/i18n";
 import me from "@/assets/me.png";
@@ -29,7 +29,7 @@ export const Home = () => {
 
         <p className="text-lg md:text-2xl text-foreground/80">{location}</p>
 
-        <a href="#contactMe" className="inline-flex">
+        <Link href="#contactMe" className="inline-flex">
           <Button
             color="success"
             size="lg"
@@ -39,7 +39,7 @@ export const Home = () => {
           >
             {hireMe}
           </Button>
-        </a>
+        </Link>
       </div>
     </section>
   );

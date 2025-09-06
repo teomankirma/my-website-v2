@@ -1,6 +1,5 @@
 import { Header } from "./Header";
-import { ThemeSwitcher } from "./ThemeSwitcher";
-import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Home } from "./Home";
+import { KnowMeMore } from "./KnowMeMore";
 
-export { Header, ThemeSwitcher, LanguageSwitcher, Home };
+export { Header, Home, KnowMeMore };
