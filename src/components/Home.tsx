@@ -30,7 +30,7 @@ export const Home = () => {
               words={typewriter}
               loop={0}
               cursor={true}
-              cursorColor="#17c964"
+              cursorColor="var(--color-accent)"
             />
           </h2>
         </div>
@@ -50,7 +50,7 @@ export const Home = () => {
               size="lg"
               radius="full"
               variant="ghost"
-              className="text-[#17c964]"
+              className="text-accent data-[hover=true]:!text-white"
             >
               {hireMe}
             </Button>
