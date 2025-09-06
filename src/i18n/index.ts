@@ -1,7 +1,9 @@
 import type { Translations } from "@/types";
 import { DateTime } from "luxon";
 
-const age = DateTime.now().diff(DateTime.fromISO("2002-07-27"), "years").years;
+const age = Math.floor(
+  DateTime.now().diff(DateTime.fromISO("2002-07-27"), "years").years
+);
 const experienceYears = DateTime.now().year - 2020;
 
 export const translations: Translations = {
@@ -40,7 +42,7 @@ export const translations: Translations = {
     downloadResume: "Download Resume",
     experienceYear: `${experienceYears}`,
     experienceText: "Years Experience",
-    projectsNumber: "30+",
+    projectsNumber: "40",
     projectsLabel: "Projects Done",
   },
   tr: {
@@ -79,7 +81,7 @@ export const translations: Translations = {
     downloadResume: "CV İndir",
     experienceYear: `${experienceYears}`,
     experienceText: "Yıllık Deneyim",
-    projectsNumber: "30+",
+    projectsNumber: "40",
     projectsLabel: "Tamamlanan Proje",
   },
 };

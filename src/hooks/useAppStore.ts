@@ -5,6 +5,7 @@ import { Language } from "@/types";
 type AppState = {
   language: Language;
   isMenuOpen: boolean;
+  email: string;
 };
 
 type AppActions = {
@@ -17,6 +18,7 @@ type AppStore = AppState & AppActions;
 const initialState: AppState = {
   language: Language.EN,
   isMenuOpen: false,
+  email: "teomankirma@gmail.com",
 };
 
 export const useAppStore = create<AppStore>()(
