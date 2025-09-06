@@ -12,6 +12,14 @@ export const translations: Translations = {
       "Testimonial",
       "Contact Me",
     ],
+    welcome: "Welcome",
+    typewriter: [
+      "I'm Teoman Kirma.",
+      "I'm a Software Engineer.",
+      "I'm a Frontend Developer.",
+    ],
+    location: "based in Los Angeles, CA.",
+    hireMe: "Hire Me",
   },
   tr: {
     name: "Teoman Kırma",
@@ -24,5 +32,13 @@ export const translations: Translations = {
       "Referanslar",
       "Bana Ulaşın",
     ],
+    welcome: "Hoş Geldiniz",
+    typewriter: [
+      "Ben Teoman Kırma.",
+      "Yazılım Mühendisiyim.",
+      "Frontend Developer'ım.",
+    ],
+    location: "Los Angeles, CA'da yaşıyorum.",
+    hireMe: "Beni İşe Alın",
   },
 };
