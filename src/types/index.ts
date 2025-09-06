@@ -17,5 +17,9 @@ export type Translations = Record<
   TranslationGroup & {
     name: string;
     menuItems: string[];
+    welcome: string;
+    typewriter: string[];
+    location: string;
+    hireMe: string;
   }
 >;

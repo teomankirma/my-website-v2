@@ -1,9 +1,10 @@
-import { Header } from "@/components";
+import { Header, Home } from "@/components";
 
 export const App = () => {
   return (
     <>
       <Header />
+      <Home />
     </>
   );
 };
