@@ -2,9 +2,9 @@ import type { SectionHeaderProps } from "@/types";
 
 export const SectionHeader = ({ header }: SectionHeaderProps) => {
   return (
-    <>
-      <h1>{header}</h1>
-      <hr className="h-5 border-none bg-accent opacity-100 m-auto w-7" />
-    </>
+    <div className="text-center pb-4">
+      <h1 className="text-3xl md:text-5xl font-semibold pb-2">{header}</h1>
+      <div className="mt-2 md:mt-3 h-1 w-16 mx-auto bg-accent rounded-full" />
+    </div>
   );
 };
