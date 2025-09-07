@@ -5,7 +5,6 @@ export const Language = {
 
 export type Language = (typeof Language)[keyof typeof Language];
 
-// Unified translation shape with core required fields and optional extras
 export type Translation = {
   name: string;
   menuItems: string[];
@@ -29,11 +28,25 @@ export type Translation = {
   experienceText: string;
   projectsNumber: string;
   projectsLabel: string;
+  eduTitle: string;
+  expTitle: string;
+  schoolName: string;
+  degree: string;
+  gpaLabel: string;
+  expRole: string;
+  expDates: string;
+  expLocation: string;
 };
 
 export type Translations = {
   en: Translation;
   tr: Translation;
+};
+
+export type SharedI18n = {
+  email: string;
+  eduYears: string;
+  companyName: string;
 };
 
 export type SectionHeaderProps = {

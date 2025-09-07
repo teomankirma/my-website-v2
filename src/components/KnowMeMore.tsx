@@ -8,8 +8,8 @@ export const KnowMeMore = () => {
   const resume = `${import.meta.env.BASE_URL}teoman-kirma-resume.pdf`;
   const { language, email } = useAppStore();
 
-  const t = translations[language];
   const {
+    menuItems,
     name,
     knowMeMore,
     whoAmIA,
@@ -27,10 +27,10 @@ export const KnowMeMore = () => {
     experienceText,
     projectsNumber,
     projectsLabel,
-  } = t;
+  } = translations[language];
 
   // Keep section anchor in sync with navbar label (2nd item)
-  const sectionId = toSectionHref(translations[language].menuItems[1]).slice(1);
+  const sectionId = toSectionHref(menuItems[1]).slice(1);
 
   return (
     <section id={sectionId} className="section py-20 md:py-28">
