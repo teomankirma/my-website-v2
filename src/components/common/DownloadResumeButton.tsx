@@ -10,6 +10,7 @@ export const DownloadResumeButton = () => {
   return (
     <Link href={resume} download className="inline-flex">
       <Button color="success" size="lg" radius="full" className="text-white">
+        <i aria-hidden className="fa-solid fa-download" />
         {downloadResume}
       </Button>
     </Link>

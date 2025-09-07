@@ -2,9 +2,19 @@ import { Card, Chip, Image } from "@heroui/react";
 import { toSectionHref } from "@/utils";
 import { useAppStore } from "@/hooks/useAppStore";
 import { translations, sharedI18n } from "@/i18n";
-import { SectionHeader, DownloadResumeButton } from "@/components/common";
+import {
+  SectionHeader,
+  DownloadResumeButton,
+  SkillLogo,
+} from "@/components/common";
 import uniLogo from "@/assets/nisantasi-university.png";
 import companyLogo from "@/assets/bytesandpixels.jpeg";
+import reactLogo from "@/assets/react.svg";
+import tsLogo from "@/assets/typescript.svg";
+import tailwindLogo from "@/assets/tailwind.svg";
+import nextLogo from "@/assets/nextjs.svg";
+import zustandLogo from "@/assets/zustand.svg";
+import tanstackLogo from "@/assets/tanstack.svg";
 
 export const Resume = () => {
   const { language } = useAppStore();
@@ -87,8 +97,22 @@ export const Resume = () => {
                 </div>
               </div>
             </Card>
-            <DownloadResumeButton />
           </div>
+        </div>
+      </div>
+      {/* Skills section */}
+      <div className="container mx-auto px-6 md:px-10 mt-16">
+        <h3 className="text-xl md:text-2xl font-semibold mb-6">My Skills</h3>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+          <SkillLogo label="React" src={reactLogo} badge="core" />
+          <SkillLogo label="TypeScript" src={tsLogo} badge="core" />
+          <SkillLogo label="Tailwind CSS" src={tailwindLogo} badge="core" />
+          <SkillLogo label="Next.js" src={nextLogo} badge="core" />
+          <SkillLogo label="Zustand" src={zustandLogo} badge="core" />
+          <SkillLogo label="TanStack Query" src={tanstackLogo} badge="core" />
+        </div>
+        <div className="mt-10 flex justify-center">
+          <DownloadResumeButton />
         </div>
       </div>
     </section>
