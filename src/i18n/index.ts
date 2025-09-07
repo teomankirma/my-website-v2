@@ -1,4 +1,4 @@
-import type { Translations } from "@/types";
+import type { Translations, SharedI18n } from "@/types";
 import { DateTime } from "luxon";
 
 const age = Math.floor(
@@ -12,7 +12,6 @@ export const translations: Translations = {
     menuItems: [
       "Home",
       "About Me",
-      "What I Do",
       "Resume",
       "Portfolio",
       "Testimonial",
@@ -44,13 +43,21 @@ export const translations: Translations = {
     experienceText: "Years Experience",
     projectsNumber: "40",
     projectsLabel: "Projects Done",
+    // Resume
+    eduTitle: "My Education",
+    expTitle: "My Experience",
+    schoolName: "Nisantasi University",
+    degree: "B.Sc., Software Engineering",
+    gpaLabel: "GPA",
+    expRole: "Frontend Developer",
+    expDates: "May 2023 – Present",
+    expLocation: "Los Angeles, CA, US · Remote",
   },
   tr: {
     name: "Teoman Kırma",
     menuItems: [
       "Anasayfa",
       "Hakkımda",
-      "Ne Yapıyorum",
       "Özgeçmiş",
       "Portföy",
       "Referanslar",
@@ -83,5 +90,27 @@ export const translations: Translations = {
     experienceText: "Yıllık Deneyim",
     projectsNumber: "40",
     projectsLabel: "Tamamlanan Proje",
+    // Resume
+    eduTitle: "Eğitimim",
+    expTitle: "Deneyimim",
+    schoolName: "Nişantaşı Üniversitesi",
+    degree: "Yazılım Mühendisliği, Lisans",
+    gpaLabel: "GNO",
+    expRole: "Frontend Geliştirici",
+    expDates: "Mayıs 2023 – Günümüz",
+    expLocation: "Los Angeles, CA, ABD · Uzaktan",
   },
+};
+
+export const sharedI18n: SharedI18n = {
+  email: "teomankirma@gmail.com",
+  eduYears: "2020–2025",
+  companyName: "BytesandPixels",
+  gpa: "3.36",
+  react: "React",
+  typescript: "TypeScript",
+  tailwind: "Tailwind CSS",
+  nextjs: "Next.js",
+  zustand: "Zustand",
+  tanstack: "TanStack Query",
 };
