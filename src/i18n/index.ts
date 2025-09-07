@@ -104,7 +104,7 @@ export const translations: Translations = {
 
 export const sharedI18n: SharedI18n = {
   email: "teomankirma@gmail.com",
-  eduYears: "2020–2024",
+  eduYears: "2020–2025",
   companyName: "BytesandPixels",
   gpa: "3.36",
   react: "React",

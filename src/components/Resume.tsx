@@ -64,7 +64,12 @@ export const Resume = () => {
                   height={72}
                 />
                 <div className="flex-1">
-                  <Chip color="success" variant="solid" className="text-white">
+                  <Chip
+                    color="success"
+                    variant="solid"
+                    className="text-white"
+                    classNames={{ content: "font-semibold" }}
+                  >
                     {eduYears}
                   </Chip>
                   <div className="mt-3 space-y-1">
@@ -96,7 +101,12 @@ export const Resume = () => {
                   height={72}
                 />
                 <div className="flex-1">
-                  <Chip color="success" variant="solid" className="text-white">
+                  <Chip
+                    color="success"
+                    variant="solid"
+                    className="text-white"
+                    classNames={{ content: "font-semibold" }}
+                  >
                     {expDates}
                   </Chip>
                   <div className="mt-3 space-y-1">
