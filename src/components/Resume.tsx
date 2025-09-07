@@ -2,7 +2,7 @@ import { Card, Chip, Image } from "@heroui/react";
 import { toSectionHref } from "@/utils";
 import { useAppStore } from "@/hooks/useAppStore";
 import { translations, sharedI18n } from "@/i18n";
-import { SectionHeader } from "@/components/common";
+import { SectionHeader, DownloadResumeButton } from "@/components/common";
 import uniLogo from "@/assets/nisantasi-university.png";
 import companyLogo from "@/assets/bytesandpixels.jpeg";
 
@@ -87,6 +87,7 @@ export const Resume = () => {
                 </div>
               </div>
             </Card>
+            <DownloadResumeButton />
           </div>
         </div>
       </div>

@@ -1,11 +1,10 @@
-import { Button, Link } from "@heroui/react";
-import { SectionHeader } from "@/components/common";
+import { Link } from "@heroui/react";
+import { SectionHeader, DownloadResumeButton } from "@/components/common";
 import { useAppStore } from "@/hooks/useAppStore";
 import { translations } from "@/i18n";
 import { toSectionHref } from "@/utils";
 
 export const KnowMeMore = () => {
-  const resume = `${import.meta.env.BASE_URL}teoman-kirma-resume.pdf`;
   const { language, email } = useAppStore();
 
   const {
@@ -22,7 +21,6 @@ export const KnowMeMore = () => {
     age,
     fromLabel,
     from,
-    downloadResume,
     experienceYear,
     experienceText,
     projectsNumber,
@@ -84,16 +82,7 @@ export const KnowMeMore = () => {
                 </div>
               </li>
               <li className="pt-4 flex justify-center">
-                <a href={resume} download className="inline-flex">
-                  <Button
-                    color="success"
-                    size="lg"
-                    radius="full"
-                    className="text-white"
-                  >
-                    {downloadResume}
-                  </Button>
-                </a>
+                <DownloadResumeButton />
               </li>
             </ul>
           </div>
