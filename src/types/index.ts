@@ -47,6 +47,13 @@ export type SharedI18n = {
   email: string;
   eduYears: string;
   companyName: string;
+  gpa: string;
+  react: string;
+  typescript: string;
+  tailwind: string;
+  nextjs: string;
+  zustand: string;
+  tanstack: string;
 };
 
 export type SectionHeaderProps = {

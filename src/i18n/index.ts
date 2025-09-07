@@ -106,4 +106,11 @@ export const sharedI18n: SharedI18n = {
   email: "teomankirma@gmail.com",
   eduYears: "2020–2024",
   companyName: "BytesandPixels",
+  gpa: "3.36",
+  react: "React",
+  typescript: "TypeScript",
+  tailwind: "Tailwind CSS",
+  nextjs: "Next.js",
+  zustand: "Zustand",
+  tanstack: "TanStack Query",
 };

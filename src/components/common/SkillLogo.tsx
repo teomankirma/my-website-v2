@@ -1,29 +1,55 @@
 import { Badge, Image } from "@heroui/react";
+import type { CSSProperties } from "react";
 
 type SkillLogoProps = {
   label: string;
   src: string;
-  alt?: string;
-  badge?: string; // e.g., "core", "new"
-  size?: number; // square size in px
+  // Custom background color for the badge, e.g. "#61DBFB". If omitted, use default.
+  badgeColor?: string;
+  imgClassName?: string;
 };
 
-export const SkillLogo = ({ label, src, alt, badge, size = 72 }: SkillLogoProps) => {
+export const SkillLogo = ({
+  label,
+  src,
+  badgeColor,
+  imgClassName,
+}: SkillLogoProps) => {
+  const hasCustom = typeof badgeColor === "string" && badgeColor.length > 0;
+
+  const badgeClassName = `text-white px-2 py-1 ${
+    hasCustom ? "bg-[var(--badge-bg)]" : "bg-success"
+  }`;
+
+  const styleVars:
+    | (CSSProperties & { [key: string]: string | undefined })
+    | undefined = hasCustom ? { "--badge-bg": badgeColor } : undefined;
   const square = (
     <div
       className="inline-flex items-center justify-center rounded-2xl border-2 border-accent/70 bg-content2"
-      style={{ width: size, height: size }}
+      style={{ width: 72, height: 72 }}
     >
-      <Image src={src} alt={alt ?? label} className="object-contain" width={size - 16} height={size - 16} />
+      <Image
+        src={src}
+        alt={label}
+        className={`object-contain${imgClassName ? ` ${imgClassName}` : ""}`}
+        width={56}
+        height={56}
+      />
     </div>
   );
 
   return (
     <div className="inline-flex flex-col items-center gap-2">
-      <Badge isInvisible={!badge} content={badge} color="success" placement="top-right" shape="rectangle">
+      <Badge
+        content={label}
+        placement="top-right"
+        shape="rectangle"
+        classNames={{ badge: badgeClassName }}
+        style={styleVars}
+      >
         {square}
       </Badge>
-      <span className="text-sm opacity-90">{label}</span>
     </div>
   );
 };

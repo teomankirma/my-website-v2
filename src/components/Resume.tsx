@@ -29,7 +29,17 @@ export const Resume = () => {
     expDates,
     expLocation,
   } = translations[language];
-  const { eduYears, companyName } = sharedI18n;
+  const {
+    eduYears,
+    companyName,
+    gpa,
+    react,
+    typescript,
+    tailwind,
+    nextjs,
+    zustand,
+    tanstack,
+  } = sharedI18n;
   const headerLabel = menuItems[2];
   const sectionId = toSectionHref(headerLabel).slice(1);
 
@@ -62,7 +72,9 @@ export const Resume = () => {
                       {schoolName}
                     </h4>
                     <p className="text-foreground/80">{degree}</p>
-                    <p className="text-foreground/70">{gpaLabel}: 3.36</p>
+                    <p className="text-foreground/70">
+                      {gpaLabel}: {gpa}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -104,14 +116,23 @@ export const Resume = () => {
       <div className="container mx-auto px-6 md:px-10 mt-16">
         <h3 className="text-xl md:text-2xl font-semibold mb-6">My Skills</h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
-          <SkillLogo label="React" src={reactLogo} badge="core" />
-          <SkillLogo label="TypeScript" src={tsLogo} badge="core" />
-          <SkillLogo label="Tailwind CSS" src={tailwindLogo} badge="core" />
-          <SkillLogo label="Next.js" src={nextLogo} badge="core" />
-          <SkillLogo label="Zustand" src={zustandLogo} badge="core" />
-          <SkillLogo label="TanStack Query" src={tanstackLogo} badge="core" />
+          <SkillLogo label={react} src={reactLogo} badgeColor="#61DBFB" />
+          <SkillLogo label={typescript} src={tsLogo} badgeColor="#3078c6" />
+          <SkillLogo label={tailwind} src={tailwindLogo} badgeColor="#06B6D4" />
+          <SkillLogo
+            label={nextjs}
+            src={nextLogo}
+            badgeColor="#000000"
+            imgClassName="dark:invert"
+          />
+          <SkillLogo label={zustand} src={zustandLogo} badgeColor="#443e38" />
+          <SkillLogo
+            label={tanstack}
+            src={tanstackLogo}
+            imgClassName="invert dark:invert-0"
+          />
         </div>
-        <div className="mt-10 flex justify-center">
+        <div className="mt-16 flex justify-center">
           <DownloadResumeButton />
         </div>
       </div>
