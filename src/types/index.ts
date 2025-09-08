@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 export const Language = {
   TR: "tr",
   EN: "en",
@@ -58,4 +60,11 @@ export type SharedI18n = {
 
 export type SectionHeaderProps = {
   header: string;
+};
+
+export type PageSectionProps = {
+  menuIndex: number;
+  header?: string;
+  className?: string;
+  children?: ReactNode;
 };

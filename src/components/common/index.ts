@@ -3,5 +3,6 @@ import { ThemeSwitcher } from "./ThemeSwitcher";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { DownloadResumeButton } from "./DownloadResumeButton";
 import { SkillLogo } from "./SkillLogo";
+import { PageSection } from "./PageSection";
 
-export { SectionHeader, ThemeSwitcher, LanguageSwitcher, DownloadResumeButton, SkillLogo };
+export { SectionHeader, ThemeSwitcher, LanguageSwitcher, DownloadResumeButton, SkillLogo, PageSection };

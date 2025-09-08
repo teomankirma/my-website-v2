@@ -3,15 +3,25 @@
 ## Project Structure & Module Organization
 - Source: `src/` with `components/` (UI, PascalCase, `.tsx`), `hooks/` (state/util, `.ts`), `types/` (shared types), `i18n/` (translations), `utils/` (helpers), `assets/`, and global styles in `src/index.css`.
 - Entry: `index.html` -> `src/main.tsx` -> `src/App.tsx`.
-- Aliases: Import from `@/` (see `vite.config.ts` and `tsconfig.app.json`). Barrel exports in `src/components/index.ts`.
+- Aliases: Import from `@/` (see `vite.config.ts` and `tsconfig.app.json`). Barrel exports in `src/components/index.ts` and `src/components/common/index.ts`.
 - UI/Theme: HeroUI via `HeroUIProvider` in `main.tsx`; TailwindCSS v4 configured in `src/index.css` with `@plugin '../hero.ts'` and custom dark variant.
+- Components present: `Header`, `Home`, `KnowMeMore`, `Resume`, `Portfolio`. Common components: `SectionHeader`, `ThemeSwitcher`, `LanguageSwitcher`, `DownloadResumeButton`, `SkillLogo`, `PageSection` (unified section wrapper).
+  
 
 ## App Summary
 - Purpose: Personal portfolio site for Teoman Kirma (EN/TR).
 - Features: Responsive navbar with menu toggle, theme switcher (light/dark/system), language switcher (English/Turkish), hero section with avatar and typewriter intro, in‑page section anchors.
-- State: Centralized via Zustand (`useAppStore`) with `language` and `isMenuOpen`; devtools name `app-store`.
-- i18n: Translations defined in `src/i18n/index.ts` typed by `src/types`. Keys include `name`, `menuItems`, `welcome`, `typewriter`, `location`, `hireMe`.
+- State: Centralized via Zustand (`useAppStore`) with `language`, `isMenuOpen`, and `email`; devtools name `app-store`.
+- i18n: Translations defined in `src/i18n/index.ts` typed by `src/types`. Main keys include:
+  - Basics: `name`, `menuItems`, `welcome`, `typewriter`, `location`, `hireMe`
+  - About: `knowMeMore`, `whoAmIA`, `whoAmIB`, `aboutMe`, `myExperiences`
+  - Profile: `nameLabel`, `emailLabel`, `ageLabel`, `age`, `fromLabel`, `from`, `downloadResume`
+  - Stats: `experienceYear`, `experienceText`, `projectsNumber`, `projectsLabel`
+  - Resume: `eduTitle`, `expTitle`, `schoolName`, `degree`, `gpaLabel`, `expRole`, `expDates`, `expLocation`
+  - Shared i18n: `email`, `eduYears`, `companyName`, `gpa`, `react`, `typescript`, `tailwind`, `nextjs`, `zustand`, `tanstack`
 - Utilities: `toSectionHref(label)` in `src/utils` slugifies labels and transliterates Turkish characters for anchor links.
+  - Section IDs use `toSectionHref(menuItems[i]).slice(1)` to keep anchors consistent with navbar labels (e.g., in `KnowMeMore`, `Resume`).
+  - Use `PageSection` to standardize section wrappers (id + spacing), passing the `menuIndex` and optional `header`.
 
 ## Build, Test, and Development Commands
 - `npm run dev`: Start Vite dev server with HMR.
@@ -42,9 +52,13 @@
 
 ## Tech Stack
 - React 19, Vite 7, TypeScript 5.8 (strict), TailwindCSS 4, HeroUI 2.
-- Additional libs: Zustand 5 (state), `@heroui/use-theme` (theme), `react-simple-typewriter` (typewriter), Framer Motion (available for animations).
+- Additional libs: Zustand 5 (state), `@heroui/use-theme` (theme), Luxon (date math), `react-simple-typewriter` (typewriter), Framer Motion (available for animations).
 
 ## Notes & Conventions
 - Sections and anchors: use `toSectionHref` to generate stable IDs from menu labels (handles Turkish diacritics).
 - Assets: import via `@/assets/...` for bundling; example `me.png` used in `Home`.
 - Dist output: built files output to `dist/` via Vite.
+
+## Maintenance
+- Keep this AGENTS.md up to date when making significant changes (adding/removing/renaming top-level folders, modifying anchors/section IDs, adding store state keys, or introducing/removing i18n keys/components).
+- After major UI or structure changes, verify Tailwind `@source` globs in `src/index.css` still cover new files and that barrel exports remain in sync.

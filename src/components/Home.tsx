@@ -2,15 +2,19 @@ import { Typewriter } from "react-simple-typewriter";
 import { Button, Avatar, Link } from "@heroui/react";
 import { useAppStore } from "@/hooks/useAppStore";
 import { translations } from "@/i18n";
+import { toSectionHref } from "@/utils";
 import me from "@/assets/me.png";
 
 export const Home = () => {
   const { language } = useAppStore();
-  const { welcome, typewriter, location, hireMe } = translations[language];
+  const { welcome, typewriter, location, hireMe, menuItems } =
+    translations[language];
+  const homeId = toSectionHref(menuItems[0]).slice(1);
+  const contactHref = toSectionHref(menuItems[5]);
 
   return (
     <section
-      id="home"
+      id={homeId}
       className="home section flex min-h-[80svh] items-center justify-center"
     >
       <div className="flex flex-col items-center text-center gap-12">
@@ -29,7 +33,7 @@ export const Home = () => {
 
         <p className="text-lg md:text-2xl text-foreground/80">{location}</p>
 
-        <Link href="#contactMe" className="inline-flex">
+        <Link href={contactHref} className="inline-flex">
           <Button
             color="success"
             size="lg"
