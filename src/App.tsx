@@ -1,4 +1,4 @@
-import { Header, Home, KnowMeMore, Resume } from "@/components";
+import { Header, Home, KnowMeMore, Resume, Portfolio } from "@/components";
 
 export const App = () => {
   return (
@@ -7,6 +7,7 @@ export const App = () => {
       <Home />
       <KnowMeMore />
       <Resume />
+      <Portfolio />
     </>
   );
 };
