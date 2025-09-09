@@ -82,7 +82,6 @@ export const translations: Translations = {
       technologies: "Technologies",
       industry: "Industry",
       date: "Date",
-      viewProject: "View Repo",
     },
     portfolioItems: [
       {
@@ -97,7 +96,7 @@ export const translations: Translations = {
           industry: "Finance",
           date: "February 12, 2022",
           linkHref: sharedI18n.portfolio.atm.linkHref,
-          linkLabel: "View Repo",
+          linkLabel: "View on GitHub",
         },
       },
     ],
@@ -155,7 +154,6 @@ export const translations: Translations = {
       technologies: "Teknolojiler",
       industry: "Sektör",
       date: "Tarih",
-      viewProject: "Repo'yu Görüntüle",
     },
     portfolioItems: [
       {
@@ -170,7 +168,7 @@ export const translations: Translations = {
           industry: "Finans",
           date: "12 Şubat 2022",
           linkHref: sharedI18n.portfolio.atm.linkHref,
-          linkLabel: "Repo'yu Görüntüle",
+          linkLabel: "GitHub'da Görüntüle",
         },
       },
     ],

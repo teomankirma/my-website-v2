@@ -45,7 +45,6 @@ export type Translation = {
     technologies: string;
     industry: string;
     date: string;
-    viewProject: string;
   };
   portfolioItems: PortfolioItem[];
 };
@@ -95,7 +94,7 @@ export type ProjectDetails = {
   industry: string;
   date: string;
   linkHref: string;
-  linkLabel?: string;
+  linkLabel: string;
 };
 
 export type PortfolioItem = {

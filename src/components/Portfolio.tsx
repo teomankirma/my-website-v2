@@ -19,6 +19,7 @@ export const Portfolio = () => {
               imageAlt={item.imageAlt}
               dummyText={item.description}
               linkHref={item.details.linkHref}
+              linkLabel={item.details.linkLabel}
               technologies={item.details.technologies}
               industry={item.details.industry}
               date={item.details.date}

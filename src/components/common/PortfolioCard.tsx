@@ -19,6 +19,7 @@ export const PortfolioCard = ({
   imageAlt,
   dummyText,
   linkHref,
+  linkLabel,
   technologies,
   industry,
   date,
@@ -32,7 +33,6 @@ export const PortfolioCard = ({
     technologies: technologiesLabel,
     industry: industryLabel,
     date: dateLabel,
-    viewProject: viewProjectLabel,
   } = translations[language].portfolioCardLabels;
 
   return (
@@ -61,7 +61,7 @@ export const PortfolioCard = ({
         onOpenChange={setOpen}
         size="3xl"
         className="bg-content1"
-        classNames={{ closeButton: "cursor-pointer" }}
+        classNames={{ closeButton: "cursor-pointer", body: "pb-8 md:pb-10" }}
       >
         <ModalContent>
           {() => (
@@ -100,7 +100,7 @@ export const PortfolioCard = ({
                           color="success"
                           className="font-semibold"
                         >
-                          {viewProjectLabel}
+                          {linkLabel}
                         </Link>
                       </div>
                       <div className="py-3 flex items-baseline gap-3">
