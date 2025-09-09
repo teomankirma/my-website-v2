@@ -1,14 +1,12 @@
 import { Link } from "@heroui/react";
-import { SectionHeader, DownloadResumeButton } from "@/components/common";
+import { DownloadResumeButton, PageSection } from "@/components/common";
 import { useAppStore } from "@/hooks/useAppStore";
 import { translations } from "@/i18n";
-import { toSectionHref } from "@/utils";
 
 export const KnowMeMore = () => {
   const { language, email } = useAppStore();
 
   const {
-    menuItems,
     name,
     knowMeMore,
     whoAmIA,
@@ -27,13 +25,9 @@ export const KnowMeMore = () => {
     projectsLabel,
   } = translations[language];
 
-  // Keep section anchor in sync with navbar label (2nd item)
-  const sectionId = toSectionHref(menuItems[1]).slice(1);
-
   return (
-    <section id={sectionId} className="section py-20 md:py-28">
+    <PageSection menuIndex={1} header={knowMeMore}>
       <div className="container mx-auto px-6 md:px-10">
-        <SectionHeader header={knowMeMore} />
 
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Left: Intro copy */}
@@ -108,6 +102,6 @@ export const KnowMeMore = () => {
           </div>
         </div>
       </div>
-    </section>
+    </PageSection>
   );
 };

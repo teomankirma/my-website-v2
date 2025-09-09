@@ -1,11 +1,10 @@
 import { Card, Chip, Image } from "@heroui/react";
-import { toSectionHref } from "@/utils";
 import { useAppStore } from "@/hooks/useAppStore";
 import { translations, sharedI18n } from "@/i18n";
 import {
-  SectionHeader,
   DownloadResumeButton,
   SkillLogo,
+  PageSection,
 } from "@/components/common";
 import uniLogo from "@/assets/nisantasi-university.png";
 import companyLogo from "@/assets/bytesandpixels.jpeg";
@@ -41,12 +40,10 @@ export const Resume = () => {
     tanstack,
   } = sharedI18n;
   const headerLabel = menuItems[2];
-  const sectionId = toSectionHref(headerLabel).slice(1);
 
   return (
-    <section id={sectionId} className="section py-20 md:py-28">
+    <PageSection menuIndex={2} header={headerLabel}>
       <div className="container mx-auto px-6 md:px-10">
-        <SectionHeader header={headerLabel} />
 
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Education */}
@@ -146,6 +143,6 @@ export const Resume = () => {
           <DownloadResumeButton />
         </div>
       </div>
-    </section>
+    </PageSection>
   );
 };
