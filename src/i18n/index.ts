@@ -2,6 +2,7 @@ import type { Translations, SharedI18n } from "@/types";
 import { DateTime } from "luxon";
 import atmImg from "@/assets/atm.png";
 import keeperImg from "@/assets/keeper.png";
+import productListingImg from "@/assets/product-listing-generator.png";
 
 const age = Math.floor(
   DateTime.now().diff(DateTime.fromISO("2002-07-27"), "years").years
@@ -34,6 +35,14 @@ export const sharedI18n: SharedI18n = {
       technologies: "JavaScript, React",
       linkHref: "https://github.com/teomankirma/keeper-app",
     },
+    productListing: {
+      key: "productListing",
+      title: "Product Listing Generator",
+      imageSrc: productListingImg,
+      technologies:
+        "Next.js 15, React 19, TypeScript 5, Tailwind CSS 4, Zustand, shadcn/ui, Vercel AI SDK",
+      linkHref: "https://teo-product-listing-generator.vercel.app/",
+    },
   },
 };
 
@@ -63,6 +72,8 @@ export const translations: Translations = {
       "Hello, my name is Teoman. I graduated with a degree in Software Engineering from Nisantasi University with a GPA of 3.36. I live in Los Angeles and work as a Frontend Developer. I enjoy playing basketball, guitar, and video games.",
     myExperiences:
       "I'm a Frontend Developer with experience building scalable and responsive interfaces using React, Next.js, TypeScript, and Tailwind CSS. I've also worked with state management (Zustand), testing (Jest, Cypress), and UI documentation tools like Storybook.",
+    portfolioSubtitle:
+      "Here are a selection of projects I would like to showcase.",
     nameLabel: "Name",
     emailLabel: "Email",
     ageLabel: "Age",
@@ -122,6 +133,21 @@ export const translations: Translations = {
           linkLabel: "View on GitHub",
         },
       },
+      {
+        key: sharedI18n.portfolio.productListing.key,
+        title: sharedI18n.portfolio.productListing.title,
+        description:
+          "A web app where you upload product photos, the AI analyzes them, asks follow-ups, and generates pricing suggestions and ready-to-use marketplace listings you can refine through chat.",
+        imageSrc: sharedI18n.portfolio.productListing.imageSrc,
+        imageAlt: "Product Listing Generator project screenshot",
+        details: {
+          technologies: sharedI18n.portfolio.productListing.technologies,
+          industry: "E-commerce",
+          date: "September 3, 2025",
+          linkHref: sharedI18n.portfolio.productListing.linkHref,
+          linkLabel: "View on Website",
+        },
+      },
     ],
   },
   tr: {
@@ -150,6 +176,7 @@ export const translations: Translations = {
       "Merhaba, benim adım Teoman. Nişantaşı Üniversitesi Yazılım Mühendisliği bölümünden 3.36 not ortalamasıyla mezun oldum. Los Angeles'ta yaşıyor ve Frontend Developer olarak çalışıyorum. Hobilerim arasında basketbol, gitar çalmak ve video oyunları yer alıyor.",
     myExperiences:
       "Frontend Developer olarak scalable ve responsive arayüzler geliştirme deneyimine sahibim. React, Next.js, TypeScript ve Tailwind CSS ile çalışma tecrübem var. Ayrıca Zustand ile state management, Jest ve Cypress ile testing ve Storybook ile UI documentation konularında da tecrübem bulunuyor.",
+    portfolioSubtitle: "Sergilemek istediğim seçilmiş projelerden bazıları.",
     nameLabel: "İsim",
     emailLabel: "E-posta",
     ageLabel: "Yaş",
@@ -207,6 +234,21 @@ export const translations: Translations = {
           date: "12 Haziran 2022",
           linkHref: sharedI18n.portfolio.keeper.linkHref,
           linkLabel: "GitHub'da Görüntüle",
+        },
+      },
+      {
+        key: sharedI18n.portfolio.productListing.key,
+        title: sharedI18n.portfolio.productListing.title,
+        description:
+          "Ürün fotoğraflarını yüklediğinizde analiz yapan, sorular soran ve fiyat önerileriyle satışa hazır ilan oluşturan; ardından sohbet ederek başlık veya detayları düzenleyebileceğiniz bir web sitesi.",
+        imageSrc: sharedI18n.portfolio.productListing.imageSrc,
+        imageAlt: "Product Listing Generator proje ekran görüntüsü",
+        details: {
+          technologies: sharedI18n.portfolio.productListing.technologies,
+          industry: "E-ticaret",
+          date: "3 Eylül 2025",
+          linkHref: sharedI18n.portfolio.productListing.linkHref,
+          linkLabel: "Website'te Görüntüle",
         },
       },
     ],

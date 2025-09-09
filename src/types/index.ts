@@ -38,6 +38,7 @@ export type Translation = {
   expRole: string;
   expDates: string;
   expLocation: string;
+  portfolioSubtitle: string;
   portfolioCardLabels: {
     projectInfo: string;
     projectDetails: string;
