@@ -1,6 +1,7 @@
 import type { Translations, SharedI18n } from "@/types";
 import { DateTime } from "luxon";
 import atmImg from "@/assets/atm.png";
+import keeperImg from "@/assets/keeper.png";
 
 const age = Math.floor(
   DateTime.now().diff(DateTime.fromISO("2002-07-27"), "years").years
@@ -25,6 +26,13 @@ export const sharedI18n: SharedI18n = {
       imageSrc: atmImg,
       technologies: "Java",
       linkHref: "https://github.com/teomankirma/ATM",
+    },
+    keeper: {
+      key: "keeper",
+      title: "Keeper",
+      imageSrc: keeperImg,
+      technologies: "JavaScript, React",
+      linkHref: "https://github.com/teomankirma/keeper-app",
     },
   },
 };
@@ -99,6 +107,21 @@ export const translations: Translations = {
           linkLabel: "View on GitHub",
         },
       },
+      {
+        key: sharedI18n.portfolio.keeper.key,
+        title: sharedI18n.portfolio.keeper.title,
+        description:
+          "A website where you can create new notes and delete existing ones.",
+        imageSrc: sharedI18n.portfolio.keeper.imageSrc,
+        imageAlt: "Keeper project screenshot",
+        details: {
+          technologies: sharedI18n.portfolio.keeper.technologies,
+          industry: "Productivity",
+          date: "January 26, 2023",
+          linkHref: sharedI18n.portfolio.keeper.linkHref,
+          linkLabel: "View on GitHub",
+        },
+      },
     ],
   },
   tr: {
@@ -168,6 +191,21 @@ export const translations: Translations = {
           industry: "Finans",
           date: "12 Şubat 2022",
           linkHref: sharedI18n.portfolio.atm.linkHref,
+          linkLabel: "GitHub'da Görüntüle",
+        },
+      },
+      {
+        key: sharedI18n.portfolio.keeper.key,
+        title: sharedI18n.portfolio.keeper.title,
+        description:
+          "Yeni notlar oluşturabileceğiniz ve mevcut olanları silebileceğiniz bir web sitesi.",
+        imageSrc: sharedI18n.portfolio.keeper.imageSrc,
+        imageAlt: "Keeper proje ekran görüntüsü",
+        details: {
+          technologies: sharedI18n.portfolio.keeper.technologies,
+          industry: "Üretkenlik",
+          date: "12 Haziran 2022",
+          linkHref: sharedI18n.portfolio.keeper.linkHref,
           linkLabel: "GitHub'da Görüntüle",
         },
       },
