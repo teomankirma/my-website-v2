@@ -2,56 +2,35 @@ import { useState } from "react";
 import { Card, Avatar, Button } from "@heroui/react";
 import { PageSection } from "@/components/common";
 import { useAppStore } from "@/hooks/useAppStore";
-import { translations } from "@/i18n";
+import { translations, sharedI18n } from "@/i18n";
 
 // Simple, dependency-free testimonial slider using HeroUI + Tailwind.
 // Uses dummy data for now; translations can be wired later.
 
-type TestimonialItem = {
+type ResolvedTestimonial = {
   name: string;
   title: string;
   quote: string;
-  rating: number; // 1..5
+  rating: number;
 };
-
-const DUMMY_TESTIMONIALS: TestimonialItem[] = [
-  {
-    name: "Jay Shah",
-    title: "Founder at Icomatic Pvt Ltd",
-    quote:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    rating: 5,
-  },
-  {
-    name: "Ava Nguyen",
-    title: "Product Manager at Lumio",
-    quote:
-      "Teoman delivered clean code and clear communication. Shipping felt smooth and predictable across sprints.",
-    rating: 5,
-  },
-  {
-    name: "Carlos Mendes",
-    title: "CTO at Orbit Labs",
-    quote:
-      "Great attention to detail and thoughtful UX decisions. Would collaborate again without hesitation.",
-    rating: 4,
-  },
-  {
-    name: "Sara Yılmaz",
-    title: "Engineering Lead at Nova",
-    quote:
-      "Reliable, responsive, and pragmatic. The result matched the spec and shipped on time.",
-    rating: 5,
-  },
-];
 
 export const Testimonial = () => {
   const { language } = useAppStore();
-  const { menuItems } = translations[language];
+  const { menuItems, testimonials } = translations[language];
   const headerLabel = menuItems[4];
 
+  const items: ResolvedTestimonial[] = testimonials.map((t) => {
+    const shared = sharedI18n.testimonials[t.key];
+    return {
+      name: shared.name,
+      rating: shared.rating,
+      title: t.title,
+      quote: t.quote,
+    };
+  });
+
   const [index, setIndex] = useState(0);
-  const total = DUMMY_TESTIMONIALS.length;
+  const total = items.length;
 
   const prev = () => setIndex((i) => (i - 1 + total) % total);
   const next = () => setIndex((i) => (i + 1) % total);
@@ -73,7 +52,7 @@ export const Testimonial = () => {
               className="flex transition-transform duration-500 ease-out"
               style={{ transform: `translateX(-${index * 100}%)` }}
             >
-              {DUMMY_TESTIMONIALS.map((t, idx) => (
+              {items.map((t, idx) => (
                 <div key={idx} className="min-w-full px-2 md:px-16 py-2">
                   <Card
                     shadow="sm"
@@ -93,7 +72,9 @@ export const Testimonial = () => {
                       </div>
                     </div>
 
-                    <p className="mt-4 md:mt-5 text-base leading-relaxed flex-1">{t.quote}</p>
+                    <p className="mt-4 md:mt-5 text-base leading-relaxed flex-1">
+                      {t.quote}
+                    </p>
 
                     <div
                       className="mt-3 text-yellow-400"
@@ -138,7 +119,7 @@ export const Testimonial = () => {
 
           {/* Dots with HeroUI Buttons */}
           <div className="mt-4 flex items-center justify-center">
-            {DUMMY_TESTIMONIALS.map((_, i) => (
+            {items.map((_, i) => (
               <Button
                 key={i}
                 isIconOnly
