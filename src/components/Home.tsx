@@ -7,10 +7,9 @@ import me from "@/assets/me.png";
 
 export const Home = () => {
   const { language } = useAppStore();
-  const { welcome, typewriter, location, hireMe, menuItems } =
-    translations[language];
-  const homeId = toSectionHref(menuItems[0]).slice(1);
-  const contactHref = toSectionHref(menuItems[5]);
+  const t = translations[language];
+  const homeId = toSectionHref(t.menuItems[0]).slice(1);
+  const contactHref = toSectionHref(t.menuItems[5]);
 
   return (
     <section
@@ -20,18 +19,18 @@ export const Home = () => {
       <div className="flex flex-col items-center text-center gap-12">
         <Avatar className="h-64 w-64" src={me} color="success" isBordered />
 
-        <h1 className="text-3xl md:text-4xl font-bold">{welcome}</h1>
+        <h1 className="text-3xl md:text-4xl font-bold">{t.home.welcome}</h1>
 
         <h2 className="text-3xl md:text-5xl font-bold leading-tight">
           <Typewriter
-            words={typewriter}
+            words={t.home.typewriter}
             loop={0}
             cursor={true}
             cursorColor="var(--color-accent)"
           />
         </h2>
 
-        <p className="text-lg md:text-2xl text-foreground/80">{location}</p>
+        <p className="text-lg md:text-2xl text-foreground/80">{t.home.location}</p>
 
         <Link href={contactHref} className="inline-flex">
           <Button
@@ -41,7 +40,7 @@ export const Home = () => {
             variant="ghost"
             className="text-accent data-[hover=true]:!text-white"
           >
-            {hireMe}
+            {t.home.hireMe}
           </Button>
         </Link>
       </div>

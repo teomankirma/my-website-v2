@@ -11,8 +11,8 @@ export const PageSection = ({
   children,
 }: PageSectionProps) => {
   const { language } = useAppStore();
-  const { menuItems } = translations[language];
-  const id = toSectionHref(menuItems[menuIndex]).slice(1);
+  const t = translations[language];
+  const id = toSectionHref(t.menuItems[menuIndex]).slice(1);
 
   const sectionClass = `section py-20 md:py-28${className ? ` ${className}` : ""}`;
 

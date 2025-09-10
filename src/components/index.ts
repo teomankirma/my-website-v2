@@ -4,5 +4,7 @@ import { KnowMeMore } from "./KnowMeMore";
 import { Resume } from "./Resume";
 import { Portfolio } from "./Portfolio";
 import { Testimonial } from "./Testimonial";
+import { ContactMe } from "./ContactMe";
+import { Footer } from "./Footer";
 
-export { Header, Home, KnowMeMore, Resume, Portfolio, Testimonial };
+export { Header, Home, KnowMeMore, Resume, Portfolio, Testimonial, ContactMe, Footer };

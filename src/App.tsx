@@ -5,6 +5,8 @@ import {
   Resume,
   Portfolio,
   Testimonial,
+  ContactMe,
+  Footer,
 } from "@/components";
 
 export const App = () => {
@@ -16,6 +18,8 @@ export const App = () => {
       <Resume />
       <Portfolio />
       <Testimonial />
+      <ContactMe />
+      <Footer />
     </>
   );
 };

@@ -4,18 +4,17 @@ import { translations } from "@/i18n";
 
 export const Portfolio = () => {
   const { language } = useAppStore();
-  const { menuItems, portfolioItems, portfolioSubtitle } =
-    translations[language];
-  const headerLabel = menuItems[3];
+  const t = translations[language];
+  const headerLabel = t.menuItems[3];
 
   return (
     <PageSection menuIndex={3} header={headerLabel}>
       <div className="container mx-auto px-6 md:px-10">
         <p className="text-lg font-medium py-8 text-center text-foreground/70">
-          {portfolioSubtitle}
+          {t.portfolio.subtitle}
         </p>
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {portfolioItems?.map((item) => (
+          {t.portfolio.items?.map((item) => (
             <PortfolioCard
               key={item.key}
               title={item.title}

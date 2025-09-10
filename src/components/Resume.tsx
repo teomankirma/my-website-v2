@@ -17,17 +17,7 @@ import tanstackLogo from "@/assets/tanstack.svg";
 
 export const Resume = () => {
   const { language } = useAppStore();
-  const {
-    menuItems,
-    eduTitle,
-    expTitle,
-    schoolName,
-    degree,
-    gpaLabel,
-    expRole,
-    expDates,
-    expLocation,
-  } = translations[language];
+  const t = translations[language];
   const {
     eduYears,
     companyName,
@@ -39,7 +29,7 @@ export const Resume = () => {
     zustand,
     tanstack,
   } = sharedI18n;
-  const headerLabel = menuItems[2];
+  const headerLabel = t.menuItems[2];
 
   return (
     <PageSection menuIndex={2} header={headerLabel}>
@@ -49,7 +39,7 @@ export const Resume = () => {
           {/* Education */}
           <div>
             <h3 className="text-xl md:text-2xl font-semibold mb-6">
-              {eduTitle}
+              {t.resume.eduTitle}
             </h3>
             <Card shadow="sm" className="p-6 rounded-2xl">
               <div className="flex items-start gap-5">
@@ -71,11 +61,11 @@ export const Resume = () => {
                   </Chip>
                   <div className="mt-3 space-y-1">
                     <h4 className="text-lg md:text-xl font-semibold tracking-tight">
-                      {schoolName}
+                      {t.resume.schoolName}
                     </h4>
-                    <p className="text-foreground/80">{degree}</p>
+                    <p className="text-foreground/80">{t.resume.degree}</p>
                     <p className="text-foreground/70">
-                      {gpaLabel}: {gpa}
+                      {t.resume.gpaLabel}: {gpa}
                     </p>
                   </div>
                 </div>
@@ -86,7 +76,7 @@ export const Resume = () => {
           {/* Experience (placeholder for now) */}
           <div>
             <h3 className="text-xl md:text-2xl font-semibold mb-6">
-              {expTitle}
+              {t.resume.expTitle}
             </h3>
             <Card shadow="sm" className="p-6 rounded-2xl">
               <div className="flex items-start gap-5">
@@ -104,14 +94,14 @@ export const Resume = () => {
                     className="text-white"
                     classNames={{ content: "font-semibold" }}
                   >
-                    {expDates}
+                    {t.resume.expDates}
                   </Chip>
                   <div className="mt-3 space-y-1">
                     <h4 className="text-lg md:text-xl font-semibold tracking-tight">
                       {companyName}
                     </h4>
-                    <p className="text-foreground/80">{expRole}</p>
-                    <p className="text-foreground/70">{expLocation}</p>
+                    <p className="text-foreground/80">{t.resume.expRole}</p>
+                    <p className="text-foreground/70">{t.resume.expLocation}</p>
                   </div>
                 </div>
               </div>

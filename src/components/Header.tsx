@@ -15,7 +15,7 @@ import { toSectionHref } from "@/utils";
 
 export const Header = () => {
   const { language, isMenuOpen, updateState } = useAppStore();
-  const { name, menuItems } = translations[language];
+  const t = translations[language];
 
   const handleMenuOpen = (open: boolean) => {
     updateState({ isMenuOpen: open });
@@ -33,12 +33,12 @@ export const Header = () => {
           className="lg:hidden cursor-pointer"
         />
         <NavbarBrand>
-          <p className="font-bold text-inherit">{name}</p>
+          <p className="font-bold text-inherit">{t.name}</p>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden lg:flex gap-8 pl-8" justify="center">
-        {menuItems.map((item) => (
+        {t.menuItems.map((item) => (
           <NavbarItem key={item}>
             <Link color="foreground" href={toSectionHref(item)}>
               {item}
@@ -55,7 +55,7 @@ export const Header = () => {
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu>
-        {menuItems.map((item, index) => (
+        {t.menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
               className="w-full"

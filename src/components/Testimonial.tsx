@@ -16,16 +16,16 @@ type ResolvedTestimonial = {
 
 export const Testimonial = () => {
   const { language } = useAppStore();
-  const { menuItems, testimonials } = translations[language];
-  const headerLabel = menuItems[4];
+  const t = translations[language];
+  const headerLabel = t.menuItems[4];
 
-  const items: ResolvedTestimonial[] = testimonials.map((t) => {
-    const shared = sharedI18n.testimonials[t.key];
+  const items: ResolvedTestimonial[] = t.testimonial.items.map((ti) => {
+    const shared = sharedI18n.testimonials[ti.key];
     return {
       name: shared.name,
       rating: shared.rating,
-      title: t.title,
-      quote: t.quote,
+      title: ti.title,
+      quote: ti.quote,
     };
   });
 
