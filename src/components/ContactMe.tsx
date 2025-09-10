@@ -75,18 +75,18 @@ export const ContactMe = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <Input
                 label="Your Name"
-                labelPlacement="outside"
+                // labelPlacement="outside"
                 variant="bordered"
-                placeholder="Please write your name here"
+                // placeholder="Please write your name here"
                 radius="lg"
                 size="lg"
               />
               <Input
                 label="Email"
-                labelPlacement="outside"
+                // labelPlacement="outside"
                 type="email"
                 variant="bordered"
-                placeholder="Please write your email here"
+                // placeholder="Please write your email here"
                 radius="lg"
                 size="lg"
               />
@@ -94,7 +94,7 @@ export const ContactMe = () => {
 
             <Textarea
               label="Message"
-              labelPlacement="outside"
+              // labelPlacement="outside"
               variant="bordered"
               radius="lg"
               placeholder="Please write your message here..."

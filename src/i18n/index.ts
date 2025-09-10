@@ -7,7 +7,8 @@ import productListingImg from "@/assets/product-listing-generator.png";
 const age = Math.floor(
   DateTime.now().diff(DateTime.fromISO("2002-07-27"), "years").years
 );
-const experienceYears = DateTime.now().year - 2020;
+const currentYear = DateTime.now().year;
+const experienceYears = currentYear - 2020;
 
 export const sharedI18n: SharedI18n = {
   email: "teomankirma@gmail.com",
@@ -50,6 +51,7 @@ export const sharedI18n: SharedI18n = {
     chris: { key: "chris", name: "Chris Tom", rating: 5 },
     dennis: { key: "dennis", name: "Dennis Jacques", rating: 5 },
   },
+  currentYear: currentYear,
 };
 
 export const translations: Translations = {
@@ -181,6 +183,8 @@ export const translations: Translations = {
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       },
     ],
+    footerCopyright: "All Rights Reserved.",
+    copyrightLabel: "Copyright",
   },
   tr: {
     name: "Teoman Kırma",
@@ -310,5 +314,7 @@ export const translations: Translations = {
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       },
     ],
+    footerCopyright: "Tüm Hakları Saklıdır.",
+    copyrightLabel: "Telif Hakkı",
   },
 };

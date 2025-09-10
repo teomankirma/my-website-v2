@@ -48,6 +48,8 @@ export type Translation = {
     date: string;
   };
   portfolioItems: PortfolioItem[];
+  footerCopyright: string;
+  copyrightLabel: string;
   testimonials: LocaleTestimonial[];
 };
 
@@ -80,6 +82,7 @@ export type SharedI18n = {
       rating: number;
     };
   };
+  currentYear: number;
 };
 
 export type SectionHeaderProps = {
