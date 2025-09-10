@@ -9,6 +9,8 @@ export const ContactMe = () => {
   const { menuItems } = translations[language];
   const headerLabel = menuItems[5];
 
+  // TODO: add zod integration with RHF, and implement EmailJS integration
+
   return (
     <PageSection menuIndex={5} header={headerLabel}>
       <div className="container mx-auto px-6 md:px-10">
@@ -37,21 +39,24 @@ export const ContactMe = () => {
               </h3>
               <div className="flex items-center gap-4 text-xl text-foreground-600">
                 <Link
-                  href="#"
+                  href="https://x.com/teomankirma"
+                  target="_blank"
                   aria-label="X"
                   className="text-inherit hover:text-accent"
                 >
                   <i className="fa-brands fa-x-twitter text-2xl" />
                 </Link>
                 <Link
-                  href="#"
+                  href="https://github.com/teomankirma"
+                  target="_blank"
                   aria-label="GitHub"
                   className="text-inherit hover:text-accent text-2xl"
                 >
                   <i className="fa-brands fa-github" />
                 </Link>
                 <Link
-                  href="#"
+                  href="https://linkedin.com/in/teomankirma/"
+                  target="_blank"
                   aria-label="LinkedIn"
                   className="text-inherit hover:text-accent text-2xl"
                 >
@@ -68,21 +73,33 @@ export const ContactMe = () => {
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Input label="Your Name" variant="bordered" radius="lg" />
+              <Input
+                label="Your Name"
+                labelPlacement="outside"
+                variant="bordered"
+                placeholder="Please write your name here"
+                radius="lg"
+                size="lg"
+              />
               <Input
                 label="Email"
+                labelPlacement="outside"
                 type="email"
                 variant="bordered"
+                placeholder="Please write your email here"
                 radius="lg"
+                size="lg"
               />
             </div>
 
             <Textarea
               label="Message"
+              labelPlacement="outside"
               variant="bordered"
               radius="lg"
               placeholder="Please write your message here..."
               minRows={6}
+              size="lg"
             />
 
             <div className="flex justify-center">
