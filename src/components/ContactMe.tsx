@@ -1,7 +1,7 @@
 import { PageSection } from "@/components/common";
 import { useAppStore } from "@/hooks/useAppStore";
 import { translations } from "@/i18n";
-import { Button, Input, Textarea, Image, Link } from "@heroui/react";
+import { Button, Input, Textarea, Image, Link, addToast } from "@heroui/react";
 import hi from "@/assets/hi.gif";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -33,27 +33,31 @@ export const ContactMe = () => {
     mode: "onTouched",
   });
 
-  const onSubmit = async (data: ContactFormSchemaValues) => {
-    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
-      console.warn("EmailJS environment variables are not configured.");
-    }
-    emailjs
-      .sendForm(
+  const onSubmit = async () => {
+    try {
+      await emailjs.sendForm(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         "#contact-form",
         EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        (response) => {
-          console.log("SUCCESS!", response.status, response.text);
-        },
-        (error) => {
-          console.log("FAILED...", error);
-        }
       );
-    console.log("contact submit", data);
-    reset();
+      addToast({
+        title: "Message sent",
+        description: "Thanks! I will get back to you soon.",
+        color: "success",
+        timeout: 3000,
+        shouldShowTimeoutProgress: true,
+      });
+      reset();
+    } catch (error) {
+      addToast({
+        title: "Send failed",
+        description: error as string,
+        color: "danger",
+        timeout: 3000,
+        shouldShowTimeoutProgress: true,
+      });
+    }
   };
 
   return (
