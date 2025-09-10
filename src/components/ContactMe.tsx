@@ -5,7 +5,7 @@ import { Button, Input, Textarea, Image, Link } from "@heroui/react";
 import hi from "@/assets/hi.gif";
 
 export const ContactMe = () => {
-  const { language } = useAppStore();
+  const { language, email } = useAppStore();
   const { menuItems } = translations[language];
   const headerLabel = menuItems[5];
 
@@ -28,9 +28,12 @@ export const ContactMe = () => {
 
             <div className="flex items-center gap-3">
               <i className="fa-solid fa-envelope text-accent text-lg md:text-xl" />
-              <span className="text-base md:text-lg font-bold">
-                {useAppStore.getState().email}
-              </span>
+              <Link
+                href={`mailto:${email}`}
+                className="text-base md:text-lg font-bold text-decoration-none"
+              >
+                {email}
+              </Link>
             </div>
 
             <div>
@@ -75,18 +78,14 @@ export const ContactMe = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <Input
                 label="Your Name"
-                // labelPlacement="outside"
                 variant="bordered"
-                // placeholder="Please write your name here"
                 radius="lg"
                 size="lg"
               />
               <Input
                 label="Email"
-                // labelPlacement="outside"
                 type="email"
                 variant="bordered"
-                // placeholder="Please write your email here"
                 radius="lg"
                 size="lg"
               />
@@ -94,7 +93,6 @@ export const ContactMe = () => {
 
             <Textarea
               label="Message"
-              // labelPlacement="outside"
               variant="bordered"
               radius="lg"
               placeholder="Please write your message here..."

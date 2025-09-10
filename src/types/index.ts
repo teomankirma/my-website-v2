@@ -51,6 +51,17 @@ export type Translation = {
   footerCopyright: string;
   copyrightLabel: string;
   testimonials: LocaleTestimonial[];
+  contactValidation: {
+    name_required: string;
+    name_min: string;
+    name_max: string;
+    email_required: string;
+    email_invalid: string;
+    email_max: string;
+    message_required: string;
+    message_min: string;
+    message_max: string;
+  };
 };
 
 export type Translations = Record<Language, Translation>;
@@ -122,4 +133,11 @@ export type LocaleTestimonial = {
   key: string; // references sharedI18n.testimonials[key]
   title: string; // localized title/subtitle
   quote: string; // localized quote
+};
+
+// Contact form values
+export type ContactFormValues = {
+  name: string;
+  email: string;
+  message: string;
 };

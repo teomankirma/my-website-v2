@@ -1,7 +1,7 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-- Source: `src/` with `components/` (UI, PascalCase, `.tsx`), `hooks/` (state/util, `.ts`), `types/` (shared types), `i18n/` (translations), `utils/` (helpers), `assets/`, and global styles in `src/index.css`.
+- Source: `src/` with `components/` (UI, PascalCase, `.tsx`), `hooks/` (state/util, `.ts`), `types/` (shared types), `i18n/` (translations), `schemas/` (Zod validation schemas), `utils/` (helpers), `assets/`, and global styles in `src/index.css`.
 - Entry: `index.html` -> `src/main.tsx` -> `src/App.tsx`.
 - Aliases: Import from `@/` (see `vite.config.ts` and `tsconfig.app.json`). Barrel exports in `src/components/index.ts` and `src/components/common/index.ts`.
 - UI/Theme: HeroUI via `HeroUIProvider` in `main.tsx`; TailwindCSS v4 configured in `src/index.css` with `@plugin '../hero.ts'` and custom dark variant.
@@ -19,9 +19,11 @@
   - Stats: `experienceYear`, `experienceText`, `projectsNumber`, `projectsLabel`
   - Resume: `eduTitle`, `expTitle`, `schoolName`, `degree`, `gpaLabel`, `expRole`, `expDates`, `expLocation`
   - Shared i18n: `email`, `eduYears`, `companyName`, `gpa`, `react`, `typescript`, `tailwind`, `nextjs`, `zustand`, `tanstack`
+  - Contact: `contactValidation` (form validation messages: `name_required`, `name_min`, `name_max`, `email_required`, `email_invalid`, `email_max`, `message_required`, `message_min`, `message_max`)
 - Utilities: `toSectionHref(label)` in `src/utils` slugifies labels and transliterates Turkish characters for anchor links.
   - Section IDs use `toSectionHref(menuItems[i]).slice(1)` to keep anchors consistent with navbar labels (e.g., in `KnowMeMore`, `Resume`).
   - Use `PageSection` to standardize section wrappers (id + spacing), passing the `menuIndex` and optional `header`.
+  - Validation Schemas: Contact form schema in `src/schemas/index.ts` via Zod; localized with `i18n`.
 
 ## Build, Test, and Development Commands
 - `npm run dev`: Start Vite dev server with HMR.
