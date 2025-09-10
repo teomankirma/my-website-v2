@@ -10,6 +10,11 @@ import {
   makeContactFormSchema,
   type ContactFormSchemaValues,
 } from "@/schemas";
+import emailjs from "@emailjs/browser";
+
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 export const ContactMe = () => {
   const { language, email } = useAppStore();
@@ -29,8 +34,24 @@ export const ContactMe = () => {
   });
 
   const onSubmit = async (data: ContactFormSchemaValues) => {
-    // Placeholder submit; integrate EmailJS later
-    // eslint-disable-next-line no-console
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      console.warn("EmailJS environment variables are not configured.");
+    }
+    emailjs
+      .sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        "#contact-form",
+        EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+        },
+        (error) => {
+          console.log("FAILED...", error);
+        }
+      );
     console.log("contact submit", data);
     reset();
   };
@@ -103,6 +124,7 @@ export const ContactMe = () => {
               noValidate
               onSubmit={handleSubmit(onSubmit)}
               className="space-y-6"
+              id="contact-form"
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Input

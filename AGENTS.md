@@ -51,6 +51,7 @@
 - Do not hardcode secrets (e.g., external API keys). The Font Awesome kit in `index.html` is client-only and safe to expose.
 - When adding new files, ensure Tailwind `@source` globs in `src/index.css` cover them.
 - Persist state carefully: the Zustand store uses devtools under the name `app-store`.
+ - EmailJS: configure keys via Vite env vars `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, and `VITE_EMAILJS_PUBLIC_KEY` (place them in `.env.local`). See `.env.example` for placeholders.
 
 ## Tech Stack
 - React 19, Vite 7, TypeScript 5.8 (strict), TailwindCSS 4, HeroUI 2.
