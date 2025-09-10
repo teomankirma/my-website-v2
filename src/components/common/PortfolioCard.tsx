@@ -26,6 +26,7 @@ export const PortfolioCard = ({
 }: PortfolioCardProps) => {
   const [open, setOpen] = useState(false);
   const { language } = useAppStore();
+  const t = translations[language];
   const {
     projectInfo,
     projectDetails,
@@ -33,7 +34,7 @@ export const PortfolioCard = ({
     technologies: technologiesLabel,
     industry: industryLabel,
     date: dateLabel,
-  } = translations[language].portfolioCardLabels;
+  } = t.portfolio.cardLabels;
 
   return (
     <>

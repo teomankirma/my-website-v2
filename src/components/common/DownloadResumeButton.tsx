@@ -4,7 +4,8 @@ import { translations } from "@/i18n";
 
 export const DownloadResumeButton = () => {
   const { language } = useAppStore();
-  const { downloadResume } = translations[language];
+  const t = translations[language];
+  const downloadResume = t.profile.downloadResume;
 
   const resume = `${import.meta.env.BASE_URL}teoman-kirma-resume.pdf`;
   return (

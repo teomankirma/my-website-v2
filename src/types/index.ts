@@ -10,47 +10,63 @@ export type Language = (typeof Language)[keyof typeof Language];
 export type Translation = {
   name: string;
   menuItems: string[];
-  welcome: string;
-  typewriter: string[];
-  location: string;
-  hireMe: string;
-  knowMeMore: string;
-  whoAmIA: string;
-  whoAmIB: string;
-  aboutMe: string;
-  myExperiences: string;
-  nameLabel: string;
-  emailLabel: string;
-  ageLabel: string;
-  age: number;
-  fromLabel: string;
-  from: string;
-  downloadResume: string;
-  experienceYear: string;
-  experienceText: string;
-  projectsNumber: string;
-  projectsLabel: string;
-  eduTitle: string;
-  expTitle: string;
-  schoolName: string;
-  degree: string;
-  gpaLabel: string;
-  expRole: string;
-  expDates: string;
-  expLocation: string;
-  portfolioSubtitle: string;
-  portfolioCardLabels: {
-    projectInfo: string;
-    projectDetails: string;
-    link: string;
-    technologies: string;
-    industry: string;
-    date: string;
+  home: {
+    welcome: string;
+    typewriter: string[];
+    location: string;
+    hireMe: string;
   };
-  portfolioItems: PortfolioItem[];
-  footerCopyright: string;
-  copyrightLabel: string;
-  testimonials: LocaleTestimonial[];
+  about: {
+    knowMeMore: string;
+    whoAmIA: string;
+    whoAmIB: string;
+    aboutMe: string;
+    myExperiences: string;
+  };
+  profile: {
+    nameLabel: string;
+    emailLabel: string;
+    ageLabel: string;
+    age: number;
+    fromLabel: string;
+    from: string;
+    downloadResume: string;
+  };
+  stats: {
+    experienceYear: string;
+    experienceText: string;
+    projectsNumber: string;
+    projectsLabel: string;
+  };
+  resume: {
+    eduTitle: string;
+    expTitle: string;
+    schoolName: string;
+    degree: string;
+    gpaLabel: string;
+    expRole: string;
+    expDates: string;
+    expLocation: string;
+  };
+  portfolio: {
+    subtitle: string;
+    cardLabels: {
+      projectInfo: string;
+      projectDetails: string;
+      link: string;
+      technologies: string;
+      industry: string;
+      date: string;
+    };
+    items: PortfolioItem[];
+  };
+  footer: {
+    footerCopyright: string;
+    copyrightLabel: string;
+  };
+  testimonial: {
+    items: LocaleTestimonial[];
+  };
   contactValidation: {
     name_required: string;
     name_min: string;

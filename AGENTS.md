@@ -12,14 +12,18 @@
 - Purpose: Personal portfolio site for Teoman Kirma (EN/TR).
 - Features: Responsive navbar with menu toggle, theme switcher (light/dark/system), language switcher (English/Turkish), hero section with avatar and typewriter intro, in‑page section anchors.
 - State: Centralized via Zustand (`useAppStore`) with `language`, `isMenuOpen`, and `email`; devtools name `app-store`.
-- i18n: Translations defined in `src/i18n/index.ts` typed by `src/types`. Main keys include:
-  - Basics: `name`, `menuItems`, `welcome`, `typewriter`, `location`, `hireMe`
-  - About: `knowMeMore`, `whoAmIA`, `whoAmIB`, `aboutMe`, `myExperiences`
-  - Profile: `nameLabel`, `emailLabel`, `ageLabel`, `age`, `fromLabel`, `from`, `downloadResume`
-  - Stats: `experienceYear`, `experienceText`, `projectsNumber`, `projectsLabel`
-  - Resume: `eduTitle`, `expTitle`, `schoolName`, `degree`, `gpaLabel`, `expRole`, `expDates`, `expLocation`
-  - Shared i18n: `email`, `eduYears`, `companyName`, `gpa`, `react`, `typescript`, `tailwind`, `nextjs`, `zustand`, `tanstack`
-  - Contact: `contactValidation` (form validation messages: `name_required`, `name_min`, `name_max`, `email_required`, `email_invalid`, `email_max`, `message_required`, `message_min`, `message_max`)
+- i18n: Translations defined in `src/i18n/index.ts` typed by `src/types`. Keys are grouped by page/section for consistency:
+  - Root: `name`, `menuItems`
+  - `home`: `welcome`, `typewriter[]`, `location`, `hireMe`
+  - `about`: `knowMeMore`, `whoAmIA`, `whoAmIB`, `aboutMe`, `myExperiences`
+  - `profile`: `nameLabel`, `emailLabel`, `ageLabel`, `age`, `fromLabel`, `from`, `downloadResume`
+  - `stats`: `experienceYear`, `experienceText`, `projectsNumber`, `projectsLabel`
+  - `resume`: `eduTitle`, `expTitle`, `schoolName`, `degree`, `gpaLabel`, `expRole`, `expDates`, `expLocation`
+  - `portfolio`: `subtitle`, `cardLabels` (`projectInfo`, `projectDetails`, `link`, `technologies`, `industry`, `date`), `items[]`
+  - `testimonial`: `items[]`
+  - `footer`: `footerCopyright`, `copyrightLabel`
+  - `contact`: UI texts (`title`, `followMe`, `sendMeANote`, `yourNameLabel`, `messageLabel`, `messagePlaceholder`, `sendMessageButton`, `toast.*`) and `contactValidation` messages
+  - Shared i18n: `email`, `eduYears`, `companyName`, `gpa`, tech labels, and `socialLinks` (`x`, `github`, `linkedin`).
   - Contact UI texts under `contact`: `title`, `followMe`, `sendMeANote`, `yourNameLabel`, `messageLabel`, `messagePlaceholder`, `sendMessageButton`, and `toast` (`notConfiguredTitle`, `notConfiguredDescription`, `successTitle`, `successDescription`, `failedTitle`, `failedDescription`).
   - Shared i18n now includes `socialLinks` (`x`, `github`, `linkedin`).
 - Utilities: `toSectionHref(label)` in `src/utils` slugifies labels and transliterates Turkish characters for anchor links.
