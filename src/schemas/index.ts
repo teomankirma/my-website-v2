@@ -26,12 +26,12 @@ export const makeContactFormSchema = (locale: Language) => {
   });
 };
 
-export type ContactFormSchema = ReturnType<typeof makeContactFormSchema>;
-export type ContactFormSchemaValues = z.infer<ReturnType<typeof makeContactFormSchema>>;
+export type ContactFormSchemaValues = z.infer<
+  ReturnType<typeof makeContactFormSchema>
+>;
 
 export const contactDefaultValues: ContactFormValues = {
   name: "",
   email: "",
   message: "",
 };
-

@@ -3,13 +3,37 @@ import { useAppStore } from "@/hooks/useAppStore";
 import { translations } from "@/i18n";
 import { Button, Input, Textarea, Image, Link } from "@heroui/react";
 import hi from "@/assets/hi.gif";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import {
+  contactDefaultValues,
+  makeContactFormSchema,
+  type ContactFormSchemaValues,
+} from "@/schemas";
 
 export const ContactMe = () => {
   const { language, email } = useAppStore();
   const { menuItems } = translations[language];
   const headerLabel = menuItems[5];
 
-  // TODO: add zod integration with RHF, and implement EmailJS integration
+  const formSchema = makeContactFormSchema(language);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid, isSubmitting },
+    reset,
+  } = useForm<ContactFormSchemaValues>({
+    resolver: zodResolver(formSchema),
+    defaultValues: contactDefaultValues,
+    mode: "onTouched",
+  });
+
+  const onSubmit = async (data: ContactFormSchemaValues) => {
+    // Placeholder submit; integrate EmailJS later
+    // eslint-disable-next-line no-console
+    console.log("contact submit", data);
+    reset();
+  };
 
   return (
     <PageSection menuIndex={5} header={headerLabel}>
@@ -75,41 +99,59 @@ export const ContactMe = () => {
               Send Me A Note
             </h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Input
-                label="Your Name"
+            <form
+              noValidate
+              onSubmit={handleSubmit(onSubmit)}
+              className="space-y-6"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <Input
+                  label="Your Name"
+                  variant="bordered"
+                  radius="lg"
+                  size="lg"
+                  isInvalid={!!errors.name}
+                  errorMessage={errors.name?.message}
+                  {...register("name")}
+                />
+                <Input
+                  label="Email"
+                  type="email"
+                  variant="bordered"
+                  radius="lg"
+                  size="lg"
+                  isInvalid={!!errors.email}
+                  errorMessage={errors.email?.message}
+                  {...register("email")}
+                />
+              </div>
+
+              <Textarea
+                label="Message"
                 variant="bordered"
                 radius="lg"
+                placeholder="Please write your message here..."
+                minRows={6}
                 size="lg"
+                isInvalid={!!errors.message}
+                errorMessage={errors.message?.message}
+                {...register("message")}
               />
-              <Input
-                label="Email"
-                type="email"
-                variant="bordered"
-                radius="lg"
-                size="lg"
-              />
-            </div>
 
-            <Textarea
-              label="Message"
-              variant="bordered"
-              radius="lg"
-              placeholder="Please write your message here..."
-              minRows={6}
-              size="lg"
-            />
-
-            <div className="flex justify-center">
-              <Button
-                color="success"
-                size="lg"
-                radius="full"
-                className="text-white px-8"
-              >
-                Send Message
-              </Button>
-            </div>
+              <div className="flex justify-center">
+                <Button
+                  type="submit"
+                  color="success"
+                  size="lg"
+                  radius="full"
+                  className="text-white px-8"
+                  isDisabled={!isValid || isSubmitting}
+                  isLoading={isSubmitting}
+                >
+                  Send Message
+                </Button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
