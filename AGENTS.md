@@ -20,6 +20,8 @@
   - Resume: `eduTitle`, `expTitle`, `schoolName`, `degree`, `gpaLabel`, `expRole`, `expDates`, `expLocation`
   - Shared i18n: `email`, `eduYears`, `companyName`, `gpa`, `react`, `typescript`, `tailwind`, `nextjs`, `zustand`, `tanstack`
   - Contact: `contactValidation` (form validation messages: `name_required`, `name_min`, `name_max`, `email_required`, `email_invalid`, `email_max`, `message_required`, `message_min`, `message_max`)
+  - Contact UI texts under `contact`: `title`, `followMe`, `sendMeANote`, `yourNameLabel`, `messageLabel`, `messagePlaceholder`, `sendMessageButton`, and `toast` (`notConfiguredTitle`, `notConfiguredDescription`, `successTitle`, `successDescription`, `failedTitle`, `failedDescription`).
+  - Shared i18n now includes `socialLinks` (`x`, `github`, `linkedin`).
 - Utilities: `toSectionHref(label)` in `src/utils` slugifies labels and transliterates Turkish characters for anchor links.
   - Section IDs use `toSectionHref(menuItems[i]).slice(1)` to keep anchors consistent with navbar labels (e.g., in `KnowMeMore`, `Resume`).
   - Use `PageSection` to standardize section wrappers (id + spacing), passing the `menuIndex` and optional `header`.

@@ -1,6 +1,6 @@
 import { PageSection } from "@/components/common";
 import { useAppStore } from "@/hooks/useAppStore";
-import { translations } from "@/i18n";
+import { translations, sharedI18n } from "@/i18n";
 import { Button, Input, Textarea, Image, Link, addToast } from "@heroui/react";
 import hi from "@/assets/hi.gif";
 import { useForm } from "react-hook-form";
@@ -18,7 +18,7 @@ const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 export const ContactMe = () => {
   const { language, email } = useAppStore();
-  const { menuItems } = translations[language];
+  const { menuItems, contact, emailLabel } = translations[language];
   const headerLabel = menuItems[5];
 
   const formSchema = makeContactFormSchema(language);
@@ -66,7 +66,7 @@ export const ContactMe = () => {
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left column: static contact info */}
           <div className="lg:col-span-4 space-y-6">
-            <h3 className="text-xl md:text-2xl font-semibold">Contact</h3>
+            <h3 className="text-xl md:text-2xl font-semibold">{contact.title}</h3>
             <Image
               src={hi}
               alt="Hello gif"
@@ -87,11 +87,11 @@ export const ContactMe = () => {
 
             <div>
               <h3 className="text-xl md:text-2xl font-semibold mb-4">
-                Follow Me
+                {contact.followMe}
               </h3>
               <div className="flex items-center gap-4 text-xl text-foreground-600">
                 <Link
-                  href="https://x.com/teomankirma"
+                  href={sharedI18n.socialLinks.x}
                   target="_blank"
                   aria-label="X"
                   className="text-inherit hover:text-accent"
@@ -99,7 +99,7 @@ export const ContactMe = () => {
                   <i className="fa-brands fa-x-twitter text-2xl" />
                 </Link>
                 <Link
-                  href="https://github.com/teomankirma"
+                  href={sharedI18n.socialLinks.github}
                   target="_blank"
                   aria-label="GitHub"
                   className="text-inherit hover:text-accent text-2xl"
@@ -107,7 +107,7 @@ export const ContactMe = () => {
                   <i className="fa-brands fa-github" />
                 </Link>
                 <Link
-                  href="https://linkedin.com/in/teomankirma/"
+                  href={sharedI18n.socialLinks.linkedin}
                   target="_blank"
                   aria-label="LinkedIn"
                   className="text-inherit hover:text-accent text-2xl"
@@ -121,7 +121,7 @@ export const ContactMe = () => {
           {/* Right column: send a note form (UI only) */}
           <div className="lg:col-span-8 space-y-6">
             <h3 className="text-xl md:text-2xl font-semibold">
-              Send Me A Note
+              {contact.sendMeANote}
             </h3>
 
             <form
@@ -132,7 +132,7 @@ export const ContactMe = () => {
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Input
-                  label="Your Name"
+                  label={contact.yourNameLabel}
                   variant="bordered"
                   radius="lg"
                   size="lg"
@@ -141,7 +141,7 @@ export const ContactMe = () => {
                   {...register("name")}
                 />
                 <Input
-                  label="Email"
+                  label={emailLabel}
                   type="email"
                   variant="bordered"
                   radius="lg"
@@ -153,10 +153,10 @@ export const ContactMe = () => {
               </div>
 
               <Textarea
-                label="Message"
+                label={contact.messageLabel}
                 variant="bordered"
                 radius="lg"
-                placeholder="Please write your message here..."
+                placeholder={contact.messagePlaceholder}
                 minRows={6}
                 size="lg"
                 isInvalid={!!errors.message}
@@ -174,7 +174,7 @@ export const ContactMe = () => {
                   isDisabled={!isValid || isSubmitting}
                   isLoading={isSubmitting}
                 >
-                  Send Message
+                  {contact.sendMessageButton}
                 </Button>
               </div>
             </form>

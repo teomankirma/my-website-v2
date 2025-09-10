@@ -21,6 +21,11 @@ export const sharedI18n: SharedI18n = {
   nextjs: "Next.js",
   zustand: "Zustand",
   tanstack: "TanStack Query",
+  socialLinks: {
+    x: "https://x.com/teomankirma",
+    github: "https://github.com/teomankirma",
+    linkedin: "https://linkedin.com/in/teomankirma/",
+  },
   portfolio: {
     atm: {
       key: "atm",
@@ -196,6 +201,25 @@ export const translations: Translations = {
       message_min: "Message must be at least 10 characters",
       message_max: "Message must be at most 2000 characters",
     },
+    contact: {
+      title: "Contact",
+      followMe: "Follow Me",
+      sendMeANote: "Send Me A Note",
+      yourNameLabel: "Your Name",
+      messageLabel: "Message",
+      messagePlaceholder: "Please write your message here...",
+      sendMessageButton: "Send Message",
+      toast: {
+        notConfiguredTitle: "Email not configured",
+        notConfiguredDescription:
+          "EmailJS environment variables are missing. Please set them in .env.local.",
+        successTitle: "Message sent",
+        successDescription: "Thanks! I will get back to you soon.",
+        failedTitle: "Send failed",
+        failedDescription:
+          "Unable to send your message. Please try again later.",
+      },
+    },
   },
   tr: {
     name: "Teoman Kırma",
@@ -337,6 +361,25 @@ export const translations: Translations = {
       message_required: "Mesaj zorunludur",
       message_min: "Mesaj en az 10 karakter olmalıdır",
       message_max: "Mesaj en fazla 2000 karakter olabilir",
+    },
+    contact: {
+      title: "İletişim",
+      followMe: "Beni Takip Edin",
+      sendMeANote: "Bana Bir Not Gönderin",
+      yourNameLabel: "İsminiz",
+      messageLabel: "Mesaj",
+      messagePlaceholder: "Mesajınızı buraya yazınız...",
+      sendMessageButton: "Mesaj Gönder",
+      toast: {
+        notConfiguredTitle: "E-posta yapılandırılmadı",
+        notConfiguredDescription:
+          ".env.local dosyasında EmailJS ortam değişkenleri eksik.",
+        successTitle: "Mesaj gönderildi",
+        successDescription: "Teşekkürler! En kısa sürede dönüş yapacağım.",
+        failedTitle: "Gönderim başarısız",
+        failedDescription:
+          "Mesajınız gönderilemedi. Lütfen daha sonra tekrar deneyin.",
+      },
     },
   },
 };

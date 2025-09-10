@@ -62,6 +62,23 @@ export type Translation = {
     message_min: string;
     message_max: string;
   };
+  contact: {
+    title: string;
+    followMe: string;
+    sendMeANote: string;
+    yourNameLabel: string;
+    messageLabel: string;
+    messagePlaceholder: string;
+    sendMessageButton: string;
+    toast: {
+      notConfiguredTitle: string;
+      notConfiguredDescription: string;
+      successTitle: string;
+      successDescription: string;
+      failedTitle: string;
+      failedDescription: string;
+    };
+  };
 };
 
 export type Translations = Record<Language, Translation>;
@@ -77,6 +94,11 @@ export type SharedI18n = {
   nextjs: string;
   zustand: string;
   tanstack: string;
+  socialLinks: {
+    x: string;
+    github: string;
+    linkedin: string;
+  };
   portfolio: {
     [key: string]: {
       key: string;
