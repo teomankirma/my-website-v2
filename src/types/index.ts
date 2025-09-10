@@ -48,6 +48,7 @@ export type Translation = {
     date: string;
   };
   portfolioItems: PortfolioItem[];
+  testimonials: LocaleTestimonial[];
 };
 
 export type Translations = Record<Language, Translation>;
@@ -70,6 +71,13 @@ export type SharedI18n = {
       imageSrc: string;
       technologies: string;
       linkHref: string;
+    };
+  };
+  testimonials: {
+    [key: string]: {
+      key: string;
+      name: string;
+      rating: number;
     };
   };
 };
@@ -105,4 +113,10 @@ export type PortfolioItem = {
   imageSrc: string;
   imageAlt: string;
   details: ProjectDetails;
+};
+
+export type LocaleTestimonial = {
+  key: string; // references sharedI18n.testimonials[key]
+  title: string; // localized title/subtitle
+  quote: string; // localized quote
 };

@@ -44,6 +44,12 @@ export const sharedI18n: SharedI18n = {
       linkHref: "https://teo-product-listing-generator.vercel.app/",
     },
   },
+  testimonials: {
+    jay: { key: "jay", name: "Jay Shah", rating: 5 },
+    patrick: { key: "patrick", name: "Patrick Cary", rating: 5 },
+    chris: { key: "chris", name: "Chris Tom", rating: 5 },
+    dennis: { key: "dennis", name: "Dennis Jacques", rating: 5 },
+  },
 };
 
 export const translations: Translations = {
@@ -149,6 +155,32 @@ export const translations: Translations = {
         },
       },
     ],
+    testimonials: [
+      {
+        key: sharedI18n.testimonials.jay.key,
+        title: "Founder at Icomatic Pvt Ltd",
+        quote:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      },
+      {
+        key: sharedI18n.testimonials.patrick.key,
+        title: "Freelancer from USA",
+        quote:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      },
+      {
+        key: sharedI18n.testimonials.chris.key,
+        title: "User from UK",
+        quote:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      },
+      {
+        key: sharedI18n.testimonials.dennis.key,
+        title: "User from USA",
+        quote:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      },
+    ],
   },
   tr: {
     name: "Teoman Kırma",
@@ -250,6 +282,32 @@ export const translations: Translations = {
           linkHref: sharedI18n.portfolio.productListing.linkHref,
           linkLabel: "Website'te Görüntüle",
         },
+      },
+    ],
+    testimonials: [
+      {
+        key: sharedI18n.testimonials.jay.key,
+        title: "Icomatic Pvt Ltd Kurucusu",
+        quote:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      },
+      {
+        key: sharedI18n.testimonials.patrick.key,
+        title: "ABD'den Serbest Çalışan",
+        quote:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      },
+      {
+        key: sharedI18n.testimonials.chris.key,
+        title: "Birleşik Krallık'tan Kullanıcı",
+        quote:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      },
+      {
+        key: sharedI18n.testimonials.dennis.key,
+        title: "ABD'den Kullanıcı",
+        quote:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       },
     ],
   },
