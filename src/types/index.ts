@@ -8,6 +8,7 @@ export const Language = {
 export type Language = (typeof Language)[keyof typeof Language];
 
 export type Translation = {
+  headTitle: string;
   name: string;
   menuItems: string[];
   home: {

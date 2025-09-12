@@ -8,8 +8,11 @@ import {
   ContactMe,
   Footer,
 } from "@/components";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 export const App = () => {
+  // Localize <title> and <html lang>
+  usePageMeta();
   return (
     <>
       <Header />
