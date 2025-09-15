@@ -40,7 +40,11 @@ export const Header = () => {
       <NavbarContent className="hidden lg:flex gap-8 pl-8" justify="center">
         {t.menuItems.map((item) => (
           <NavbarItem key={item}>
-            <Link color="foreground" href={toSectionHref(item)}>
+            <Link
+              color="foreground"
+              className="font-semibold"
+              href={toSectionHref(item)}
+            >
               {item}
             </Link>
           </NavbarItem>
@@ -58,7 +62,7 @@ export const Header = () => {
         {t.menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
-              className="w-full"
+              className="w-full font-semibold"
               href={toSectionHref(item)}
               size="lg"
               color="foreground"

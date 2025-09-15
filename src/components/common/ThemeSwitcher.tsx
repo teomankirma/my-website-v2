@@ -26,7 +26,10 @@ export const ThemeSwitcher = () => {
           isIconOnly
           aria-label={`Theme: ${currentTheme}`}
         >
-          <i className={getIconClassName(currentTheme)} />
+          <i
+            className={`${getIconClassName(currentTheme)} text-lg`}
+            aria-hidden
+          />
         </Button>
       </DropdownTrigger>
       <DropdownMenu
