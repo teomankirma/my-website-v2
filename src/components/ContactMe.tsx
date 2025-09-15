@@ -177,7 +177,7 @@ export const ContactMe = () => {
                   color="success"
                   size="lg"
                   radius="full"
-                  className="text-white px-8"
+                  className="text-white px-8 font-semibold"
                   isDisabled={!isValid || isSubmitting}
                   isLoading={isSubmitting}
                 >

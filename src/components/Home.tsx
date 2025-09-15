@@ -30,7 +30,9 @@ export const Home = () => {
           />
         </h2>
 
-        <p className="text-lg md:text-2xl text-foreground/80">{t.home.location}</p>
+        <p className="text-lg md:text-2xl text-foreground/80">
+          {t.home.location}
+        </p>
 
         <Link href={contactHref} className="inline-flex">
           <Button
@@ -38,7 +40,7 @@ export const Home = () => {
             size="lg"
             radius="full"
             variant="ghost"
-            className="text-accent data-[hover=true]:!text-white"
+            className="text-accent data-[hover=true]:!text-white font-semibold"
           >
             {t.home.hireMe}
           </Button>
