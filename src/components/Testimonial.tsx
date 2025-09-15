@@ -53,7 +53,7 @@ export const Testimonial = () => {
               style={{ transform: `translateX(-${index * 100}%)` }}
             >
               {items.map((t, idx) => (
-                <div key={idx} className="min-w-full px-2 md:px-16 py-2">
+                <div key={idx} className="min-w-full px-12 md:px-16 py-2">
                   <Card
                     shadow="sm"
                     className="p-6 md:p-8 rounded-2xl bg-content1 h-[260px] md:h-[280px] flex flex-col justify-between"
@@ -101,7 +101,7 @@ export const Testimonial = () => {
               radius="full"
               aria-label="Previous testimonial"
               onPress={prev}
-              className="absolute -left-3 md:left-2 top-1/2 -translate-y-1/2 z-10 text-accent"
+              className="absolute left-2 md:left-2 top-1/2 -translate-y-1/2 z-10 text-accent"
             >
               <i className="fa-solid fa-chevron-left text-lg md:text-xl" />
             </Button>
@@ -111,7 +111,7 @@ export const Testimonial = () => {
               radius="full"
               aria-label="Next testimonial"
               onPress={next}
-              className="absolute -right-3 md:right-2 top-1/2 -translate-y-1/2 z-10 text-accent"
+              className="absolute right-2 md:right-2 top-1/2 -translate-y-1/2 z-10 text-accent"
             >
               <i className="fa-solid fa-chevron-right text-lg md:text-xl" />
             </Button>
