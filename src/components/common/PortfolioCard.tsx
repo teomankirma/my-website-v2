@@ -73,14 +73,12 @@ export const PortfolioCard = ({
               <ModalBody>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                   <div className="bg-content2 rounded-xl overflow-hidden">
-                    <div className="aspect-video">
-                      <Image
-                        src={imageSrc}
-                        alt={imageAlt}
-                        removeWrapper
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
+                    <Image
+                      src={imageSrc}
+                      alt={imageAlt}
+                      removeWrapper
+                      className="w-full h-auto"
+                    />
                   </div>
                   <div className="space-y-6">
                     <h4 className="text-lg md:text-xl font-semibold">
