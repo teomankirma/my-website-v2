@@ -44,19 +44,21 @@ export const PortfolioCard = ({
           shadow="sm"
           isPressable
           onPress={() => setOpen(true)}
-          className="rounded-2xl overflow-hidden bg-content2 transition-transform will-change-transform"
+          className="w-full rounded-2xl overflow-hidden bg-content2 transition-transform will-change-transform"
         >
           <CardBody className="p-0">
+          <div className="relative aspect-[16/9] md:aspect-[16/9] w-full overflow-hidden">
             <Image
               src={imageSrc}
               alt={imageAlt}
               removeWrapper
-              className="w-full h-48 md:h-56 object-cover"
+              className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="p-4">
-              <h3 className="text-base md:text-lg font-semibold">{title}</h3>
-            </div>
-          </CardBody>
+          </div>
+          <div className="p-4">
+            <h3 className="text-base md:text-lg font-semibold">{title}</h3>
+          </div>
+        </CardBody>
         </Card>
       </Hover>
 

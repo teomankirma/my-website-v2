@@ -17,7 +17,7 @@ export const Home = () => {
       id={homeId}
       className="home section flex min-h-[80svh] items-center justify-center"
     >
-      <Stagger className="flex flex-col items-center text-center gap-12">
+      <Stagger className="flex flex-col items-center text-center gap-12 mt-8 md:mt-0">
         <Item>
           <Avatar className="h-64 w-64" src={me} color="success" isBordered />
         </Item>

@@ -56,7 +56,7 @@ export const Testimonial = () => {
                 <div key={idx} className="min-w-full px-12 md:px-16 py-2">
                   <Card
                     shadow="sm"
-                    className="p-6 md:p-8 rounded-2xl bg-content1 h-[260px] md:h-[280px] flex flex-col justify-between"
+                    className="p-6 md:p-8 rounded-2xl bg-content1 min-h-[260px] md:min-h-[280px] flex flex-col justify-between"
                   >
                     <div className="flex items-center gap-4">
                       <span className="inline-flex rounded-full p-0.5 ring-2 ring-accent">
@@ -77,7 +77,7 @@ export const Testimonial = () => {
                     </p>
 
                     <div
-                      className="mt-3 text-yellow-400"
+                      className="mt-3 text-yellow-400 shrink-0"
                       aria-label={`Rating: ${t.rating} out of 5`}
                     >
                       {Array.from({ length: 5 }).map((_, i) => (
