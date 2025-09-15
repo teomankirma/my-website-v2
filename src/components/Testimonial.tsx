@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Card, Avatar, Button } from "@heroui/react";
-import { PageSection } from "@/components/common";
+import { PageSection, Reveal } from "@/components/common";
 import { useAppStore } from "@/hooks/useAppStore";
 import { translations, sharedI18n } from "@/i18n";
 
@@ -38,14 +38,14 @@ export const Testimonial = () => {
   return (
     <PageSection menuIndex={4} header={headerLabel}>
       <div className="container mx-auto px-6 md:px-10">
-        <div
-          className="relative mt-12 max-w-3xl md:max-w-4xl mx-auto"
-          tabIndex={0}
-          onKeyDown={(e) => {
-            if (e.key === "ArrowLeft") prev();
-            if (e.key === "ArrowRight") next();
-          }}
-        >
+        <Reveal className="relative mt-12 max-w-3xl md:max-w-4xl mx-auto" variant="zoomIn">
+          <div
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === "ArrowLeft") prev();
+              if (e.key === "ArrowRight") next();
+            }}
+          >
           {/* Slider viewport */}
           <div className="relative overflow-x-hidden overflow-y-visible py-2">
             <div
@@ -53,7 +53,7 @@ export const Testimonial = () => {
               style={{ transform: `translateX(-${index * 100}%)` }}
             >
               {items.map((t, idx) => (
-                <div key={idx} className="min-w-full px-2 md:px-16 py-2">
+                <div key={idx} className="min-w-full px-12 md:px-16 py-2">
                   <Card
                     shadow="sm"
                     className="p-6 md:p-8 rounded-2xl bg-content1 h-[260px] md:h-[280px] flex flex-col justify-between"
@@ -101,7 +101,7 @@ export const Testimonial = () => {
               radius="full"
               aria-label="Previous testimonial"
               onPress={prev}
-              className="absolute -left-3 md:left-2 top-1/2 -translate-y-1/2 z-10 text-accent"
+              className="absolute left-2 md:left-2 top-1/2 -translate-y-1/2 z-10 text-accent"
             >
               <i className="fa-solid fa-chevron-left text-lg md:text-xl" />
             </Button>
@@ -111,34 +111,35 @@ export const Testimonial = () => {
               radius="full"
               aria-label="Next testimonial"
               onPress={next}
-              className="absolute -right-3 md:right-2 top-1/2 -translate-y-1/2 z-10 text-accent"
+              className="absolute right-2 md:right-2 top-1/2 -translate-y-1/2 z-10 text-accent"
             >
               <i className="fa-solid fa-chevron-right text-lg md:text-xl" />
             </Button>
           </div>
 
-          {/* Dots with HeroUI Buttons */}
-          <div className="mt-4 flex items-center justify-center">
-            {items.map((_, i) => (
-              <Button
-                key={i}
-                isIconOnly
-                variant="light"
-                size="sm"
-                radius="full"
-                aria-label={`Go to slide ${i + 1}`}
-                onPress={() => setIndex(i)}
-                className="min-w-0"
-              >
-                <span
-                  className={`block h-2.5 w-2.5 rounded-full ${
-                    i === index ? "bg-accent" : "bg-foreground-300"
-                  }`}
-                />
-              </Button>
-            ))}
+            {/* Dots with HeroUI Buttons */}
+            <div className="mt-4 flex items-center justify-center">
+              {items.map((_, i) => (
+                <Button
+                  key={i}
+                  isIconOnly
+                  variant="light"
+                  size="sm"
+                  radius="full"
+                  aria-label={`Go to slide ${i + 1}`}
+                  onPress={() => setIndex(i)}
+                  className="min-w-0"
+                >
+                  <span
+                    className={`block h-2.5 w-2.5 rounded-full ${
+                      i === index ? "bg-accent" : "bg-foreground-300"
+                    }`}
+                  />
+                </Button>
+              ))}
+            </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </PageSection>
   );

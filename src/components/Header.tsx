@@ -1,3 +1,4 @@
+import type React from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -8,7 +9,7 @@ import {
   NavbarMenuItem,
   Link,
 } from "@heroui/react";
-import { ThemeSwitcher, LanguageSwitcher } from "@/components/common";
+import { ThemeSwitcher, LanguageSwitcher, Hover } from "@/components/common";
 import { useAppStore } from "@/hooks/useAppStore";
 import { translations } from "@/i18n";
 import { toSectionHref } from "@/utils";
@@ -25,6 +26,11 @@ export const Header = () => {
     updateState({ isMenuOpen: false });
   };
 
+  const scrollToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <Navbar isMenuOpen={isMenuOpen} onMenuOpenChange={handleMenuOpen}>
       <NavbarContent>
@@ -33,16 +39,31 @@ export const Header = () => {
           className="lg:hidden cursor-pointer"
         />
         <NavbarBrand>
-          <p className="font-bold text-inherit">{t.name}</p>
+          <Hover>
+            <Link
+              href={toSectionHref(t.menuItems[0])}
+              onClick={scrollToTop}
+              color="foreground"
+              className="font-bold text-inherit"
+            >
+              {t.name}
+            </Link>
+          </Hover>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden lg:flex gap-8 pl-8" justify="center">
         {t.menuItems.map((item) => (
           <NavbarItem key={item}>
-            <Link color="foreground" href={toSectionHref(item)}>
-              {item}
-            </Link>
+            <Hover>
+              <Link
+                color="foreground"
+                className="font-semibold"
+                href={toSectionHref(item)}
+              >
+                {item}
+              </Link>
+            </Hover>
           </NavbarItem>
         ))}
       </NavbarContent>
@@ -57,15 +78,17 @@ export const Header = () => {
       <NavbarMenu>
         {t.menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              className="w-full"
-              href={toSectionHref(item)}
-              size="lg"
-              color="foreground"
-              onClick={handleMenuClose}
-            >
-              {item}
-            </Link>
+            <Hover className="w-full">
+              <Link
+                className="w-full font-semibold"
+                href={toSectionHref(item)}
+                size="lg"
+                color="foreground"
+                onClick={handleMenuClose}
+              >
+                {item}
+              </Link>
+            </Hover>
           </NavbarMenuItem>
         ))}
       </NavbarMenu>

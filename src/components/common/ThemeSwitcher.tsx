@@ -18,15 +18,19 @@ export const ThemeSwitcher = () => {
   const currentTheme = theme ?? "system";
 
   return (
-    <Dropdown>
+      <Dropdown>
       <DropdownTrigger>
         <Button
           variant="light"
           size="sm"
           isIconOnly
+          className="transition-transform will-change-transform hover:-translate-y-0.5 hover:scale-105 active:scale-95"
           aria-label={`Theme: ${currentTheme}`}
         >
-          <i className={getIconClassName(currentTheme)} />
+          <i
+            className={`${getIconClassName(currentTheme)} text-lg`}
+            aria-hidden
+          />
         </Button>
       </DropdownTrigger>
       <DropdownMenu
@@ -39,6 +43,6 @@ export const ThemeSwitcher = () => {
         <DropdownItem key="dark">Dark</DropdownItem>
         <DropdownItem key="system">System</DropdownItem>
       </DropdownMenu>
-    </Dropdown>
+      </Dropdown>
   );
 };

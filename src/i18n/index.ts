@@ -61,6 +61,7 @@ export const sharedI18n: SharedI18n = {
 
 export const translations: Translations = {
   en: {
+    headTitle: "Teoman Kirma • Frontend Developer",
     name: "Teoman Kirma",
     menuItems: [
       "Home",
@@ -237,6 +238,7 @@ export const translations: Translations = {
     },
   },
   tr: {
+    headTitle: "Teoman Kırma • Frontend Developer",
     name: "Teoman Kırma",
     menuItems: [
       "Anasayfa",
