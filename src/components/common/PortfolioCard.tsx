@@ -11,6 +11,7 @@ import {
 } from "@heroui/react";
 import type { PortfolioCardProps } from "@/types";
 import { useAppStore } from "@/hooks/useAppStore";
+import { Hover } from "@/components/common";
 import { translations } from "@/i18n";
 
 export const PortfolioCard = ({
@@ -38,24 +39,26 @@ export const PortfolioCard = ({
 
   return (
     <>
-      <Card
-        shadow="sm"
-        isPressable
-        onPress={() => setOpen(true)}
-        className="rounded-2xl overflow-hidden bg-content2 hover:scale-[1.01] transition-transform"
-      >
-        <CardBody className="p-0">
-          <Image
-            src={imageSrc}
-            alt={imageAlt}
-            removeWrapper
-            className="w-full h-48 md:h-56 object-cover"
-          />
-          <div className="p-4">
-            <h3 className="text-base md:text-lg font-semibold">{title}</h3>
-          </div>
-        </CardBody>
-      </Card>
+      <Hover>
+        <Card
+          shadow="sm"
+          isPressable
+          onPress={() => setOpen(true)}
+          className="rounded-2xl overflow-hidden bg-content2 transition-transform will-change-transform"
+        >
+          <CardBody className="p-0">
+            <Image
+              src={imageSrc}
+              alt={imageAlt}
+              removeWrapper
+              className="w-full h-48 md:h-56 object-cover"
+            />
+            <div className="p-4">
+              <h3 className="text-base md:text-lg font-semibold">{title}</h3>
+            </div>
+          </CardBody>
+        </Card>
+      </Hover>
 
       <Modal
         isOpen={open}

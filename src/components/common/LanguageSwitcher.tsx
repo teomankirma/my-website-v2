@@ -23,12 +23,13 @@ export const LanguageSwitcher = () => {
   const currentLabel = getLangLabel(language);
 
   return (
-    <Dropdown>
+      <Dropdown>
       <DropdownTrigger>
         <Button
           variant="light"
           size="sm"
           isIconOnly
+          className="transition-transform will-change-transform hover:-translate-y-0.5 hover:scale-105 active:scale-95"
           aria-label={`Language: ${currentLabel}`}
         >
           <span aria-hidden className="text-xl">
@@ -45,6 +46,6 @@ export const LanguageSwitcher = () => {
         <DropdownItem key="en">🇬🇧 English</DropdownItem>
         <DropdownItem key="tr">🇹🇷 Türkçe</DropdownItem>
       </DropdownMenu>
-    </Dropdown>
+      </Dropdown>
   );
 };

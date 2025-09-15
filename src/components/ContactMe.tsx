@@ -1,4 +1,4 @@
-import { PageSection } from "@/components/common";
+import { PageSection, Stagger, Item, Hover } from "@/components/common";
 import { useAppStore } from "@/hooks/useAppStore";
 import { translations, sharedI18n } from "@/i18n";
 import { Button, Input, Textarea, Image, Link, addToast } from "@heroui/react";
@@ -68,125 +68,145 @@ export const ContactMe = () => {
   return (
     <PageSection menuIndex={5} header={headerLabel}>
       <div className="container mx-auto px-6 md:px-10">
-        <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <Stagger className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left column: static contact info */}
           <div className="lg:col-span-4 space-y-6">
-            <h3 className="text-xl md:text-2xl font-semibold">
-              {t.contact.title}
-            </h3>
-            <Image
-              src={hi}
-              alt="Hello gif"
-              radius="lg"
-              shadow="sm"
-              className="w-full h-56 object-cover"
-            />
-
-            <div className="flex items-center gap-3">
-              <i className="fa-solid fa-envelope text-accent text-lg md:text-xl" />
-              <Link
-                href={`mailto:${email}`}
-                className="text-base md:text-lg font-bold text-decoration-none"
-              >
-                {email}
-              </Link>
-            </div>
-
-            <div>
-              <h3 className="text-xl md:text-2xl font-semibold mb-4">
-                {t.contact.followMe}
+            <Item>
+              <h3 className="text-xl md:text-2xl font-semibold">
+                {t.contact.title}
               </h3>
-              <div className="flex items-center gap-4 text-xl text-foreground-600">
+            </Item>
+            <Item>
+              <Image
+                src={hi}
+                alt="Hello gif"
+                radius="lg"
+                shadow="sm"
+                className="w-full h-56 object-cover"
+              />
+            </Item>
+
+            <Item>
+              <div className="flex items-center gap-3">
+                <i className="fa-solid fa-envelope text-accent text-lg md:text-xl" />
                 <Link
-                  href={sharedI18n.socialLinks.x}
-                  target="_blank"
-                  aria-label="X"
-                  className="text-inherit hover:text-accent"
+                  href={`mailto:${email}`}
+                  className="text-base md:text-lg font-bold text-decoration-none relative after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-0 after:bg-accent after:transition-all hover:after:w-full focus-visible:after:w-full"
                 >
-                  <i className="fa-brands fa-x-twitter text-2xl" />
-                </Link>
-                <Link
-                  href={sharedI18n.socialLinks.github}
-                  target="_blank"
-                  aria-label="GitHub"
-                  className="text-inherit hover:text-accent text-2xl"
-                >
-                  <i className="fa-brands fa-github" />
-                </Link>
-                <Link
-                  href={sharedI18n.socialLinks.linkedin}
-                  target="_blank"
-                  aria-label="LinkedIn"
-                  className="text-inherit hover:text-accent text-2xl"
-                >
-                  <i className="fa-brands fa-linkedin" />
+                  {email}
                 </Link>
               </div>
-            </div>
+            </Item>
+
+            <Item>
+              <div>
+                <h3 className="text-xl md:text-2xl font-semibold mb-4">
+                  {t.contact.followMe}
+                </h3>
+              <div className="flex items-center gap-4 text-xl text-foreground-600">
+                <span className="inline-flex">
+                  <Link
+                    href={sharedI18n.socialLinks.x}
+                    target="_blank"
+                    aria-label="X"
+                    className="text-inherit hover:text-accent"
+                  >
+                    <i className="fa-brands fa-x-twitter text-2xl transition-transform will-change-transform hover:-translate-y-0.5 hover:scale-110 active:scale-95" />
+                  </Link>
+                </span>
+                <span className="inline-flex">
+                  <Link
+                    href={sharedI18n.socialLinks.github}
+                    target="_blank"
+                    aria-label="GitHub"
+                    className="text-inherit hover:text-accent text-2xl"
+                  >
+                    <i className="fa-brands fa-github transition-transform will-change-transform hover:-translate-y-0.5 hover:scale-110 active:scale-95" />
+                  </Link>
+                </span>
+                <span className="inline-flex">
+                  <Link
+                    href={sharedI18n.socialLinks.linkedin}
+                    target="_blank"
+                    aria-label="LinkedIn"
+                    className="text-inherit hover:text-accent text-2xl"
+                  >
+                    <i className="fa-brands fa-linkedin transition-transform will-change-transform hover:-translate-y-0.5 hover:scale-110 active:scale-95" />
+                  </Link>
+                </span>
+              </div>
+              </div>
+            </Item>
           </div>
 
           {/* Right column: send a note form (UI only) */}
           <div className="lg:col-span-8 space-y-6">
-            <h3 className="text-xl md:text-2xl font-semibold">
-              {t.contact.sendMeANote}
-            </h3>
+            <Item>
+              <h3 className="text-xl md:text-2xl font-semibold">
+                {t.contact.sendMeANote}
+              </h3>
+            </Item>
 
-            <form
-              noValidate
-              onSubmit={handleSubmit(onSubmit)}
-              className="space-y-6"
-              id="contact-form"
-            >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Input
-                  label={t.contact.yourNameLabel}
+            <Item>
+              <form
+                noValidate
+                onSubmit={handleSubmit(onSubmit)}
+                className="space-y-6"
+                id="contact-form"
+              >
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <Input
+                    label={t.contact.yourNameLabel}
+                    variant="bordered"
+                    radius="lg"
+                    size="lg"
+                    isInvalid={!!errors.name}
+                    errorMessage={errors.name?.message}
+                    {...register("name")}
+                  />
+                  <Input
+                    label={t.profile.emailLabel}
+                    type="email"
+                    variant="bordered"
+                    radius="lg"
+                    size="lg"
+                    isInvalid={!!errors.email}
+                    errorMessage={errors.email?.message}
+                    {...register("email")}
+                  />
+                </div>
+
+                <Textarea
+                  label={t.contact.messageLabel}
                   variant="bordered"
                   radius="lg"
+                  placeholder={t.contact.messagePlaceholder}
+                  minRows={6}
                   size="lg"
-                  isInvalid={!!errors.name}
-                  errorMessage={errors.name?.message}
-                  {...register("name")}
+                  isInvalid={!!errors.message}
+                  errorMessage={errors.message?.message}
+                  {...register("message")}
                 />
-                <Input
-                  label={t.profile.emailLabel}
-                  type="email"
-                  variant="bordered"
-                  radius="lg"
-                  size="lg"
-                  isInvalid={!!errors.email}
-                  errorMessage={errors.email?.message}
-                  {...register("email")}
-                />
-              </div>
 
-              <Textarea
-                label={t.contact.messageLabel}
-                variant="bordered"
-                radius="lg"
-                placeholder={t.contact.messagePlaceholder}
-                minRows={6}
-                size="lg"
-                isInvalid={!!errors.message}
-                errorMessage={errors.message?.message}
-                {...register("message")}
-              />
-
-              <div className="flex justify-center">
-                <Button
-                  type="submit"
-                  color="success"
-                  size="lg"
-                  radius="full"
-                  className="text-white px-8 font-semibold"
-                  isDisabled={!isValid || isSubmitting}
-                  isLoading={isSubmitting}
-                >
-                  {t.contact.sendMessageButton}
-                </Button>
-              </div>
-            </form>
+                <div className="flex justify-center">
+                  <Hover>
+                    <Button
+                      type="submit"
+                      color="success"
+                      size="lg"
+                      radius="full"
+                      className="text-white px-8 font-semibold"
+                      isDisabled={!isValid || isSubmitting}
+                      isLoading={isSubmitting}
+                    >
+                      {t.contact.sendMessageButton}
+                    </Button>
+                  </Hover>
+                </div>
+              </form>
+            </Item>
           </div>
-        </div>
+        </Stagger>
       </div>
     </PageSection>
   );
