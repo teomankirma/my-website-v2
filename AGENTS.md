@@ -5,12 +5,17 @@
 - Entry: `index.html` -> `src/main.tsx` -> `src/App.tsx`.
 - Aliases: Import from `@/` (see `vite.config.ts` and `tsconfig.app.json`). Barrel exports in `src/components/index.ts` and `src/components/common/index.ts`.
 - UI/Theme: HeroUI via `HeroUIProvider` in `main.tsx`; TailwindCSS v4 configured in `src/index.css` with `@plugin '../hero.ts'` and custom dark variant.
-- Components present: `Header`, `Home`, `KnowMeMore`, `Resume`, `Portfolio`. Common components: `SectionHeader`, `ThemeSwitcher`, `LanguageSwitcher`, `DownloadResumeButton`, `SkillLogo`, `PageSection` (unified section wrapper).
+- Components present: `Header`, `Home`, `KnowMeMore`, `Resume`, `Portfolio`, `Testimonial`, `ContactMe`, `Footer`.
+- Common components: `SectionHeader`, `ThemeSwitcher`, `LanguageSwitcher`, `DownloadResumeButton`, `SkillLogo`, `PageSection`, `PortfolioCard`.
+- Animations: `src/components/common/Animations.tsx` provides reusable Motion primitives and variants:
+  - `Stagger` (container with staggered children), `Item` (child reveal), `Reveal` (single-element reveal), `Hover` (lift/scale for interactive elements).
+  - Variants available: `fadeInUp`, `fadeIn`, `slideInLeft`, `slideInRight`, `zoomIn`.
   
 
 ## App Summary
 - Purpose: Personal portfolio site for Teoman Kirma (EN/TR).
 - Features: Responsive navbar with menu toggle, theme switcher (light/dark/system), language switcher (English/Turkish), hero section with avatar and typewriter intro, in‑page section anchors.
+- Animations: Sections use Motion scroll‑reveal (Stagger/Item/Reveal). Interactive elements use `Hover` for subtle lift/scale. Testimonial has an initial `zoomIn` reveal only (no per‑slide animation).
 - State: Centralized via Zustand (`useAppStore`) with `language`, `isMenuOpen`, and `email`; devtools name `app-store`.
 - i18n: Translations defined in `src/i18n/index.ts` typed by `src/types`. Keys are grouped by page/section for consistency:
   - Root: `name`, `menuItems`
@@ -30,6 +35,7 @@
   - Section IDs use `toSectionHref(menuItems[i]).slice(1)` to keep anchors consistent with navbar labels (e.g., in `KnowMeMore`, `Resume`).
   - Use `PageSection` to standardize section wrappers (id + spacing), passing the `menuIndex` and optional `header`.
   - Validation Schemas: Contact form schema in `src/schemas/index.ts` via Zod; localized with `i18n`.
+  - Link styling: email links use a sliding underline on hover/focus; social icons lift/scale subtly on hover.
 
 ## Build, Test, and Development Commands
 - `npm run dev`: Start Vite dev server with HMR.
@@ -45,6 +51,7 @@
 - Imports: Prefer `@/path` alias over relative deep paths.
 - Styling: TailwindCSS utilities; keep component styles co-located.
 - Theming: `@heroui/use-theme` powers theme switching UI; Tailwind v4 + HeroUI plugin in `hero.ts`.
+- Motion usage: prefer `Stagger` + `Item` for lists/grids; `Reveal` for single blocks; `Hover` for buttons, links, and cards. Keep animations subtle and performant (`viewport={{ once: true, amount: 0.2 }}`).
 
 ## Testing Guidelines
 - No test framework is configured. If adding tests, prefer Vitest + React Testing Library. Place unit tests beside code as `*.test.ts(x)` and aim for meaningful coverage on hooks and components.
@@ -67,7 +74,10 @@
 - Sections and anchors: use `toSectionHref` to generate stable IDs from menu labels (handles Turkish diacritics).
 - Assets: import via `@/assets/...` for bundling; example `me.png` used in `Home`.
 - Dist output: built files output to `dist/` via Vite.
+- Header brand: site name in `Header` is clickable; clicking scrolls smoothly to top.
+- Testimonial: arrow buttons are inset on mobile; slide container uses side padding to avoid touching the card.
 
 ## Maintenance
 - Keep this AGENTS.md up to date when making significant changes (adding/removing/renaming top-level folders, modifying anchors/section IDs, adding store state keys, or introducing/removing i18n keys/components).
 - After major UI or structure changes, verify Tailwind `@source` globs in `src/index.css` still cover new files and that barrel exports remain in sync.
+ - When adding animations to new components, prefer the existing primitives in `common/Animations.tsx` and re-export from `common/index.ts` if new patterns are introduced.

@@ -1,69 +1,67 @@
-# React + TypeScript + Vite
+# Teoman Kirma — Portfolio (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio website with English/Turkish content, responsive navigation, themed UI, and lightweight animations built on Motion and HeroUI.
 
-Currently, two official plugins are available:
+## Features
+- Responsive navbar with menu toggle
+- Theme switcher (light/dark/system) and language switcher (EN/TR)
+- Hero with avatar and typewriter intro
+- Sections: Know Me More, Resume, Portfolio, Testimonials, Contact
+- Smooth, reusable scroll‑reveal animations using Motion
+- Subtle hover animations on buttons, links, and cards
+- Clickable site name in header scrolls to top
+- EmailJS contact form with localized validation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- React 19, Vite 7, TypeScript 5.8
+- HeroUI 2, TailwindCSS 4
+- Motion 12 (Framer Motion runtime), Luxon, Zustand 5, Zod
 
-## Expanding the ESLint configuration
+## Getting Started
+- Node: use `.nvmrc` (e.g., `nvm use`)
+- Install: `npm i`
+- Dev: `npm run dev`
+- Build: `npm run build`
+- Preview: `npm run preview`
+- Lint: `npm run lint`
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Environment Variables (EmailJS)
+Create `.env.local` with the following keys:
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+VITE_EMAILJS_SERVICE_ID=...
+VITE_EMAILJS_TEMPLATE_ID=...
+VITE_EMAILJS_PUBLIC_KEY=...
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Animations
+Reusable primitives live in `src/components/common/Animations.tsx` and are re‑exported from `src/components/common/index.ts`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- `Stagger`: container with staggered children.
+- `Item`: child reveal (default variant `fadeInUp`).
+- `Reveal`: single-element scroll reveal, `variant` prop supports `fadeInUp`, `fadeIn`, `slideInLeft`, `slideInRight`, `zoomIn`.
+- `Hover`: lift/scale interactions for buttons, links, and cards.
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Applied across sections:
+- Section headers use `Stagger`/`Item`.
+- Home, KnowMeMore, Resume, Portfolio, Contact use `Stagger`/`Item`/`Reveal`.
+- Testimonial uses a one‑time `Reveal` on entry (no per-slide animation).
+
+Interactive touches:
+- Header links (desktop + mobile) and header name use `Hover`.
+- Language/Theme switchers: animated hover on the button while keeping icons centered.
+- Email links: animated underline on hover/focus.
+- Portfolio cards: `Hover` for lift/scale; modal for details.
+
+## Project Structure
+- `src/components/` — page sections
+- `src/components/common/` — shared UI, animations, and wrappers
+- `src/hooks/` — Zustand store and meta hooks
+- `src/i18n/` — translations
+- `src/schemas/` — Zod schemas
+- `src/utils/` — helpers (`toSectionHref` for stable anchors)
+
+## Notes
+- Tailwind v4 configured in `src/index.css` with HeroUI plugin; ensure `@source` globs cover new files.
+- Use `@/` alias for imports.
+- Keep animations subtle; reuse the primitives when adding new UI.
