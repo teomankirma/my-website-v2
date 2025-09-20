@@ -23,7 +23,7 @@ export const LanguageSwitcher = () => {
   const currentLabel = getLangLabel(language);
 
   return (
-      <Dropdown>
+    <Dropdown>
       <DropdownTrigger>
         <Button
           variant="light"
@@ -46,6 +46,6 @@ export const LanguageSwitcher = () => {
         <DropdownItem key="en">🇬🇧 English</DropdownItem>
         <DropdownItem key="tr">🇹🇷 Türkçe</DropdownItem>
       </DropdownMenu>
-      </Dropdown>
+    </Dropdown>
   );
 };

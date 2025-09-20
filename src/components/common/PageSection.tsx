@@ -14,7 +14,9 @@ export const PageSection = ({
   const t = translations[language];
   const id = toSectionHref(t.menuItems[menuIndex]).slice(1);
 
-  const sectionClass = `section py-20 md:py-28${className ? ` ${className}` : ""}`;
+  const sectionClass = `section py-20 md:py-28${
+    className ? ` ${className}` : ""
+  }`;
 
   return (
     <section id={id} className={sectionClass}>

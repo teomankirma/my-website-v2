@@ -7,4 +7,13 @@ import { Testimonial } from "./Testimonial";
 import { ContactMe } from "./ContactMe";
 import { Footer } from "./Footer";
 
-export { Header, Home, KnowMeMore, Resume, Portfolio, Testimonial, ContactMe, Footer };
+export {
+  Header,
+  Home,
+  KnowMeMore,
+  Resume,
+  Portfolio,
+  Testimonial,
+  ContactMe,
+  Footer,
+};

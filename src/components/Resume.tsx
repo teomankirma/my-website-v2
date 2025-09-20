@@ -1,7 +1,13 @@
 import { Card, Chip, Image } from "@heroui/react";
 import { useAppStore } from "@/hooks/useAppStore";
 import { translations, sharedI18n } from "@/i18n";
-import { DownloadResumeButton, SkillLogo, PageSection, Stagger, Item } from "@/components/common";
+import {
+  DownloadResumeButton,
+  SkillLogo,
+  PageSection,
+  Stagger,
+  Item,
+} from "@/components/common";
 import uniLogo from "@/assets/nisantasi-university.png";
 import companyLogo from "@/assets/bytesandpixels.jpeg";
 import reactLogo from "@/assets/react.svg";
@@ -30,7 +36,6 @@ export const Resume = () => {
   return (
     <PageSection menuIndex={2} header={headerLabel}>
       <div className="container mx-auto px-6 md:px-10">
-
         <Stagger className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Education */}
           <Item>
@@ -100,7 +105,9 @@ export const Resume = () => {
                         {companyName}
                       </h4>
                       <p className="text-foreground/80">{t.resume.expRole}</p>
-                      <p className="text-foreground/70">{t.resume.expLocation}</p>
+                      <p className="text-foreground/70">
+                        {t.resume.expLocation}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -113,20 +120,30 @@ export const Resume = () => {
       <div className="container mx-auto px-6 md:px-10 mt-16">
         <Stagger>
           <Item>
-            <h3 className="text-xl md:text-2xl font-semibold mb-6">My Skills</h3>
+            <h3 className="text-xl md:text-2xl font-semibold mb-6">
+              My Skills
+            </h3>
           </Item>
           <Item>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
               <SkillLogo label={react} src={reactLogo} badgeColor="#61DBFB" />
               <SkillLogo label={typescript} src={tsLogo} badgeColor="#3078c6" />
-              <SkillLogo label={tailwind} src={tailwindLogo} badgeColor="#06B6D4" />
+              <SkillLogo
+                label={tailwind}
+                src={tailwindLogo}
+                badgeColor="#06B6D4"
+              />
               <SkillLogo
                 label={nextjs}
                 src={nextLogo}
                 badgeColor="#000000"
                 imgClassName="dark:invert"
               />
-              <SkillLogo label={zustand} src={zustandLogo} badgeColor="#443e38" />
+              <SkillLogo
+                label={zustand}
+                src={zustandLogo}
+                badgeColor="#443e38"
+              />
               <SkillLogo
                 label={tanstack}
                 src={tanstackLogo}

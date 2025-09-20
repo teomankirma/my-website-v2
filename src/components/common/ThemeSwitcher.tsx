@@ -18,7 +18,7 @@ export const ThemeSwitcher = () => {
   const currentTheme = theme ?? "system";
 
   return (
-      <Dropdown>
+    <Dropdown>
       <DropdownTrigger>
         <Button
           variant="light"
@@ -43,6 +43,6 @@ export const ThemeSwitcher = () => {
         <DropdownItem key="dark">Dark</DropdownItem>
         <DropdownItem key="system">System</DropdownItem>
       </DropdownMenu>
-      </Dropdown>
+    </Dropdown>
   );
 };
