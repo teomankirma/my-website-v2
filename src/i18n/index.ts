@@ -4,6 +4,8 @@ import atmImg from "@/assets/atm.png";
 import keeperImg from "@/assets/keeper.png";
 import productListingImg from "@/assets/product-listing-generator.png";
 import mongodbCrudImg from "@/assets/mongodb-crud.png";
+import teoAiImg from "@/assets/teo-ai.png";
+import quizAppImg from "@/assets/quiz-app.png";
 
 const age = Math.floor(
   DateTime.now().diff(DateTime.fromISO("2002-07-27"), "years").years
@@ -42,12 +44,27 @@ export const sharedI18n: SharedI18n = {
       technologies: "JavaScript, React",
       linkHref: "https://github.com/teomankirma/keeper-app",
     },
+    quizApp: {
+      key: "quizApp",
+      title: "Quiz App",
+      imageSrc: quizAppImg,
+      technologies: "Vite, Vanilla JavaScript, Open Trivia DB, API Ninjas",
+      linkHref: "https://teo-quiz-app.vercel.app/",
+    },
     mongodbCrud: {
       key: "mongodbCrud",
       title: "MongoDB Express CRUD",
       imageSrc: mongodbCrudImg,
       technologies: "Express, MongoDB, Mongoose, Nodemon",
-      linkHref: "https://github.com/teomankirma/mongodb-express-crud",
+      linkHref: "https://github.com/teomankirma/mongodb-expressjs-crud",
+    },
+    teoAi: {
+      key: "teoAi",
+      title: "teo.ai Marketing Site",
+      imageSrc: teoAiImg,
+      technologies:
+        "Next.js 14, React 18, TypeScript, Tailwind CSS, NextUI, Prismic, GSAP, Framer Motion",
+      linkHref: "https://teo-ai.vercel.app/",
     },
     productListing: {
       key: "productListing",
@@ -165,6 +182,21 @@ export const translations: Translations = {
           },
         },
         {
+          key: sharedI18n.portfolio.quizApp.key,
+          title: sharedI18n.portfolio.quizApp.title,
+          description:
+            "A Vite-powered quiz experience with configurable sessions, Open Trivia DB questions, persistent leaderboards, and optional motivational quotes via API Ninjas.",
+          imageSrc: sharedI18n.portfolio.quizApp.imageSrc,
+          imageAlt: "Quiz App project screenshot",
+          details: {
+            technologies: sharedI18n.portfolio.quizApp.technologies,
+            industry: "EdTech",
+            date: "May 18, 2024",
+            linkHref: sharedI18n.portfolio.quizApp.linkHref,
+            linkLabel: "Visit Website",
+          },
+        },
+        {
           key: sharedI18n.portfolio.mongodbCrud.key,
           title: sharedI18n.portfolio.mongodbCrud.title,
           description:
@@ -177,6 +209,21 @@ export const translations: Translations = {
             date: "August 20, 2024",
             linkHref: sharedI18n.portfolio.mongodbCrud.linkHref,
             linkLabel: "View on GitHub",
+          },
+        },
+        {
+          key: sharedI18n.portfolio.teoAi.key,
+          title: sharedI18n.portfolio.teoAi.title,
+          description:
+            "A Prismic-powered marketing site for teo.ai with animated hero storytelling, case studies, integrations, and a managed login funnel built on Next.js App Router.",
+          imageSrc: sharedI18n.portfolio.teoAi.imageSrc,
+          imageAlt: "teo.ai marketing site screenshot",
+          details: {
+            technologies: sharedI18n.portfolio.teoAi.technologies,
+            industry: "SaaS Marketing",
+            date: "April 14, 2025",
+            linkHref: sharedI18n.portfolio.teoAi.linkHref,
+            linkLabel: "Visit Website",
           },
         },
         {
@@ -357,6 +404,21 @@ export const translations: Translations = {
           },
         },
         {
+          key: sharedI18n.portfolio.quizApp.key,
+          title: sharedI18n.portfolio.quizApp.title,
+          description:
+            "Vite ile geliştirilmiş, yapılandırılabilir oturumlar, Open Trivia DB soruları, kalıcı lider tablosu ve API Ninjas üzerinden motivasyon alıntıları sunan modern bir quiz deneyimi.",
+          imageSrc: sharedI18n.portfolio.quizApp.imageSrc,
+          imageAlt: "Quiz App proje ekran görüntüsü",
+          details: {
+            technologies: sharedI18n.portfolio.quizApp.technologies,
+            industry: "Eğitim Teknolojileri",
+            date: "18 Mayıs 2024",
+            linkHref: sharedI18n.portfolio.quizApp.linkHref,
+            linkLabel: "Website'te Görüntüle",
+          },
+        },
+        {
           key: sharedI18n.portfolio.mongodbCrud.key,
           title: sharedI18n.portfolio.mongodbCrud.title,
           description:
@@ -369,6 +431,21 @@ export const translations: Translations = {
             date: "20 Ağustos 2024",
             linkHref: sharedI18n.portfolio.mongodbCrud.linkHref,
             linkLabel: "GitHub'da Görüntüle",
+          },
+        },
+        {
+          key: sharedI18n.portfolio.teoAi.key,
+          title: sharedI18n.portfolio.teoAi.title,
+          description:
+            "Next.js App Router ve Prismic dilimleriyle oluşturulmuş, animasyonlu hero anlatımı, vaka çalışmaları, entegrasyon vitrinleri ve yönetilebilir giriş hunisi sunan teo.ai pazarlama sitesi.",
+          imageSrc: sharedI18n.portfolio.teoAi.imageSrc,
+          imageAlt: "teo.ai pazarlama sitesi ekran görüntüsü",
+          details: {
+            technologies: sharedI18n.portfolio.teoAi.technologies,
+            industry: "SaaS Pazarlama",
+            date: "14 Nisan 2025",
+            linkHref: sharedI18n.portfolio.teoAi.linkHref,
+            linkLabel: "Website'te Görüntüle",
           },
         },
         {
