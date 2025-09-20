@@ -1,4 +1,5 @@
-import { useTheme } from "@heroui/use-theme";
+import { useEffect } from "react";
+import { useTheme, ThemeProps } from "@heroui/use-theme";
 import {
   Dropdown,
   DropdownTrigger,
@@ -16,6 +17,15 @@ function getIconClassName(theme?: string) {
 export const ThemeSwitcher = () => {
   const { theme, setTheme } = useTheme();
   const currentTheme = theme ?? "system";
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const storedTheme = localStorage.getItem(ThemeProps.KEY);
+    if (storedTheme) return;
+
+    const prefersDark = window.matchMedia?.("(prefers-color-scheme: dark)")?.matches;
+    setTheme(prefersDark ? ThemeProps.DARK : ThemeProps.LIGHT);
+  }, [setTheme]);
 
   return (
     <Dropdown>
