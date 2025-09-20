@@ -103,7 +103,7 @@ export const translations: Translations = {
         "I'm a Software Engineer.",
         "I'm a Frontend Developer.",
       ],
-      location: "based in Los Angeles, CA.",
+      location: "based in Izmir, Turkiye.",
       hireMe: "Hire Me",
     },
     about: {
@@ -111,7 +111,7 @@ export const translations: Translations = {
       whoAmIA: "I'm",
       whoAmIB: "a Frontend Developer",
       aboutMe:
-        "Hello, my name is Teoman. I graduated with a degree in Software Engineering from Nisantasi University with a GPA of 3.36. I live in Los Angeles and work as a Frontend Developer. I enjoy playing basketball, guitar, and video games.",
+        "Hello, my name is Teoman. I graduated with a degree in Software Engineering from Nisantasi University with a GPA of 3.36. I live in Izmir, Turkiye and work as a Frontend Developer. I enjoy playing basketball, guitar, and video games.",
       myExperiences:
         "I'm a Frontend Developer with experience building scalable and responsive interfaces using React, Next.js, TypeScript, and Tailwind CSS. I've also worked with state management (Zustand), testing (Jest, Cypress), and UI documentation tools like Storybook.",
     },
@@ -121,7 +121,7 @@ export const translations: Translations = {
       ageLabel: "Age",
       age: age,
       fromLabel: "From",
-      from: "Los Angeles, CA",
+      from: "Izmir, Turkiye",
       downloadResume: "Download Resume",
     },
     stats: {
@@ -325,7 +325,7 @@ export const translations: Translations = {
         "Yazılım Mühendisiyim.",
         "Frontend Developer'ım.",
       ],
-      location: "Los Angeles, CA merkezliyim.",
+      location: "İzmir, Türkiye merkezliyim.",
       hireMe: "Beni İşe Al",
     },
     about: {
@@ -333,7 +333,7 @@ export const translations: Translations = {
       whoAmIA: "Ben",
       whoAmIB: "bir Frontend Developer'ım",
       aboutMe:
-        "Merhaba, benim adım Teoman. Nişantaşı Üniversitesi Yazılım Mühendisliği bölümünden 3.36 not ortalamasıyla mezun oldum. Los Angeles'ta yaşıyor ve Frontend Developer olarak çalışıyorum. Hobilerim arasında basketbol, gitar çalmak ve video oyunları yer alıyor.",
+        "Merhaba, benim adım Teoman. Nişantaşı Üniversitesi Yazılım Mühendisliği bölümünden 3.36 not ortalamasıyla mezun oldum. İzmir'de yaşıyor ve Frontend Developer olarak çalışıyorum. Hobilerim arasında basketbol, gitar çalmak ve video oyunları yer alıyor.",
       myExperiences:
         "Frontend Developer olarak scalable ve responsive arayüzler geliştirme deneyimine sahibim. React, Next.js, TypeScript ve Tailwind CSS ile çalışma tecrübem var. Ayrıca Zustand ile state management, Jest ve Cypress ile testing ve Storybook ile UI documentation konularında da tecrübem bulunuyor.",
     },
@@ -343,7 +343,7 @@ export const translations: Translations = {
       ageLabel: "Yaş",
       age: age,
       fromLabel: "Konum",
-      from: "Los Angeles, CA",
+      from: "İzmir, Türkiye",
       downloadResume: "CV İndir",
     },
     stats: {
