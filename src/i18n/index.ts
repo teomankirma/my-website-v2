@@ -3,6 +3,7 @@ import { DateTime } from "luxon";
 import atmImg from "@/assets/atm.png";
 import keeperImg from "@/assets/keeper.png";
 import productListingImg from "@/assets/product-listing-generator.png";
+import mongodbCrudImg from "@/assets/mongodb-crud.png";
 
 const age = Math.floor(
   DateTime.now().diff(DateTime.fromISO("2002-07-27"), "years").years
@@ -40,6 +41,13 @@ export const sharedI18n: SharedI18n = {
       imageSrc: keeperImg,
       technologies: "JavaScript, React",
       linkHref: "https://github.com/teomankirma/keeper-app",
+    },
+    mongodbCrud: {
+      key: "mongodbCrud",
+      title: "MongoDB Express CRUD",
+      imageSrc: mongodbCrudImg,
+      technologies: "Express, MongoDB, Mongoose, Nodemon",
+      linkHref: "https://github.com/teomankirma/mongodb-express-crud",
     },
     productListing: {
       key: "productListing",
@@ -153,6 +161,21 @@ export const translations: Translations = {
             industry: "Productivity",
             date: "January 26, 2023",
             linkHref: sharedI18n.portfolio.keeper.linkHref,
+            linkLabel: "View on GitHub",
+          },
+        },
+        {
+          key: sharedI18n.portfolio.mongodbCrud.key,
+          title: sharedI18n.portfolio.mongodbCrud.title,
+          description:
+            "A minimal Express + MongoDB app that powers a theme-park reservations dashboard with REST flows for onboarding, saved cards, and ticket pricing.",
+          imageSrc: sharedI18n.portfolio.mongodbCrud.imageSrc,
+          imageAlt: "MongoDB Express CRUD project screenshot",
+          details: {
+            technologies: sharedI18n.portfolio.mongodbCrud.technologies,
+            industry: "Theme Park Ticketing",
+            date: "August 20, 2024",
+            linkHref: sharedI18n.portfolio.mongodbCrud.linkHref,
             linkLabel: "View on GitHub",
           },
         },
@@ -330,6 +353,21 @@ export const translations: Translations = {
             industry: "Üretkenlik",
             date: "12 Haziran 2022",
             linkHref: sharedI18n.portfolio.keeper.linkHref,
+            linkLabel: "GitHub'da Görüntüle",
+          },
+        },
+        {
+          key: sharedI18n.portfolio.mongodbCrud.key,
+          title: sharedI18n.portfolio.mongodbCrud.title,
+          description:
+            "Kullanıcı kayıtları, rezervasyon yönetimi ve kayıtlı kart akışlarını REST endpoint'leri ve statik formlarla yöneten, tema parkı odaklı minimal bir Express + MongoDB uygulaması.",
+          imageSrc: sharedI18n.portfolio.mongodbCrud.imageSrc,
+          imageAlt: "MongoDB Express CRUD proje ekran görüntüsü",
+          details: {
+            technologies: sharedI18n.portfolio.mongodbCrud.technologies,
+            industry: "Tema Parkı Biletleme",
+            date: "20 Ağustos 2024",
+            linkHref: sharedI18n.portfolio.mongodbCrud.linkHref,
             linkLabel: "GitHub'da Görüntüle",
           },
         },
