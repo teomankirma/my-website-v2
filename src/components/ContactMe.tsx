@@ -103,38 +103,38 @@ export const ContactMe = () => {
                 <h3 className="text-xl md:text-2xl font-semibold mb-4">
                   {t.contact.followMe}
                 </h3>
-              <div className="flex items-center gap-4 text-xl text-foreground-600">
-                <span className="inline-flex">
-                  <Link
-                    href={sharedI18n.socialLinks.x}
-                    target="_blank"
-                    aria-label="X"
-                    className="text-inherit hover:text-accent"
-                  >
-                    <i className="fa-brands fa-x-twitter text-2xl transition-transform will-change-transform hover:-translate-y-0.5 hover:scale-110 active:scale-95" />
-                  </Link>
-                </span>
-                <span className="inline-flex">
-                  <Link
-                    href={sharedI18n.socialLinks.github}
-                    target="_blank"
-                    aria-label="GitHub"
-                    className="text-inherit hover:text-accent text-2xl"
-                  >
-                    <i className="fa-brands fa-github transition-transform will-change-transform hover:-translate-y-0.5 hover:scale-110 active:scale-95" />
-                  </Link>
-                </span>
-                <span className="inline-flex">
-                  <Link
-                    href={sharedI18n.socialLinks.linkedin}
-                    target="_blank"
-                    aria-label="LinkedIn"
-                    className="text-inherit hover:text-accent text-2xl"
-                  >
-                    <i className="fa-brands fa-linkedin transition-transform will-change-transform hover:-translate-y-0.5 hover:scale-110 active:scale-95" />
-                  </Link>
-                </span>
-              </div>
+                <div className="flex items-center gap-4 text-xl text-foreground-600">
+                  <span className="inline-flex">
+                    <Link
+                      href={sharedI18n.socialLinks.x}
+                      target="_blank"
+                      aria-label="X"
+                      className="text-inherit hover:text-accent"
+                    >
+                      <i className="fa-brands fa-x-twitter text-2xl transition-transform will-change-transform hover:-translate-y-0.5 hover:scale-110 active:scale-95" />
+                    </Link>
+                  </span>
+                  <span className="inline-flex">
+                    <Link
+                      href={sharedI18n.socialLinks.github}
+                      target="_blank"
+                      aria-label="GitHub"
+                      className="text-inherit hover:text-accent text-2xl"
+                    >
+                      <i className="fa-brands fa-github transition-transform will-change-transform hover:-translate-y-0.5 hover:scale-110 active:scale-95" />
+                    </Link>
+                  </span>
+                  <span className="inline-flex">
+                    <Link
+                      href={sharedI18n.socialLinks.linkedin}
+                      target="_blank"
+                      aria-label="LinkedIn"
+                      className="text-inherit hover:text-accent text-2xl"
+                    >
+                      <i className="fa-brands fa-linkedin transition-transform will-change-transform hover:-translate-y-0.5 hover:scale-110 active:scale-95" />
+                    </Link>
+                  </span>
+                </div>
               </div>
             </Item>
           </div>

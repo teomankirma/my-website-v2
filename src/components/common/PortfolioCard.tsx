@@ -47,18 +47,18 @@ export const PortfolioCard = ({
           className="w-full rounded-2xl overflow-hidden bg-content2 transition-transform will-change-transform"
         >
           <CardBody className="p-0">
-          <div className="relative aspect-[16/9] md:aspect-[16/9] w-full overflow-hidden">
-            <Image
-              src={imageSrc}
-              alt={imageAlt}
-              removeWrapper
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-          </div>
-          <div className="p-4">
-            <h3 className="text-base md:text-lg font-semibold">{title}</h3>
-          </div>
-        </CardBody>
+            <div className="flex aspect-[16/9] w-full items-center justify-center overflow-hidden bg-content1">
+              <Image
+                src={imageSrc}
+                alt={imageAlt}
+                removeWrapper
+                className="h-full w-auto max-w-full object-contain"
+              />
+            </div>
+            <div className="p-4">
+              <h3 className="text-base md:text-lg font-semibold">{title}</h3>
+            </div>
+          </CardBody>
         </Card>
       </Hover>
 

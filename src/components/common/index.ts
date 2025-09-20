@@ -5,7 +5,9 @@ import { DownloadResumeButton } from "./DownloadResumeButton";
 import { SkillLogo } from "./SkillLogo";
 import { PageSection } from "./PageSection";
 import { PortfolioCard } from "./PortfolioCard";
-import { Stagger, Item, Reveal, variants, Hover, motion, AnimatePresence } from "./Animations";
+import { Stagger, Item, Reveal, Hover } from "./Animations";
+import { variants } from "./animationVariants";
+import { motion, AnimatePresence } from "motion/react";
 
 export {
   SectionHeader,

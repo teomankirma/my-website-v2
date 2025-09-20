@@ -7,14 +7,14 @@
 - UI/Theme: HeroUI via `HeroUIProvider` in `main.tsx`; TailwindCSS v4 configured in `src/index.css` with `@plugin '../hero.ts'` and custom dark variant.
 - Components present: `Header`, `Home`, `KnowMeMore`, `Resume`, `Portfolio`, `Testimonial`, `ContactMe`, `Footer`.
 - Common components: `SectionHeader`, `ThemeSwitcher`, `LanguageSwitcher`, `DownloadResumeButton`, `SkillLogo`, `PageSection`, `PortfolioCard`.
-- Animations: `src/components/common/Animations.tsx` provides reusable Motion primitives and variants:
+- Animations: `src/components/common/Animations.tsx` provides reusable Motion primitives, while variants live in `src/components/common/animationVariants.ts` (kept separate so Fast Refresh sees a component-only module):
   - `Stagger` (container with staggered children), `Item` (child reveal), `Reveal` (single-element reveal), `Hover` (lift/scale for interactive elements).
   - Variants available: `fadeInUp`, `fadeIn`, `slideInLeft`, `slideInRight`, `zoomIn`.
   
 
 ## App Summary
 - Purpose: Personal portfolio site for Teoman Kirma (EN/TR).
-- Features: Responsive navbar with menu toggle, theme switcher (light/dark/system), language switcher (English/Turkish), hero section with avatar and typewriter intro, in‑page section anchors.
+- Features: Responsive navbar with menu toggle, theme switcher (light/dark/system with initial OS preference detection), language switcher (English/Turkish), hero section with avatar and typewriter intro, in‑page section anchors.
 - Animations: Sections use Motion scroll‑reveal (Stagger/Item/Reveal). Interactive elements use `Hover` for subtle lift/scale. Testimonial has an initial `zoomIn` reveal only (no per‑slide animation).
 - State: Centralized via Zustand (`useAppStore`) with `language`, `isMenuOpen`, and `email`; devtools name `app-store`.
 - i18n: Translations defined in `src/i18n/index.ts` typed by `src/types`. Keys are grouped by page/section for consistency:
@@ -64,7 +64,8 @@
 - Do not hardcode secrets (e.g., external API keys). The Font Awesome kit in `index.html` is client-only and safe to expose.
 - When adding new files, ensure Tailwind `@source` globs in `src/index.css` cover them.
 - Persist state carefully: the Zustand store uses devtools under the name `app-store`.
- - EmailJS: configure keys via Vite env vars `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, and `VITE_EMAILJS_PUBLIC_KEY` (place them in `.env.local`). See `.env.example` for placeholders.
+- EmailJS: configure keys via Vite env vars `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, and `VITE_EMAILJS_PUBLIC_KEY` (place them in `.env.local`). See `.env.example` for placeholders.
+- Google Analytics: optional `VITE_GA_MEASUREMENT_ID` loads GA via `initGoogleAnalytics` in `src/utils/googleAnalytics.ts`; leave unset locally.
 
 ## Tech Stack
 - React 19, Vite 7, TypeScript 5.8 (strict), TailwindCSS 4, HeroUI 2.
@@ -76,6 +77,7 @@
 - Dist output: built files output to `dist/` via Vite.
 - Header brand: site name in `Header` is clickable; clicking scrolls smoothly to top.
 - Testimonial: arrow buttons are inset on mobile; slide container uses side padding to avoid touching the card.
+- Contact form textarea uses HeroUI's `disableAutosize` to avoid rendering hidden measurement nodes; re-enable autosize only if truly needed.
 
 ## Maintenance
 - Keep this AGENTS.md up to date when making significant changes (adding/removing/renaming top-level folders, modifying anchors/section IDs, adding store state keys, or introducing/removing i18n keys/components).
