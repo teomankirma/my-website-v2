@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import {
   Card,
   CardBody,
@@ -26,16 +26,6 @@ export const PortfolioCard = ({
   date,
 }: PortfolioCardProps) => {
   const [open, setOpen] = useState(false);
-  const [viewportHeight, setViewportHeight] = useState(() => {
-    if (typeof window === "undefined") {
-      return 0;
-    }
-
-    const { visualViewport } = window;
-
-    return Math.round((visualViewport?.height ?? window.innerHeight) || 0);
-  });
-  const isModalOpenRef = useRef(false);
   const { language } = useAppStore();
   const t = translations[language];
   const {
@@ -47,71 +37,13 @@ export const PortfolioCard = ({
     date: dateLabel,
   } = t.portfolio.cardLabels;
 
-  useEffect(() => {
-    isModalOpenRef.current = open;
-  }, [open]);
-
-  useEffect(() => {
-    if (typeof window === "undefined") {
-      return undefined;
-    }
-
-    const { visualViewport } = window;
-
-    const getViewportHeight = () => {
-      const nextHeight = Math.round(
-        (visualViewport?.height ?? window.innerHeight) || 0
-      );
-
-      setViewportHeight((previousHeight) => {
-        if (
-          previousHeight === nextHeight ||
-          isModalOpenRef.current
-        ) {
-          return previousHeight;
-        }
-
-        return nextHeight;
-      });
-    };
-
-    getViewportHeight();
-
-    window.addEventListener("resize", getViewportHeight);
-    visualViewport?.addEventListener("resize", getViewportHeight);
-
-    return () => {
-      window.removeEventListener("resize", getViewportHeight);
-      visualViewport?.removeEventListener("resize", getViewportHeight);
-    };
-  }, []);
-
-  const handleOpen = () => {
-    if (typeof window !== "undefined") {
-      const { visualViewport } = window;
-      const nextHeight = Math.round(
-        (visualViewport?.height ?? window.innerHeight) || 0
-      );
-
-      setViewportHeight((previousHeight) =>
-        previousHeight === nextHeight ? previousHeight : nextHeight
-      );
-    }
-
-    setOpen(true);
-  };
-
-  const modalKey = viewportHeight
-    ? `portfolio-modal-${viewportHeight}`
-    : "portfolio-modal";
-
   return (
     <>
       <Hover>
         <Card
           shadow="sm"
           isPressable
-          onPress={handleOpen}
+          onPress={() => setOpen(true)}
           className="w-full rounded-2xl overflow-hidden bg-content2 transition-transform will-change-transform"
         >
           <CardBody className="p-0">
@@ -131,17 +63,12 @@ export const PortfolioCard = ({
       </Hover>
 
       <Modal
-        key={modalKey}
         isOpen={open}
         onOpenChange={setOpen}
         size="3xl"
         scrollBehavior="inside"
         className="bg-content1"
-        classNames={{
-          closeButton: "cursor-pointer",
-          body: "pb-8 md:pb-10",
-          wrapper: "items-end sm:items-center",
-        }}
+        classNames={{ closeButton: "cursor-pointer", body: "pb-8 md:pb-10" }}
       >
         <ModalContent>
           {() => (
