@@ -47,12 +47,12 @@ export const PortfolioCard = ({
           className="w-full rounded-2xl overflow-hidden bg-content2 transition-transform will-change-transform"
         >
           <CardBody className="p-0">
-            <div className="relative aspect-[16/9] md:aspect-[16/9] w-full overflow-hidden">
+            <div className="flex aspect-[16/9] w-full items-center justify-center overflow-hidden bg-content1">
               <Image
                 src={imageSrc}
                 alt={imageAlt}
                 removeWrapper
-                className="absolute inset-0 w-full h-full object-cover"
+                className="h-full w-auto max-w-full object-contain"
               />
             </div>
             <div className="p-4">
@@ -66,6 +66,7 @@ export const PortfolioCard = ({
         isOpen={open}
         onOpenChange={setOpen}
         size="3xl"
+        scrollBehavior="inside"
         className="bg-content1"
         classNames={{ closeButton: "cursor-pointer", body: "pb-8 md:pb-10" }}
       >
