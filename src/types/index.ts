@@ -107,7 +107,7 @@ export type SharedI18n = {
   gpa: string;
   react: string;
   typescript: string;
-  tailwind: string;
+  python: string;
   nextjs: string;
   zustand: string;
   tanstack: string;

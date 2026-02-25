@@ -12,7 +12,7 @@ import uniLogo from "@/assets/nisantasi-university.png";
 import companyLogo from "@/assets/bytesandpixels.jpeg";
 import reactLogo from "@/assets/react.svg";
 import tsLogo from "@/assets/typescript.svg";
-import tailwindLogo from "@/assets/tailwind.svg";
+import pythonLogo from "@/assets/python.svg";
 import nextLogo from "@/assets/nextjs.svg";
 import zustandLogo from "@/assets/zustand.svg";
 import tanstackLogo from "@/assets/tanstack.svg";
@@ -26,7 +26,7 @@ export const Resume = () => {
     gpa,
     react,
     typescript,
-    tailwind,
+    python,
     nextjs,
     zustand,
     tanstack,
@@ -129,9 +129,9 @@ export const Resume = () => {
               <SkillLogo label={react} src={reactLogo} badgeColor="#61DBFB" />
               <SkillLogo label={typescript} src={tsLogo} badgeColor="#3078c6" />
               <SkillLogo
-                label={tailwind}
-                src={tailwindLogo}
-                badgeColor="#06B6D4"
+                label={python}
+                src={pythonLogo}
+                badgeColor="#D4A017"
               />
               <SkillLogo
                 label={nextjs}

@@ -20,7 +20,7 @@ export const sharedI18n: SharedI18n = {
   gpa: "3.36",
   react: "React",
   typescript: "TypeScript",
-  tailwind: "Tailwind CSS",
+  python: "Python",
   nextjs: "Next.js",
   zustand: "Zustand",
   tanstack: "TanStack Query",
@@ -86,7 +86,7 @@ export const sharedI18n: SharedI18n = {
 
 export const translations: Translations = {
   en: {
-    headTitle: "Teoman Kirma • Frontend Developer",
+    headTitle: "Teoman Kirma • Fullstack Developer",
     name: "Teoman Kirma",
     menuItems: [
       "Home",
@@ -101,7 +101,7 @@ export const translations: Translations = {
       typewriter: [
         "I'm Teoman Kirma.",
         "I'm a Software Engineer.",
-        "I'm a Frontend Developer.",
+        "I'm a Fullstack Developer.",
       ],
       location: "based in Izmir, Turkiye.",
       hireMe: "Hire Me",
@@ -109,11 +109,11 @@ export const translations: Translations = {
     about: {
       knowMeMore: "Know Me More",
       whoAmIA: "I'm",
-      whoAmIB: "a Frontend Developer",
+      whoAmIB: "a Fullstack Developer",
       aboutMe:
-        "Hello, my name is Teoman. I graduated with a degree in Software Engineering from Nisantasi University with a GPA of 3.36. I live in Izmir, Turkiye and work as a Frontend Developer. I enjoy playing basketball, guitar, and video games.",
+        "Hello, my name is Teoman. I graduated with a degree in Software Engineering from Nisantasi University with a GPA of 3.36. I live in Izmir, Turkiye and work as a Fullstack Developer. I enjoy playing basketball, guitar, and video games.",
       myExperiences:
-        "I'm a Frontend Developer with experience building scalable and responsive interfaces using React, Next.js, TypeScript, and Tailwind CSS. I've also worked with state management (Zustand), testing (Jest, Cypress), and UI documentation tools like Storybook.",
+        "I'm a Fullstack Developer with experience building scalable and responsive interfaces using React, Next.js, TypeScript, and Tailwind CSS on the frontend, and Python for backend development. I've also worked with state management (Zustand), testing (Jest, Cypress), and UI documentation tools like Storybook.",
     },
     profile: {
       nameLabel: "Name",
@@ -136,7 +136,7 @@ export const translations: Translations = {
       schoolName: "Nisantasi University",
       degree: "B.Sc., Software Engineering",
       gpaLabel: "GPA",
-      expRole: "Frontend Developer",
+      expRole: "Fullstack Developer",
       expDates: "May 2023 – Present",
       expLocation: "Los Angeles, CA, US · Remote",
     },
@@ -308,7 +308,7 @@ export const translations: Translations = {
     },
   },
   tr: {
-    headTitle: "Teoman Kırma • Frontend Developer",
+    headTitle: "Teoman Kırma • Fullstack Developer",
     name: "Teoman Kırma",
     menuItems: [
       "Anasayfa",
@@ -323,7 +323,7 @@ export const translations: Translations = {
       typewriter: [
         "Ben Teoman Kırma.",
         "Yazılım Mühendisiyim.",
-        "Frontend Developer'ım.",
+        "Fullstack Developer'ım.",
       ],
       location: "İzmir, Türkiye merkezliyim.",
       hireMe: "Beni İşe Al",
@@ -331,11 +331,11 @@ export const translations: Translations = {
     about: {
       knowMeMore: "Beni Daha Yakından Tanıyın",
       whoAmIA: "Ben",
-      whoAmIB: "bir Frontend Developer'ım",
+      whoAmIB: "bir Fullstack Developer'ım",
       aboutMe:
-        "Merhaba, benim adım Teoman. Nişantaşı Üniversitesi Yazılım Mühendisliği bölümünden 3.36 not ortalamasıyla mezun oldum. İzmir'de yaşıyor ve Frontend Developer olarak çalışıyorum. Hobilerim arasında basketbol, gitar çalmak ve video oyunları yer alıyor.",
+        "Merhaba, benim adım Teoman. Nişantaşı Üniversitesi Yazılım Mühendisliği bölümünden 3.36 not ortalamasıyla mezun oldum. İzmir'de yaşıyor ve Fullstack Developer olarak çalışıyorum. Hobilerim arasında basketbol, gitar çalmak ve video oyunları yer alıyor.",
       myExperiences:
-        "Frontend Developer olarak scalable ve responsive arayüzler geliştirme deneyimine sahibim. React, Next.js, TypeScript ve Tailwind CSS ile çalışma tecrübem var. Ayrıca Zustand ile state management, Jest ve Cypress ile testing ve Storybook ile UI documentation konularında da tecrübem bulunuyor.",
+        "Fullstack Developer olarak scalable ve responsive arayüzler geliştirme deneyimine sahibim. React, Next.js, TypeScript ve Tailwind CSS ile frontend, Python ile backend geliştirme tecrübem var. Ayrıca Zustand ile state management, Jest ve Cypress ile testing ve Storybook ile UI documentation konularında da tecrübem bulunuyor.",
     },
     profile: {
       nameLabel: "İsim",
