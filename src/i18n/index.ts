@@ -109,11 +109,11 @@ export const translations: Translations = {
     about: {
       knowMeMore: "Know Me More",
       whoAmIA: "I'm",
-      whoAmIB: "a Fullstack Developer",
+      whoAmIB: "a Full-Stack Developer",
       aboutMe:
-        "Hello, my name is Teoman. I graduated with a degree in Software Engineering from Nisantasi University with a GPA of 3.36. I live in Izmir, Turkiye and work as a Fullstack Developer. I enjoy playing basketball, guitar, and video games.",
+        "I'm a Full-Stack Developer building scalable web applications and distributed systems. On the frontend, I work with React, Next.js, and TypeScript to create performant and accessible user interfaces. On the backend, I design and implement APIs using Python and Node.js, working with databases, background jobs, and system reliability patterns.",
       myExperiences:
-        "I'm a Fullstack Developer with experience building scalable and responsive interfaces using React, Next.js, TypeScript, and Tailwind CSS on the frontend, and Python for backend development. I've also worked with state management (Zustand), testing (Jest, Cypress), and UI documentation tools like Storybook.",
+        "I enjoy building systems end-to-end — from UI to infrastructure — with a strong focus on performance, maintainability, and clean architecture.",
     },
     profile: {
       nameLabel: "Name",
@@ -331,11 +331,11 @@ export const translations: Translations = {
     about: {
       knowMeMore: "Beni Daha Yakından Tanıyın",
       whoAmIA: "Ben",
-      whoAmIB: "bir Fullstack Developer'ım",
+      whoAmIB: "bir Full-Stack Developer'ım",
       aboutMe:
-        "Merhaba, benim adım Teoman. Nişantaşı Üniversitesi Yazılım Mühendisliği bölümünden 3.36 not ortalamasıyla mezun oldum. İzmir'de yaşıyor ve Fullstack Developer olarak çalışıyorum. Hobilerim arasında basketbol, gitar çalmak ve video oyunları yer alıyor.",
+        "Scalable web uygulamaları ve distributed sistemler geliştiren bir Full-Stack Developer'ım. Frontend tarafında React, Next.js ve TypeScript kullanarak performanslı ve erişilebilir kullanıcı arayüzleri geliştiriyorum. Backend tarafında ise Python ve Node.js ile API'lar tasarlayıp geliştiriyor, veritabanları, background job süreçleri ve sistem güvenilirliği (reliability) konularında çalışıyorum.",
       myExperiences:
-        "Fullstack Developer olarak scalable ve responsive arayüzler geliştirme deneyimine sahibim. React, Next.js, TypeScript ve Tailwind CSS ile frontend, Python ile backend geliştirme tecrübem var. Ayrıca Zustand ile state management, Jest ve Cypress ile testing ve Storybook ile UI documentation konularında da tecrübem bulunuyor.",
+        "UI'dan altyapıya kadar sistemleri uçtan uca geliştirmeyi seviyorum; performans, sürdürülebilirlik ve clean architecture prensiplerini ön planda tutuyorum.",
     },
     profile: {
       nameLabel: "İsim",
