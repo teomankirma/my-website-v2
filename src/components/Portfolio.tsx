@@ -1,11 +1,16 @@
+import { useMemo } from "react";
 import { PageSection, PortfolioCard, Stagger, Item } from "@/components/common";
 import { useAppStore } from "@/hooks/useAppStore";
 import { translations } from "@/i18n";
-
 export const Portfolio = () => {
   const { language } = useAppStore();
   const t = translations[language];
   const headerLabel = t.menuItems[3];
+
+  const orderedItems = useMemo(() => {
+    const items = t.portfolio.items ?? [];
+    return [...items].reverse();
+  }, [t.portfolio.items]);
 
   return (
     <PageSection menuIndex={3} header={headerLabel}>
@@ -18,7 +23,7 @@ export const Portfolio = () => {
           </Item>
           <Item>
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {t.portfolio.items?.map((item) => (
+              {orderedItems.map((item) => (
                 <Item key={item.key}>
                   <PortfolioCard
                     title={item.title}

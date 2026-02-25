@@ -6,9 +6,10 @@ import productListingImg from "@/assets/product-listing-generator.png";
 import mongodbCrudImg from "@/assets/mongodb-crud.png";
 import teoAiImg from "@/assets/teo-ai.png";
 import quizAppImg from "@/assets/quiz-app.png";
+import jobFlowImg from "@/assets/job-flow.png";
 
 const age = Math.floor(
-  DateTime.now().diff(DateTime.fromISO("2002-07-27"), "years").years
+  DateTime.now().diff(DateTime.fromISO("2002-07-27"), "years").years,
 );
 const currentYear = DateTime.now().year;
 const experienceYears = currentYear - 2020;
@@ -73,6 +74,14 @@ export const sharedI18n: SharedI18n = {
       technologies:
         "Next.js 15, React 19, TypeScript 5, Tailwind CSS 4, Zustand, shadcn/ui, Vercel AI SDK",
       linkHref: "https://teo-product-listing-generator.vercel.app/",
+    },
+    jobFlow: {
+      key: "jobFlow",
+      title: "Job Flow",
+      imageSrc: jobFlowImg,
+      technologies:
+        "Python (FastAPI), Node.js, Redis, PostgreSQL, Next.js, TypeScript, Docker, Tailwind CSS",
+      linkHref: "https://teo-job-flow.vercel.app/",
     },
   },
   testimonials: {
@@ -241,6 +250,21 @@ export const translations: Translations = {
             linkLabel: "View on Website",
           },
         },
+        {
+          key: sharedI18n.portfolio.jobFlow.key,
+          title: sharedI18n.portfolio.jobFlow.title,
+          description:
+            "A distributed background job processing system where users can enqueue tasks via an API and monitor execution in real time. The system handles retries with exponential backoff, idempotency, rate limiting, and dead-letter queues, providing a reliable and scalable foundation for async workloads.",
+          imageSrc: sharedI18n.portfolio.jobFlow.imageSrc,
+          imageAlt: "Job Flow project screenshot",
+          details: {
+            technologies: sharedI18n.portfolio.jobFlow.technologies,
+            industry: "Infrastructure / Developer Tools",
+            date: "February 24, 2026",
+            linkHref: sharedI18n.portfolio.jobFlow.linkHref,
+            linkLabel: "View on Website",
+          },
+        },
       ],
     },
     testimonial: {
@@ -358,7 +382,7 @@ export const translations: Translations = {
       schoolName: "Nişantaşı Üniversitesi",
       degree: "Yazılım Mühendisliği, Lisans",
       gpaLabel: "GNO",
-      expRole: "Frontend Geliştirici",
+      expRole: "Full-Stack Geliştirici",
       expDates: "Mayıs 2023 – Günümüz",
       expLocation: "Los Angeles, CA, ABD · Uzaktan",
     },
@@ -461,6 +485,21 @@ export const translations: Translations = {
             date: "3 Eylül 2025",
             linkHref: sharedI18n.portfolio.productListing.linkHref,
             linkLabel: "Website'te Görüntüle",
+          },
+        },
+        {
+          key: sharedI18n.portfolio.jobFlow.key,
+          title: sharedI18n.portfolio.jobFlow.title,
+          description:
+            "API üzerinden görevlerin kuyruğa alınabildiği ve gerçek zamanlı olarak izlenebildiği dağıtık bir background job processing sistemi. Sistem; exponential backoff retry mekanizması, idempotency, rate limiting ve dead-letter queue yapılarıyla güvenilir ve scalable async işlemler için sağlam bir altyapı sunar.",
+          imageSrc: sharedI18n.portfolio.jobFlow.imageSrc,
+          imageAlt: "Job Flow proje ekran görüntüsü",
+          details: {
+            technologies: sharedI18n.portfolio.jobFlow.technologies,
+            industry: "Altyapı / Developer Tools",
+            date: "24 Şubat 2026",
+            linkHref: sharedI18n.portfolio.jobFlow.linkHref,
+            linkLabel: "Web Sitesini Görüntüle",
           },
         },
       ],
