@@ -1,138 +1,34 @@
 @import "tailwindcss";
-@import "tw-animate-css";
-@import "@fontsource-variable/geist";
-@import "@fontsource-variable/geist-mono";
-
+@plugin '../hero.ts';
+/* App source files */
 @source './**/*.{js,jsx,ts,tsx,mdx,html}';
+/* HeroUI theme package */
+@source '../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
 @custom-variant dark (&:is(.dark *));
 
+/* Tailwind v4 theme tokens */
+@theme {
+  --color-accent: #17c964;
+}
+
+/* Global typography (system stacks, no remote fetch) */
 :root {
-  --background: oklch(0.99 0 0);
-  --foreground: oklch(0.18 0 0);
-
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0 0);
-
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0 0);
-
-  --primary: oklch(0.7 0.19 146);
-  --primary-foreground: oklch(0.99 0 0);
-
-  --secondary: oklch(0.96 0 0);
-  --secondary-foreground: oklch(0.2 0 0);
-
-  --muted: oklch(0.96 0 0);
-  --muted-foreground: oklch(0.5 0 0);
-
-  --accent: oklch(0.96 0 0);
-  --accent-foreground: oklch(0.2 0 0);
-
-  --destructive: oklch(0.6 0.22 28);
-  --destructive-foreground: oklch(0.99 0 0);
-
-  --border: oklch(0.92 0 0);
-  --input: oklch(0.92 0 0);
-  --ring: oklch(0.7 0.19 146);
-
-  --radius: 0.75rem;
-
-  --font-sans: "Geist Variable", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", sans-serif;
-  --font-mono: "Geist Mono Variable", Menlo, Monaco, "Lucida Console",
-    "Liberation Mono", monospace;
-}
-
-.dark {
-  --background: oklch(0.14 0 0);
-  --foreground: oklch(0.96 0 0);
-
-  --card: oklch(0.18 0 0);
-  --card-foreground: oklch(0.96 0 0);
-
-  --popover: oklch(0.18 0 0);
-  --popover-foreground: oklch(0.96 0 0);
-
-  --primary: oklch(0.78 0.18 146);
-  --primary-foreground: oklch(0.14 0 0);
-
-  --secondary: oklch(0.22 0 0);
-  --secondary-foreground: oklch(0.96 0 0);
-
-  --muted: oklch(0.22 0 0);
-  --muted-foreground: oklch(0.65 0 0);
-
-  --accent: oklch(0.22 0 0);
-  --accent-foreground: oklch(0.96 0 0);
-
-  --destructive: oklch(0.55 0.22 28);
-  --destructive-foreground: oklch(0.99 0 0);
-
-  --border: oklch(1 0 0 / 0.08);
-  --input: oklch(1 0 0 / 0.12);
-  --ring: oklch(0.78 0.18 146);
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
+  --nextui-fonts-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
+  --nextui-fonts-mono: Menlo, Monaco, 'Lucida Console', 'Liberation Mono',
+    'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace;
+  --font-sans-primary: 'Manrope', var(--nextui-fonts-sans);
 }
 
 html,
 body {
-  font-family: var(--font-sans);
-  background-color: var(--background);
-  color: var(--foreground);
+  font-family: var(--font-sans-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
 }
 
-code,
-pre,
-kbd,
-samp {
-  font-family: var(--font-mono);
-}
-
-/* Hero dot-grid utility — applied only to the hero section's background layer */
-.bg-dot-grid {
-  background-image: radial-gradient(
-    circle at center,
-    var(--border) 1px,
-    transparent 1px
-  );
-  background-size: 24px 24px;
-}
-
-/* Hero radial accent glow — sits behind the headline */
-.bg-hero-glow {
-  background: radial-gradient(
-    ellipse at center,
-    color-mix(in oklch, var(--primary) 18%, transparent) 0%,
-    transparent 60%
-  );
+code, pre, kbd, samp {
+  font-family: var(--nextui-fonts-mono);
 }

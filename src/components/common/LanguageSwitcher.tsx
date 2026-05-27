@@ -1,47 +1,51 @@
-import { Button } from "@/components/ui/button";
 import {
+  Dropdown,
+  DropdownTrigger,
   DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Language } from "@/types";
+  DropdownItem,
+  Button,
+} from "@heroui/react";
+import type { Language } from "@/types";
 import { useAppStore } from "@/hooks/useAppStore";
 
-function getLangEmoji(lang: Language) {
+function getLangEmoji(lang: Language): string {
   return lang === "tr" ? "🇹🇷" : "🇬🇧";
 }
 
-function getLangLabel(lang: Language) {
+function getLangLabel(lang: Language): string {
   return lang === "tr" ? "Türkçe" : "English";
 }
 
-export function LanguageSwitcher() {
+export const LanguageSwitcher = () => {
   const language = useAppStore((s) => s.language);
-  const updateState = useAppStore((s) => s.updateState);
+  const { updateState } = useAppStore();
+
+  const currentLabel = getLangLabel(language);
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
+    <Dropdown>
+      <DropdownTrigger>
         <Button
-          variant="ghost"
-          size="icon"
-          aria-label={`Language: ${getLangLabel(language)}`}
-          className="transition-transform hover:-translate-y-0.5 hover:scale-105 active:scale-95"
+          variant="light"
+          size="sm"
+          isIconOnly
+          className="transition-transform will-change-transform hover:-translate-y-0.5 hover:scale-105 active:scale-95"
+          aria-label={`Language: ${currentLabel}`}
         >
-          <span aria-hidden className="text-lg">
+          <span aria-hidden className="text-xl">
             {getLangEmoji(language)}
           </span>
         </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem onSelect={() => updateState({ language: Language.EN })}>
-          🇬🇧 English
-        </DropdownMenuItem>
-        <DropdownMenuItem onSelect={() => updateState({ language: Language.TR })}>
-          🇹🇷 Türkçe
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+      </DropdownTrigger>
+      <DropdownMenu
+        aria-label="Select language"
+        selectionMode="single"
+        selectedKeys={new Set([language])}
+        onAction={(key) => updateState({ language: key as Language })}
+      >
+        <DropdownItem key="en">🇬🇧 English</DropdownItem>
+        <DropdownItem key="tr">🇹🇷 Türkçe</DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
   );
-}
+};

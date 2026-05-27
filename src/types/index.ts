@@ -12,13 +12,10 @@ export type Translation = {
   name: string;
   menuItems: string[];
   home: {
-    eyebrow: string;
-    headlineLine1: string;
-    headlineLine2: string;
-    tagline: string;
+    welcome: string;
+    typewriter: string[];
     location: string;
     hireMe: string;
-    secondaryCta: string;
   };
   about: {
     knowMeMore: string;
@@ -67,6 +64,9 @@ export type Translation = {
   footer: {
     footerCopyright: string;
     copyrightLabel: string;
+  };
+  testimonial: {
+    items: LocaleTestimonial[];
   };
   contactValidation: {
     name_required: string;
@@ -125,6 +125,13 @@ export type SharedI18n = {
       linkHref: string;
     };
   };
+  testimonials: {
+    [key: string]: {
+      key: string;
+      name: string;
+      rating: number;
+    };
+  };
   currentYear: number;
 };
 
@@ -159,6 +166,12 @@ export type PortfolioItem = {
   imageSrc: string;
   imageAlt: string;
   details: ProjectDetails;
+};
+
+export type LocaleTestimonial = {
+  key: string; // references sharedI18n.testimonials[key]
+  title: string; // localized title/subtitle
+  quote: string; // localized quote
 };
 
 // Contact form values

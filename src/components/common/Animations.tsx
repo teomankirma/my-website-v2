@@ -1,94 +1,97 @@
-import { useRef, type ElementType, type PropsWithChildren } from "react";
-import { useGSAP, gsap, SplitText } from "@/lib/gsap";
+import type { PropsWithChildren } from "react";
+import { motion } from "motion/react";
+import { variants } from "./animationVariants";
+import type { AnimationVariantKey } from "./animationVariants";
 
-type Variant =
-  | "fadeUp"
-  | "fadeIn"
-  | "slideLeft"
-  | "slideRight"
-  | "zoomIn"
-  | "splitChars"
-  | "splitWords";
+// Reusable animation primitives for sections/components.
+// These use Motion v12 (package: `motion`) and are safe on SSR.
 
-type RevealProps = PropsWithChildren<{
-  as?: ElementType;
+const viewport = { once: true, amount: 0.2 } as const;
+
+type StaggerProps = PropsWithChildren<{
   className?: string;
-  variant?: Variant;
   delay?: number;
   stagger?: number;
-  /** When true, each direct child becomes a staggered item via the `.reveal-item` class. */
-  staggerChildren?: boolean;
-  /** ScrollTrigger start position (default "top 80%"). */
-  start?: string;
 }>;
 
-const fromMap = {
-  fadeUp: { y: 24, autoAlpha: 0 },
-  fadeIn: { autoAlpha: 0 },
-  slideLeft: { x: -32, autoAlpha: 0 },
-  slideRight: { x: 32, autoAlpha: 0 },
-  zoomIn: { scale: 0.95, autoAlpha: 0 },
-  splitChars: { y: 24, autoAlpha: 0 },
-  splitWords: { y: 24, autoAlpha: 0 },
-} as const;
-
-export function Reveal({
-  as: Tag = "div",
-  className,
-  variant = "fadeUp",
-  delay = 0,
-  stagger = 0.08,
-  staggerChildren = false,
-  start = "top 80%",
+export const Stagger: React.FC<StaggerProps> = ({
   children,
-}: RevealProps) {
-  const ref = useRef<HTMLDivElement>(null);
+  className,
+  delay = 0.05,
+  stagger = 0.12,
+}) => (
+  <motion.div
+    className={className}
+    initial="hidden"
+    whileInView="show"
+    viewport={viewport}
+    variants={{
+      hidden: {},
+      show: { transition: { staggerChildren: stagger, delayChildren: delay } },
+    }}
+  >
+    {children}
+  </motion.div>
+);
 
-  useGSAP(
-    () => {
-      if (!ref.current) return;
-      const base = { ...fromMap[variant], ease: "power3.out", delay };
-      const scrollTrigger = {
-        trigger: ref.current,
-        start,
-        once: true,
-      };
+type ItemProps = PropsWithChildren<{
+  className?: string;
+  variant?: AnimationVariantKey;
+}>;
 
-      if (variant === "splitChars" || variant === "splitWords") {
-        const target = ref.current.firstElementChild as HTMLElement | null;
-        if (!target) return;
-        const split = SplitText.create(target, {
-          type: variant === "splitChars" ? "chars" : "words",
-        });
-        const targets = variant === "splitChars" ? split.chars : split.words;
-        gsap.from(targets, {
-          ...base,
-          stagger,
-          duration: 0.5,
-          scrollTrigger,
-        });
-        return () => split.revert();
-      }
+export const Item: React.FC<ItemProps> = ({
+  children,
+  className,
+  variant = "fadeInUp",
+}) => (
+  <motion.div className={className} variants={variants[variant]}>
+    {children}
+  </motion.div>
+);
 
-      if (staggerChildren) {
-        gsap.from(ref.current.querySelectorAll(":scope > .reveal-item"), {
-          ...base,
-          stagger,
-          scrollTrigger,
-        });
-      } else {
-        gsap.from(ref.current, {
-          ...base,
-          scrollTrigger,
-        });
-      }
-    },
-    { scope: ref }
-  );
+type RevealProps = PropsWithChildren<{
+  className?: string;
+  variant?: AnimationVariantKey;
+  delay?: number;
+}>;
 
-  return (
-    <Tag ref={ref} className={className}>
-      {children}
-    </Tag>
-  );
-}
+export const Reveal: React.FC<RevealProps> = ({
+  children,
+  className,
+  variant = "fadeInUp",
+  delay = 0,
+}) => (
+  <motion.div
+    className={className}
+    initial="hidden"
+    whileInView="show"
+    viewport={viewport}
+    variants={variants[variant]}
+    transition={{ delay }}
+  >
+    {children}
+  </motion.div>
+);
+
+// Generic hover/press wrapper for interactive elements (buttons, cards)
+type HoverProps = PropsWithChildren<{
+  className?: string;
+  scale?: number;
+  lift?: number; // translateY negative value on hover
+}>;
+
+export const Hover: React.FC<HoverProps> = ({
+  children,
+  className,
+  scale = 1.03,
+  lift = 2,
+}) => (
+  <motion.div
+    className={className}
+    whileHover={{ scale, y: -lift }}
+    whileTap={{ scale: 0.98, y: 0 }}
+    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+  >
+    {children}
+  </motion.div>
+);

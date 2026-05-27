@@ -1,42 +1,58 @@
-import { useTheme } from "next-themes";
-import { Laptop, Moon, Sun } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useEffect } from "react";
+import { useTheme, ThemeProps } from "@heroui/use-theme";
 import {
+  Dropdown,
+  DropdownTrigger,
   DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+  DropdownItem,
+  Button,
+} from "@heroui/react";
 
-export function ThemeSwitcher() {
+function getIconClassName(theme?: string) {
+  if (!theme || theme === "system") return "fa-solid fa-laptop";
+  if (theme === "dark") return "fa-solid fa-moon";
+  return "fa-solid fa-sun";
+}
+
+export const ThemeSwitcher = () => {
   const { theme, setTheme } = useTheme();
-  const current = theme ?? "system";
+  const currentTheme = theme ?? "system";
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const storedTheme = localStorage.getItem(ThemeProps.KEY);
+    if (storedTheme) return;
+
+    const prefersDark = window.matchMedia?.("(prefers-color-scheme: dark)")?.matches;
+    setTheme(prefersDark ? ThemeProps.DARK : ThemeProps.LIGHT);
+  }, [setTheme]);
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
+    <Dropdown>
+      <DropdownTrigger>
         <Button
-          variant="ghost"
-          size="icon"
-          aria-label={`Theme: ${current}`}
-          className="transition-transform hover:-translate-y-0.5 hover:scale-105 active:scale-95"
+          variant="light"
+          size="sm"
+          isIconOnly
+          className="transition-transform will-change-transform hover:-translate-y-0.5 hover:scale-105 active:scale-95"
+          aria-label={`Theme: ${currentTheme}`}
         >
-          {current === "light" && <Sun className="h-4 w-4" />}
-          {current === "dark" && <Moon className="h-4 w-4" />}
-          {current === "system" && <Laptop className="h-4 w-4" />}
+          <i
+            className={`${getIconClassName(currentTheme)} text-lg`}
+            aria-hidden
+          />
         </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem onSelect={() => setTheme("light")}>
-          <Sun className="mr-2 h-4 w-4" /> Light
-        </DropdownMenuItem>
-        <DropdownMenuItem onSelect={() => setTheme("dark")}>
-          <Moon className="mr-2 h-4 w-4" /> Dark
-        </DropdownMenuItem>
-        <DropdownMenuItem onSelect={() => setTheme("system")}>
-          <Laptop className="mr-2 h-4 w-4" /> System
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+      </DropdownTrigger>
+      <DropdownMenu
+        aria-label="Select theme"
+        selectionMode="single"
+        selectedKeys={new Set([currentTheme])}
+        onAction={(key) => setTheme(String(key))}
+      >
+        <DropdownItem key="light">Light</DropdownItem>
+        <DropdownItem key="dark">Dark</DropdownItem>
+        <DropdownItem key="system">System</DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
   );
-}
+};

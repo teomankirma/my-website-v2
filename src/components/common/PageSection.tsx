@@ -4,16 +4,19 @@ import { toSectionHref } from "@/utils";
 import { SectionHeader } from "./SectionHeader";
 import type { PageSectionProps } from "@/types";
 
-export function PageSection({
+export const PageSection = ({
   menuIndex,
   header,
   className,
   children,
-}: PageSectionProps) {
-  const language = useAppStore((s) => s.language);
+}: PageSectionProps) => {
+  const { language } = useAppStore();
   const t = translations[language];
   const id = toSectionHref(t.menuItems[menuIndex]).slice(1);
-  const sectionClass = `section py-20 md:py-28${className ? ` ${className}` : ""}`;
+
+  const sectionClass = `section py-20 md:py-28${
+    className ? ` ${className}` : ""
+  }`;
 
   return (
     <section id={id} className={sectionClass}>
@@ -25,4 +28,4 @@ export function PageSection({
       {children}
     </section>
   );
-}
+};
