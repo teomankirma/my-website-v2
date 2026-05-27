@@ -84,12 +84,6 @@ export const sharedI18n: SharedI18n = {
       linkHref: "https://teo-job-flow.vercel.app/",
     },
   },
-  testimonials: {
-    jay: { key: "jay", name: "Jay Shah", rating: 5 },
-    patrick: { key: "patrick", name: "Patrick Cary", rating: 5 },
-    chris: { key: "chris", name: "Chris Tom", rating: 5 },
-    dennis: { key: "dennis", name: "Dennis Jacques", rating: 5 },
-  },
   currentYear: currentYear,
 };
 
@@ -97,23 +91,16 @@ export const translations: Translations = {
   en: {
     headTitle: "Teoman Kirma • Fullstack Developer",
     name: "Teoman Kirma",
-    menuItems: [
-      "Home",
-      "About Me",
-      "Resume",
-      "Portfolio",
-      "Testimonial",
-      "Contact Me",
-    ],
+    menuItems: ["Home", "About Me", "Resume", "Portfolio", "Contact Me"],
     home: {
-      welcome: "Welcome",
-      typewriter: [
-        "I'm Teoman Kirma.",
-        "I'm a Software Engineer.",
-        "I'm a Fullstack Developer.",
-      ],
-      location: "based in Izmir, Turkiye.",
-      hireMe: "Hire Me",
+      eyebrow: "~ /home/teoman",
+      headlineLine1: "Teoman Kirma",
+      headlineLine2: "Fullstack Developer",
+      tagline:
+        "I build performant, accessible web apps and the distributed systems behind them.",
+      location: "Based in Izmir, Turkiye.",
+      hireMe: "Get in touch",
+      secondaryCta: "Download résumé",
     },
     about: {
       knowMeMore: "Know Me More",
@@ -267,34 +254,6 @@ export const translations: Translations = {
         },
       ],
     },
-    testimonial: {
-      items: [
-        {
-          key: sharedI18n.testimonials.jay.key,
-          title: "Founder at Icomatic Pvt Ltd",
-          quote:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        },
-        {
-          key: sharedI18n.testimonials.patrick.key,
-          title: "Freelancer from USA",
-          quote:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        },
-        {
-          key: sharedI18n.testimonials.chris.key,
-          title: "User from UK",
-          quote:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        },
-        {
-          key: sharedI18n.testimonials.dennis.key,
-          title: "User from USA",
-          quote:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        },
-      ],
-    },
     footer: {
       footerCopyright: "All Rights Reserved.",
       copyrightLabel: "Copyright",
@@ -334,23 +293,16 @@ export const translations: Translations = {
   tr: {
     headTitle: "Teoman Kırma • Fullstack Developer",
     name: "Teoman Kırma",
-    menuItems: [
-      "Anasayfa",
-      "Hakkımda",
-      "Özgeçmiş",
-      "Portföy",
-      "Referanslar",
-      "Bana Ulaşın",
-    ],
+    menuItems: ["Anasayfa", "Hakkımda", "Özgeçmiş", "Portföy", "Bana Ulaşın"],
     home: {
-      welcome: "Hoş Geldiniz",
-      typewriter: [
-        "Ben Teoman Kırma.",
-        "Yazılım Mühendisiyim.",
-        "Fullstack Developer'ım.",
-      ],
+      eyebrow: "~ /home/teoman",
+      headlineLine1: "Teoman Kırma",
+      headlineLine2: "Fullstack Geliştirici",
+      tagline:
+        "Performanslı ve erişilebilir web uygulamaları ile arkasındaki dağıtık sistemleri kuruyorum.",
       location: "İzmir, Türkiye merkezliyim.",
-      hireMe: "Beni İşe Al",
+      hireMe: "İletişime geç",
+      secondaryCta: "CV indir",
     },
     about: {
       knowMeMore: "Beni Daha Yakından Tanıyın",
@@ -501,34 +453,6 @@ export const translations: Translations = {
             linkHref: sharedI18n.portfolio.jobFlow.linkHref,
             linkLabel: "Web Sitesini Görüntüle",
           },
-        },
-      ],
-    },
-    testimonial: {
-      items: [
-        {
-          key: sharedI18n.testimonials.jay.key,
-          title: "Icomatic Pvt Ltd Kurucusu",
-          quote:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        },
-        {
-          key: sharedI18n.testimonials.patrick.key,
-          title: "ABD'den Serbest Çalışan",
-          quote:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        },
-        {
-          key: sharedI18n.testimonials.chris.key,
-          title: "Birleşik Krallık'tan Kullanıcı",
-          quote:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        },
-        {
-          key: sharedI18n.testimonials.dennis.key,
-          title: "ABD'den Kullanıcı",
-          quote:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         },
       ],
     },
