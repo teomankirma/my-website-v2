@@ -76,6 +76,9 @@
 @layer base {
   * { border-color: var(--color-border); }
   body { background-color: var(--color-background); color: var(--color-foreground); }
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
 }
 
 /* Hero dot-grid utility */
