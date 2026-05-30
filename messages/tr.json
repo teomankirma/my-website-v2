@@ -142,5 +142,15 @@
     "copyright": "Tüm hakları saklıdır.",
     "copyrightLabel": "Telif Hakkı"
   },
-  "downloadResume": "CV indir"
+  "downloadResume": "CV indir",
+  "theme": {
+    "light": "Açık",
+    "dark": "Koyu",
+    "system": "Sistem",
+    "toggle": "Temayı değiştir"
+  },
+  "a11y": {
+    "openMenu": "Menüyü aç",
+    "changeLanguage": "Dili değiştir"
+  }
 }

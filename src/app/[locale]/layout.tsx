@@ -19,7 +19,11 @@ export function generateStaticParams() {
 export async function generateMetadata({params}: Omit<Props, 'children'>): Promise<Metadata> {
   const {locale} = await params;
   const t = await getTranslations({locale, namespace: 'metadata'});
-  return {title: t('title'), description: t('description')};
+  return {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://teomankirma.com'),
+    title: t('title'),
+    description: t('description'),
+  };
 }
 
 export default async function LocaleLayout({children, params}: Props) {

@@ -20,6 +20,7 @@ const NAV = [
 
 export function Header() {
   const t = useTranslations('header');
+  const ta11y = useTranslations('a11y');
   const [open, setOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
 
@@ -56,7 +57,7 @@ export function Header() {
           <ThemeSwitcher />
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon" aria-label="Open menu">
+              <Button variant="ghost" size="icon" aria-label={ta11y('openMenu')}>
                 <Menu strokeWidth={1.75} />
               </Button>
             </SheetTrigger>

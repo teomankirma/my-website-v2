@@ -142,5 +142,15 @@
     "copyright": "All rights reserved.",
     "copyrightLabel": "Copyright"
   },
-  "downloadResume": "Download résumé"
+  "downloadResume": "Download résumé",
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "toggle": "Toggle theme"
+  },
+  "a11y": {
+    "openMenu": "Open menu",
+    "changeLanguage": "Change language"
+  }
 }

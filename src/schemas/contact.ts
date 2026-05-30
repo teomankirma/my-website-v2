@@ -13,9 +13,8 @@ export function makeContactSchema(m: ContactMessages) {
       .min(2, m.name_min)
       .max(100, m.name_max),
     email: z
-      .string({error: m.email_required})
-      .min(1, m.email_required)
       .email({error: m.email_invalid})
+      .min(1, m.email_required)
       .max(254, m.email_max),
     message: z
       .string({error: m.message_required})
