@@ -4,6 +4,8 @@ import {Header} from '@/components/sections/header';
 import {Hero} from '@/components/sections/hero';
 import {About} from '@/components/sections/about';
 import {Resume} from '@/components/sections/resume';
+import {Portfolio} from '@/components/sections/portfolio';
+import {Contact} from '@/components/sections/contact';
 import {Footer} from '@/components/sections/footer';
 
 export default function Page({params}: {params: Promise<{locale: string}>}) {
@@ -16,6 +18,8 @@ export default function Page({params}: {params: Promise<{locale: string}>}) {
         <Hero />
         <About />
         <Resume />
+        <Portfolio />
+        <Contact />
       </main>
       <Footer />
     </>
