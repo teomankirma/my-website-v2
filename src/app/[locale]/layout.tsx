@@ -5,6 +5,7 @@ import {notFound} from 'next/navigation';
 import type {Metadata} from 'next';
 import {routing} from '@/i18n/routing';
 import {Toaster} from '@/components/ui/sonner';
+import {HtmlLang} from '@/components/common/html-lang';
 
 type Props = {children: ReactNode; params: Promise<{locale: string}>};
 
@@ -29,6 +30,7 @@ export default async function LocaleLayout({children, params}: Props) {
 
   return (
     <NextIntlClientProvider>
+      <HtmlLang locale={locale} />
       {children}
       <Toaster richColors closeButton position="bottom-right" />
     </NextIntlClientProvider>
