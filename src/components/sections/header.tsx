@@ -1,8 +1,9 @@
 'use client';
 
-import {useState} from 'react';
+import {useRef, useState} from 'react';
 import {useTranslations} from 'next-intl';
 import {Menu} from 'lucide-react';
+import {ScrollTrigger, useGSAP} from '@/lib/gsap';
 import {Button} from '@/components/ui/button';
 import {Sheet, SheetContent, SheetTrigger, SheetTitle} from '@/components/ui/sheet';
 import {ThemeSwitcher} from '@/components/common/theme-switcher';
@@ -20,9 +21,19 @@ const NAV = [
 export function Header() {
   const t = useTranslations('header');
   const [open, setOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+
+  useGSAP(() => {
+    const st = ScrollTrigger.create({
+      start: 8,
+      onUpdate: (self) =>
+        headerRef.current?.setAttribute('data-scrolled', String(self.scroll() > 8)),
+    });
+    return () => st.kill();
+  });
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/0 bg-background/70 backdrop-blur-md transition-colors data-[scrolled=true]:border-border">
+    <header ref={headerRef} className="sticky top-0 z-50 border-b border-border/0 bg-background/70 backdrop-blur-md transition-colors data-[scrolled=true]:border-border">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 md:px-8">
         <a href={`#${SECTION_IDS.home}`} className="font-mono text-sm font-semibold">
           <span className="text-primary">●</span> {t('name')}
