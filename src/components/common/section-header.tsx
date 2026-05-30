@@ -29,7 +29,7 @@ export function SectionHeader({
             trigger: el,
             start: 'top 85%',
             end: 'bottom 30%',
-            toggleActions: 'play none none reverse',
+            toggleActions: 'restart none restart none',
           },
         });
         return () => split.revert();

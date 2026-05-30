@@ -46,7 +46,7 @@ export function Reveal({
               trigger: ref.current!,
               start: 'top 80%',
               end: 'bottom 20%',
-              toggleActions: 'play none none reverse',
+              toggleActions: 'restart none restart none',
             },
         });
       });

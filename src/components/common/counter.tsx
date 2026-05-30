@@ -33,7 +33,7 @@ export function Counter({
           scrollTrigger: {
             trigger: el,
             start: 'top 85%',
-            toggleActions: 'play none none reset',
+            toggleActions: 'restart none restart none',
           },
         });
       });
