@@ -14,6 +14,7 @@ import {Textarea} from '@/components/ui/textarea';
 import {Label} from '@/components/ui/label';
 import {makeContactSchema, type ContactValues} from '@/schemas/contact';
 import {SECTION_IDS, EMAIL, SOCIAL_LINKS} from '@/lib/site';
+import {useMagnetic} from '@/lib/animation/use-magnetic';
 
 const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
 const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
@@ -46,6 +47,8 @@ export function Contact() {
 
   const {register, handleSubmit, reset, formState: {errors, isSubmitting, isValid}} =
     useForm<ContactValues>({resolver: zodResolver(schema), mode: 'onChange'});
+
+  const submitRef = useMagnetic<HTMLButtonElement>();
 
   async function onSubmit(values: ContactValues) {
     if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
@@ -115,7 +118,7 @@ export function Contact() {
               <Textarea id="message" rows={5} placeholder={t('messagePlaceholder')} {...register('message')} />
               {errors.message && <p className="text-xs text-destructive">{errors.message.message}</p>}
             </div>
-            <Button type="submit" disabled={isSubmitting || !isValid} className="w-fit">
+            <Button ref={submitRef} type="submit" disabled={isSubmitting || !isValid} className="w-fit">
               {isSubmitting ? t('submitting') : t('submit')}
             </Button>
           </form>

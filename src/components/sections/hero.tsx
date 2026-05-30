@@ -5,6 +5,7 @@ import Image from 'next/image';
 import {useTranslations} from 'next-intl';
 import {MapPin, ArrowRight} from 'lucide-react';
 import {gsap, SplitText, useGSAP} from '@/lib/gsap';
+import {useMagnetic} from '@/lib/animation/use-magnetic';
 import {Button} from '@/components/ui/button';
 import {Badge} from '@/components/ui/badge';
 import {DownloadResumeButton} from '@/components/common/download-resume-button';
@@ -14,6 +15,8 @@ import me from '@/assets/me.png';
 export function Hero() {
   const t = useTranslations('hero');
   const ref = useRef<HTMLDivElement>(null);
+  const contactCtaRef = useMagnetic<HTMLAnchorElement>();
+  const resumeCtaRef = useMagnetic<HTMLAnchorElement>();
 
   useGSAP(
     () => {
@@ -60,11 +63,11 @@ export function Hero() {
           </div>
           <div className="hero-fade mt-7 flex flex-wrap gap-3">
             <Button asChild size="lg">
-              <a href={`#${SECTION_IDS.contact}`}>
+              <a ref={contactCtaRef} href={`#${SECTION_IDS.contact}`}>
                 {t('ctaContact')} <ArrowRight strokeWidth={1.75} />
               </a>
             </Button>
-            <DownloadResumeButton />
+            <DownloadResumeButton anchorRef={resumeCtaRef} />
           </div>
         </div>
 
