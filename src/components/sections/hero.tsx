@@ -65,7 +65,7 @@ export function Hero() {
         </div>
 
         <div className="hero-portrait relative mx-auto w-full max-w-xs">
-          <div className="overflow-hidden rounded-2xl border border-border">
+          <div className="overflow-hidden rounded-2xl border border-border ring-1 ring-primary/25 shadow-[0_0_60px_-15px_var(--color-primary)]">
             <Image
               src={me}
               alt="Teoman Kirma"
