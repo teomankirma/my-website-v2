@@ -33,6 +33,22 @@ export function Header() {
     return () => st.kill();
   });
 
+  const [activeId, setActiveId] = useState<string>(SECTION_IDS.home);
+
+  useGSAP(() => {
+    const triggers = NAV.map((item) =>
+      ScrollTrigger.create({
+        trigger: `#${item.id}`,
+        start: 'top center',
+        end: 'bottom center',
+        onToggle: (self) => {
+          if (self.isActive) setActiveId(item.id);
+        },
+      }),
+    );
+    return () => triggers.forEach((t) => t.kill());
+  });
+
   return (
     <header ref={headerRef} className="sticky top-0 z-50 border-b border-border/0 bg-background/70 backdrop-blur-md transition-colors data-[scrolled=true]:border-border">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 md:px-8">
@@ -45,7 +61,8 @@ export function Header() {
             <a
               key={item.id}
               href={`#${item.id}`}
-              className="rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+              data-active={activeId === item.id}
+              className="relative px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground data-[active=true]:text-foreground after:pointer-events-none after:absolute after:bottom-1 after:left-3 after:right-3 after:h-px after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 hover:after:scale-x-100 data-[active=true]:after:scale-x-100"
             >
               {t(`menu.${item.key}`)}
             </a>
