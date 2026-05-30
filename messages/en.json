@@ -151,6 +151,7 @@
   },
   "a11y": {
     "openMenu": "Open menu",
-    "changeLanguage": "Change language"
+    "changeLanguage": "Change language",
+    "siteNavigation": "Site navigation"
   }
 }

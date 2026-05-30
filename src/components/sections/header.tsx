@@ -5,7 +5,7 @@ import {useTranslations} from 'next-intl';
 import {Menu} from 'lucide-react';
 import {ScrollTrigger, useGSAP} from '@/lib/gsap';
 import {Button} from '@/components/ui/button';
-import {Sheet, SheetContent, SheetTrigger, SheetTitle} from '@/components/ui/sheet';
+import {Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription} from '@/components/ui/sheet';
 import {ThemeSwitcher} from '@/components/common/theme-switcher';
 import {LanguageSwitcher} from '@/components/common/language-switcher';
 import {SECTION_IDS} from '@/lib/site';
@@ -62,14 +62,19 @@ export function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-64">
-              <SheetTitle className="font-mono text-primary">{t('name')}</SheetTitle>
-              <nav className="mt-6 flex flex-col gap-1">
+              <SheetTitle className="font-mono text-sm font-semibold text-primary">
+                <span className="text-primary">●</span> {t('name')}
+              </SheetTitle>
+              <SheetDescription className="sr-only">
+                {ta11y('siteNavigation')}
+              </SheetDescription>
+              <nav className="mt-2 flex flex-col gap-0.5">
                 {NAV.map((item) => (
                   <a
                     key={item.id}
                     href={`#${item.id}`}
                     onClick={() => setOpen(false)}
-                    className="rounded-md px-3 py-2 text-base text-muted-foreground hover:bg-accent hover:text-foreground"
+                    className="rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
                   >
                     {t(`menu.${item.key}`)}
                   </a>

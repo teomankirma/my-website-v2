@@ -151,6 +151,7 @@
   },
   "a11y": {
     "openMenu": "Menüyü aç",
-    "changeLanguage": "Dili değiştir"
+    "changeLanguage": "Dili değiştir",
+    "siteNavigation": "Site navigasyonu"
   }
 }
