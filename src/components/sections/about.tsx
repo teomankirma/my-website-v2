@@ -4,6 +4,7 @@ import {SectionHeader} from '@/components/common/section-header';
 import {Reveal} from '@/components/common/reveal';
 import {DownloadResumeButton} from '@/components/common/download-resume-button';
 import {SECTION_IDS, EMAIL, AGE, EXPERIENCE_YEARS} from '@/lib/site';
+import {Counter} from '@/components/common/counter';
 
 export function About() {
   const t = useTranslations('about');
@@ -41,11 +42,15 @@ export function About() {
           </dl>
           <div className="mt-8 flex gap-10">
             <div>
-              <div className="font-mono text-3xl font-bold text-primary">{EXPERIENCE_YEARS}+</div>
+              <div className="font-mono text-3xl font-bold text-primary">
+                <Counter value={EXPERIENCE_YEARS} suffix="+" />
+              </div>
               <div className="mt-1 text-xs text-muted-foreground">{t('stats.experienceText')}</div>
             </div>
             <div className="border-l border-border pl-10">
-              <div className="font-mono text-3xl font-bold text-primary">{t('stats.projectsNumber')}+</div>
+              <div className="font-mono text-3xl font-bold text-primary">
+                <Counter value={Number(t('stats.projectsNumber'))} suffix="+" />
+              </div>
               <div className="mt-1 text-xs text-muted-foreground">{t('stats.projectsLabel')}</div>
             </div>
           </div>
