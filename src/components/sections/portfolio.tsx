@@ -93,7 +93,7 @@ export function Portfolio() {
               </button>
             </DialogTrigger>
 
-            <DialogContent className="max-w-2xl">
+            <DialogContent className="w-[92vw] sm:max-w-3xl md:max-w-4xl max-h-[90vh] overflow-y-auto sm:p-6">
               <div className="overflow-hidden rounded-lg border border-border">
                 <Image src={p.image} alt={p.title} placeholder="blur" className="h-auto w-full object-cover" />
               </div>
