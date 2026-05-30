@@ -105,6 +105,12 @@
         "industry": "Infrastructure / Developer Tools",
         "date": "February 24, 2026",
         "linkLabel": "Visit website"
+      },
+      "cirkle": {
+        "description": "A community marketplace platform where people spin up focused marketplaces for their apartment, university, company, or neighborhood. Features AI-assisted listing creation from a photo or product URL. No commissions, no middleman.",
+        "industry": "Community Marketplace",
+        "date": "May 9, 2026",
+        "linkLabel": "Visit website"
       }
     }
   },

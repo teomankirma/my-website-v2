@@ -105,6 +105,12 @@
         "industry": "Altyapı / Developer Tools",
         "date": "24 Şubat 2026",
         "linkLabel": "Web sitesini görüntüle"
+      },
+      "cirkle": {
+        "description": "İnsanların kendi apartmanı, üniversitesi, şirketi veya mahallesi için odaklı pazaryerleri oluşturabildiği bir topluluk pazaryeri platformu. Fotoğraftan veya ürün bağlantısından yapay zeka destekli ilan oluşturma sunar. Komisyon yok, aracı yok.",
+        "industry": "Topluluk Pazaryeri",
+        "date": "9 Mayıs 2026",
+        "linkLabel": "Web sitesini görüntüle"
       }
     }
   },
