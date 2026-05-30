@@ -28,8 +28,7 @@ export function SectionHeader({
           scrollTrigger: {
             trigger: el,
             start: 'top 85%',
-            end: 'bottom 30%',
-            toggleActions: 'restart none restart none',
+            once: true,
           },
         });
         return () => split.revert();

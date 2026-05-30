@@ -45,8 +45,7 @@ export function Reveal({
           scrollTrigger: {
               trigger: ref.current!,
               start: 'top 80%',
-              end: 'bottom 20%',
-              toggleActions: 'restart none restart none',
+              once: true,
             },
         });
       });
