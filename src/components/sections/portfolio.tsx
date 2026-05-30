@@ -5,6 +5,7 @@ import Image from 'next/image';
 import {useTranslations} from 'next-intl';
 import {ExternalLink} from 'lucide-react';
 import {gsap, useGSAP} from '@/lib/gsap';
+import {useTilt} from '@/lib/animation/use-tilt';
 import {
   Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription,
 } from '@/components/ui/dialog';
@@ -61,30 +62,30 @@ export function Portfolio() {
         {PROJECTS.map((p) => (
           <Dialog key={p.key}>
             <DialogTrigger asChild>
-              <button
-                className="group w-[80vw] max-w-sm shrink-0 snap-start overflow-hidden rounded-xl border border-border bg-card text-left transition-all hover:-translate-y-1 hover:border-primary/60 md:w-[22rem]"
-              >
-                <div className="aspect-[16/10] overflow-hidden">
-                  <Image
-                    src={p.image}
-                    alt={p.title}
-                    placeholder="blur"
-                    className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-5">
-                  <h3 className="font-semibold">{p.title}</h3>
-                  <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">
-                    {t(`items.${p.key}.description`)}
-                  </p>
-                  <div className="mt-3 flex flex-wrap gap-1.5">
-                    {p.technologies.split(',').slice(0, 3).map((tech) => (
-                      <Badge key={tech} variant="secondary" className="font-mono text-[11px]">
-                        {tech.trim()}
-                      </Badge>
-                    ))}
+              <button className="group block w-[80vw] max-w-sm shrink-0 snap-start text-left md:w-[22rem]">
+                <TiltInner>
+                  <div className="aspect-[16/10] overflow-hidden">
+                    <Image
+                      src={p.image}
+                      alt={p.title}
+                      placeholder="blur"
+                      className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
                   </div>
-                </div>
+                  <div className="p-5">
+                    <h3 className="font-semibold">{p.title}</h3>
+                    <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">
+                      {t(`items.${p.key}.description`)}
+                    </p>
+                    <div className="mt-3 flex flex-wrap gap-1.5">
+                      {p.technologies.split(',').slice(0, 3).map((tech) => (
+                        <Badge key={tech} variant="secondary" className="font-mono text-[11px]">
+                          {tech.trim()}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                </TiltInner>
               </button>
             </DialogTrigger>
 
@@ -111,6 +112,18 @@ export function Portfolio() {
         ))}
       </div>
     </section>
+  );
+}
+
+function TiltInner({children}: {children: React.ReactNode}) {
+  const ref = useTilt<HTMLDivElement>({max: 6});
+  return (
+    <div
+      ref={ref}
+      className="overflow-hidden rounded-xl border border-border bg-card transition-[border-color,box-shadow] duration-300 group-hover:border-primary/60"
+    >
+      {children}
+    </div>
   );
 }
 
