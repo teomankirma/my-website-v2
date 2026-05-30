@@ -28,6 +28,7 @@
     "bodyB": "I enjoy building systems end-to-end, from UI to infrastructure, with a strong focus on performance, maintainability, and clean architecture.",
     "facts": {
       "nameLabel": "Name",
+      "name": "Teoman Kirma",
       "emailLabel": "Email",
       "ageLabel": "Age",
       "fromLabel": "From",

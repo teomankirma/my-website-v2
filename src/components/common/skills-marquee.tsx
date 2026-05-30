@@ -30,6 +30,7 @@ export function SkillsMarquee() {
       onMouseLeave={() => tween.current?.resume()}
     >
       <div className="marquee-track flex w-max gap-3">
+        {/* Skill names render as text labels, so no per-skill Tooltip (spec §9.4 deviation, intentional). */}
         {items.map((skill, i) => (
           <span
             key={`${skill}-${i}`}

@@ -28,6 +28,7 @@
     "bodyB": "UI'dan altyapıya kadar sistemleri uçtan uca geliştirmeyi seviyorum; performans, sürdürülebilirlik ve clean architecture prensiplerini ön planda tutuyorum.",
     "facts": {
       "nameLabel": "İsim",
+      "name": "Teoman Kırma",
       "emailLabel": "E-posta",
       "ageLabel": "Yaş",
       "fromLabel": "Konum",

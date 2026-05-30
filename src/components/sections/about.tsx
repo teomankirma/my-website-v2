@@ -9,7 +9,7 @@ export function About() {
   const t = useTranslations('about');
 
   const facts = [
-    {label: t('facts.nameLabel'), value: 'Teoman Kirma'},
+    {label: t('facts.nameLabel'), value: t('facts.name')},
     {label: t('facts.fromLabel'), value: t('facts.from')},
     {label: t('facts.ageLabel'), value: String(AGE)},
     {label: t('facts.emailLabel'), value: EMAIL},
