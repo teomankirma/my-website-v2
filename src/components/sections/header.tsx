@@ -3,7 +3,6 @@
 import {useState} from 'react';
 import {useTranslations} from 'next-intl';
 import {Menu} from 'lucide-react';
-import {Link} from '@/i18n/navigation';
 import {Button} from '@/components/ui/button';
 import {Sheet, SheetContent, SheetTrigger, SheetTitle} from '@/components/ui/sheet';
 import {ThemeSwitcher} from '@/components/common/theme-switcher';
