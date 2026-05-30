@@ -31,17 +31,21 @@ export function Reveal({
 
   useGSAP(
     () => {
-      const targets = stagger
-        ? gsap.utils.toArray<HTMLElement>(ref.current!.children)
-        : ref.current!;
-      gsap.from(targets, {
-        ...FROM[variant],
-        duration: 0.7,
-        delay,
-        ease: 'power3.out',
-        stagger: stagger ?? 0,
-        scrollTrigger: {trigger: ref.current!, start: 'top 80%', once: true},
+      const mm = gsap.matchMedia();
+      mm.add('(prefers-reduced-motion: no-preference)', () => {
+        const targets = stagger
+          ? gsap.utils.toArray<HTMLElement>(ref.current!.children)
+          : ref.current!;
+        gsap.from(targets, {
+          ...FROM[variant],
+          duration: 0.7,
+          delay,
+          ease: 'power3.out',
+          stagger: stagger ?? 0,
+          scrollTrigger: {trigger: ref.current!, start: 'top 80%', once: true},
+        });
       });
+      return () => mm.revert();
     },
     {scope: ref},
   );

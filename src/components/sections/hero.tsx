@@ -17,13 +17,17 @@ export function Hero() {
 
   useGSAP(
     () => {
-      const split = new SplitText('.hero-name', {type: 'chars'});
-      const tl = gsap.timeline({defaults: {ease: 'power3.out'}});
-      tl.from(split.chars, {yPercent: 110, opacity: 0, duration: 0.8, stagger: 0.025})
-        .from('.hero-eyebrow', {opacity: 0, y: 10, duration: 0.5}, 0.1)
-        .from('.hero-fade', {opacity: 0, y: 16, duration: 0.6, stagger: 0.08}, 0.4)
-        .from('.hero-portrait', {opacity: 0, scale: 0.94, duration: 0.8}, 0.2);
-      return () => split.revert();
+      const mm = gsap.matchMedia();
+      mm.add('(prefers-reduced-motion: no-preference)', () => {
+        const split = new SplitText('.hero-name', {type: 'chars'});
+        const tl = gsap.timeline({defaults: {ease: 'power3.out'}});
+        tl.from(split.chars, {yPercent: 110, opacity: 0, duration: 0.8, stagger: 0.025})
+          .from('.hero-eyebrow', {opacity: 0, y: 10, duration: 0.5}, 0.1)
+          .from('.hero-fade', {opacity: 0, y: 16, duration: 0.6, stagger: 0.08}, 0.4)
+          .from('.hero-portrait', {opacity: 0, scale: 0.94, duration: 0.8}, 0.2);
+        return () => split.revert();
+      });
+      return () => mm.revert();
     },
     {scope: ref},
   );

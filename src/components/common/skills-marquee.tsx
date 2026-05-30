@@ -10,12 +10,13 @@ export function SkillsMarquee() {
 
   useGSAP(
     () => {
-      tween.current = gsap.to('.marquee-track', {
-        xPercent: -50,
-        ease: 'none',
-        duration: 22,
-        repeat: -1,
+      const mm = gsap.matchMedia();
+      mm.add('(prefers-reduced-motion: no-preference)', () => {
+        tween.current = gsap.to('.marquee-track', {
+          xPercent: -50, ease: 'none', duration: 22, repeat: -1,
+        });
       });
+      return () => mm.revert();
     },
     {scope: ref},
   );
