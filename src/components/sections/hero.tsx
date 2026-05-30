@@ -36,15 +36,15 @@ export function Hero() {
     <section
       id={SECTION_IDS.home}
       ref={ref}
-      className="relative flex min-h-[100dvh] items-center overflow-hidden pt-16"
+      className="relative flex min-h-[100dvh] items-center overflow-hidden pt-16 pb-12"
     >
-      <div className="dot-grid pointer-events-none absolute inset-0 text-foreground/[0.06]" />
+      <div className="dot-grid pointer-events-none absolute inset-0 text-foreground/[0.12]" />
       <div className="pointer-events-none absolute left-1/4 top-1/3 size-[36rem] -translate-x-1/2 rounded-full bg-primary/15 blur-[120px]" />
 
-      <div className="mx-auto grid w-full max-w-6xl items-center gap-12 px-5 md:px-8 lg:grid-cols-[1.4fr_1fr]">
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-12 px-5 md:px-8 lg:grid-cols-[1.2fr_1fr]">
         <div>
           <p className="hero-eyebrow mb-5 font-mono text-sm text-primary">{t('prompt')}</p>
-          <h1 className="hero-name overflow-hidden text-5xl font-bold leading-[0.95] tracking-tighter md:text-7xl">
+          <h1 className="hero-name overflow-hidden text-5xl font-bold leading-[0.95] tracking-tighter md:text-7xl lg:text-8xl">
             {t('name')}
           </h1>
           <p className="hero-fade mt-4 font-mono text-lg text-muted-foreground md:text-xl">
@@ -68,7 +68,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="hero-portrait relative mx-auto w-full max-w-xs">
+        <div className="hero-portrait relative mx-auto w-full max-w-sm md:max-w-md">
           <div className="overflow-hidden rounded-2xl border border-border ring-1 ring-primary/25 shadow-[0_0_60px_-15px_var(--color-primary)]">
             <Image
               src={me}

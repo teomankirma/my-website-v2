@@ -69,7 +69,7 @@ export function Contact() {
   return (
     <Section id={SECTION_IDS.contact}>
       <SectionHeader title={t('heading')} />
-      <div className="grid gap-12 md:grid-cols-2">
+      <div className="grid gap-12 md:grid-cols-2 md:items-start">
         <Reveal variant="slideRight">
           <p className="max-w-[42ch] text-muted-foreground">{t('pitch')}</p>
           <a
@@ -98,7 +98,7 @@ export function Contact() {
           <form
             id="contact-form"
             onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col gap-4"
+            className="flex flex-col gap-5"
             noValidate
           >
             <div className="flex flex-col gap-2">
