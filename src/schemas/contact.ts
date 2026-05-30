@@ -15,7 +15,7 @@ export function makeContactSchema(m: ContactMessages) {
     email: z
       .string({error: m.email_required})
       .min(1, m.email_required)
-      .email(m.email_invalid)
+      .email({error: m.email_invalid})
       .max(254, m.email_max),
     message: z
       .string({error: m.message_required})

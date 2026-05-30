@@ -4,7 +4,7 @@ import {useRef} from 'react';
 import Image from 'next/image';
 import {useTranslations} from 'next-intl';
 import {ExternalLink} from 'lucide-react';
-import {gsap, ScrollTrigger, useGSAP} from '@/lib/gsap';
+import {gsap, useGSAP} from '@/lib/gsap';
 import {
   Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription,
 } from '@/components/ui/dialog';
@@ -13,9 +13,6 @@ import {Button} from '@/components/ui/button';
 import {SectionHeader} from '@/components/common/section-header';
 import {PROJECTS} from '@/lib/projects';
 import {SECTION_IDS} from '@/lib/site';
-
-// ScrollTrigger is used via gsap.matchMedia inside useGSAP; imported to ensure registration
-void ScrollTrigger;
 
 export function Portfolio() {
   const t = useTranslations('portfolio');
