@@ -44,7 +44,7 @@ export function Hero() {
       <div className="mx-auto grid w-full max-w-6xl items-center gap-12 px-5 md:px-8 lg:grid-cols-[1.2fr_1fr]">
         <div>
           <p className="hero-eyebrow mb-5 font-mono text-sm text-primary">{t('prompt')}</p>
-          <h1 className="hero-name overflow-hidden text-5xl font-bold leading-[0.95] tracking-tighter md:text-7xl lg:text-8xl">
+          <h1 className="hero-name overflow-hidden text-5xl font-bold leading-[0.95] tracking-tighter text-balance md:text-7xl">
             {t('name')}
           </h1>
           <p className="hero-fade mt-4 font-mono text-lg text-muted-foreground md:text-xl">
