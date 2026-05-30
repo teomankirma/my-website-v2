@@ -26,15 +26,19 @@ export function Portfolio() {
       mm.add(
         '(min-width: 768px) and (prefers-reduced-motion: no-preference)',
         () => {
-          const distance = track.current!.scrollWidth - window.innerWidth;
-          if (distance <= 0) return;
+          // Use clientWidth (excludes the scrollbar) so the pan reaches the
+          // edge correctly even with always-visible scrollbars. Function-based
+          // values recompute on refresh/resize via invalidateOnRefresh.
+          const getDistance = () =>
+            track.current!.scrollWidth - document.documentElement.clientWidth;
+          if (getDistance() <= 0) return;
           gsap.to(track.current, {
-            x: -distance,
+            x: () => -getDistance(),
             ease: 'none',
             scrollTrigger: {
               trigger: wrap.current,
               start: 'top top',
-              end: () => `+=${distance}`,
+              end: () => `+=${getDistance()}`,
               pin: true,
               scrub: 1,
               invalidateOnRefresh: true,
