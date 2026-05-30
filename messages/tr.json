@@ -17,7 +17,7 @@
     "prompt": "~/teoman",
     "name": "Teoman Kırma",
     "role": "Fullstack Developer",
-    "tagline": "Performanslı arayüzler ve güvenilir backend'ler geliştiriyorum, uçtan uca.",
+    "tagline": "Uçtan uca performanslı arayüzler ve güvenilir backend'ler geliştiriyorum.",
     "location": "İzmir, Türkiye",
     "ctaContact": "İletişime geç"
   },
@@ -110,7 +110,7 @@
   },
   "contact": {
     "heading": "İletişim",
-    "pitch": "Aklında bir proje mi var ya da sadece merhaba mı demek istiyorsun? Bana bir not gönder.",
+    "pitch": "Aklınızda bir proje mi var ya da sadece merhaba mı demek istiyorsunuz? Bana bir not gönderin.",
     "followMe": "Beni takip edin",
     "nameLabel": "İsminiz",
     "emailLabel": "E-posta",

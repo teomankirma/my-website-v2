@@ -45,8 +45,8 @@ export function Contact() {
     message_required: tv('message_required'), message_min: tv('message_min'), message_max: tv('message_max'),
   });
 
-  const {register, handleSubmit, reset, formState: {errors, isSubmitting}} =
-    useForm<ContactValues>({resolver: zodResolver(schema)});
+  const {register, handleSubmit, reset, formState: {errors, isSubmitting, isValid}} =
+    useForm<ContactValues>({resolver: zodResolver(schema), mode: 'onChange'});
 
   async function onSubmit(values: ContactValues) {
     if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
@@ -116,7 +116,7 @@ export function Contact() {
               <Textarea id="message" rows={5} placeholder={t('messagePlaceholder')} {...register('message')} />
               {errors.message && <p className="text-xs text-destructive">{errors.message.message}</p>}
             </div>
-            <Button type="submit" disabled={isSubmitting} className="w-fit">
+            <Button type="submit" disabled={isSubmitting || !isValid} className="w-fit">
               {isSubmitting ? t('submitting') : t('submit')}
             </Button>
           </form>
