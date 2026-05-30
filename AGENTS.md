@@ -1,85 +1,129 @@
 # Repository Guidelines
 
-## Project Structure & Module Organization
-- Source: `src/` with `components/` (UI, PascalCase, `.tsx`), `hooks/` (state/util, `.ts`), `types/` (shared types), `i18n/` (translations), `schemas/` (Zod validation schemas), `utils/` (helpers), `assets/`, and global styles in `src/index.css`.
-- Entry: `index.html` -> `src/main.tsx` -> `src/App.tsx`.
-- Aliases: Import from `@/` (see `vite.config.ts` and `tsconfig.app.json`). Barrel exports in `src/components/index.ts` and `src/components/common/index.ts`.
-- UI/Theme: HeroUI via `HeroUIProvider` in `main.tsx`; TailwindCSS v4 configured in `src/index.css` with `@plugin '../hero.ts'` and custom dark variant.
-- Components present: `Header`, `Home`, `KnowMeMore`, `Resume`, `Portfolio`, `Testimonial`, `ContactMe`, `Footer`.
-- Common components: `SectionHeader`, `ThemeSwitcher`, `LanguageSwitcher`, `DownloadResumeButton`, `SkillLogo`, `PageSection`, `PortfolioCard`.
-- Animations: `src/components/common/Animations.tsx` provides reusable Motion primitives, while variants live in `src/components/common/animationVariants.ts` (kept separate so Fast Refresh sees a component-only module):
-  - `Stagger` (container with staggered children), `Item` (child reveal), `Reveal` (single-element reveal), `Hover` (lift/scale for interactive elements).
-  - Variants available: `fadeInUp`, `fadeIn`, `slideInLeft`, `slideInRight`, `zoomIn`.
-  
+## Project Overview
 
-## App Summary
-- Purpose: Personal portfolio site for Teoman Kirma (EN/TR).
-- Features: Responsive navbar with menu toggle, theme switcher (light/dark/system with initial OS preference detection), language switcher (English/Turkish), hero section with avatar and typewriter intro, in‑page section anchors.
-- Animations: Sections use Motion scroll‑reveal (Stagger/Item/Reveal). Interactive elements use `Hover` for subtle lift/scale. Testimonial has an initial `zoomIn` reveal only (no per‑slide animation).
-- State: Centralized via Zustand (`useAppStore`) with `language`, `isMenuOpen`, and `email`; devtools name `app-store`.
-- i18n: Translations defined in `src/i18n/index.ts` typed by `src/types`. Keys are grouped by page/section for consistency:
-  - Root: `name`, `menuItems`
-  - `home`: `welcome`, `typewriter[]`, `location`, `hireMe`
-  - `about`: `knowMeMore`, `whoAmIA`, `whoAmIB`, `aboutMe`, `myExperiences`
-  - `profile`: `nameLabel`, `emailLabel`, `ageLabel`, `age`, `fromLabel`, `from`, `downloadResume`
-  - `stats`: `experienceYear`, `experienceText`, `projectsNumber`, `projectsLabel`
-  - `resume`: `eduTitle`, `expTitle`, `schoolName`, `degree`, `gpaLabel`, `expRole`, `expDates`, `expLocation`
-  - `portfolio`: `subtitle`, `cardLabels` (`projectInfo`, `projectDetails`, `link`, `technologies`, `industry`, `date`), `items[]`
-  - `testimonial`: `items[]`
-  - `footer`: `footerCopyright`, `copyrightLabel`
-  - `contact`: UI texts (`title`, `followMe`, `sendMeANote`, `yourNameLabel`, `messageLabel`, `messagePlaceholder`, `sendMessageButton`, `toast.*`) and `contactValidation` messages
-  - Shared i18n: `email`, `eduYears`, `companyName`, `gpa`, tech labels, and `socialLinks` (`x`, `github`, `linkedin`).
-  - Contact UI texts under `contact`: `title`, `followMe`, `sendMeANote`, `yourNameLabel`, `messageLabel`, `messagePlaceholder`, `sendMessageButton`, and `toast` (`notConfiguredTitle`, `notConfiguredDescription`, `successTitle`, `successDescription`, `failedTitle`, `failedDescription`).
-  - Shared i18n now includes `socialLinks` (`x`, `github`, `linkedin`).
-- Utilities: `toSectionHref(label)` in `src/utils` slugifies labels and transliterates Turkish characters for anchor links.
-  - Section IDs use `toSectionHref(menuItems[i]).slice(1)` to keep anchors consistent with navbar labels (e.g., in `KnowMeMore`, `Resume`).
-  - Use `PageSection` to standardize section wrappers (id + spacing), passing the `menuIndex` and optional `header`.
-  - Validation Schemas: Contact form schema in `src/schemas/index.ts` via Zod; localized with `i18n`.
-  - Link styling: email links use a sliding underline on hover/focus; social icons lift/scale subtly on hover.
+Personal portfolio for Teoman Kirma. Next.js 16 App Router, React 19, TypeScript strict, Tailwind v4, shadcn/ui, GSAP, next-intl (EN/TR), next-themes, sonner, Geist fonts, EmailJS.
 
-## Build, Test, and Development Commands
-- `npm run dev`: Start Vite dev server with HMR.
-- `npm run build`: Type-check (`tsc -b`) then build for production with Vite.
-- `npm run preview`: Preview the production build locally.
-- `npm run lint`: Run ESLint across the repo.
-- Node: Use the version in `.nvmrc` (currently `v22`, e.g., `nvm use`).
+**Branch:** All feature work happens on `redesign/dark-technical`. Do NOT merge to `main` without explicit user approval.
 
-## Coding Style & Naming Conventions
-- Language: TypeScript (strict) + React 19 + Vite.
-- Linting: ESLint (`eslint.config.js`) with `@eslint/js`, `typescript-eslint`, React Hooks, and Refresh plugins. Fix violations before committing.
-- Components: PascalCase file and export names (e.g., `Header.tsx`). Hooks in `hooks/` use `useX` camelCase (e.g., `useAppStore`).
-- Imports: Prefer `@/path` alias over relative deep paths.
-- Styling: TailwindCSS utilities; keep component styles co-located.
-- Theming: `@heroui/use-theme` powers theme switching UI; Tailwind v4 + HeroUI plugin in `hero.ts`.
-- Motion usage: prefer `Stagger` + `Item` for lists/grids; `Reveal` for single blocks; `Hover` for buttons, links, and cards. Keep animations subtle and performant (`viewport={{ once: true, amount: 0.2 }}`).
+## Project Structure
 
-## Testing Guidelines
-- No test framework is configured. If adding tests, prefer Vitest + React Testing Library. Place unit tests beside code as `*.test.ts(x)` and aim for meaningful coverage on hooks and components.
+```
+├── messages/               # i18n strings - en.json and tr.json
+├── public/                 # Static assets (resume.pdf, favicon.png)
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx               # Root passthrough (no <html> tag)
+│   │   └── [locale]/
+│   │       ├── layout.tsx           # Locale layout - owns <html lang>, Geist, Providers, Toaster
+│   │       ├── page.tsx             # Full page assembly (all 6 sections)
+│   │       └── opengraph-image.tsx  # Edge OG image 1200x630
+│   ├── components/
+│   │   ├── ui/              # shadcn/ui primitives (auto-generated, do not hand-edit)
+│   │   ├── common/          # Shared: Reveal, SkillsMarquee, Section, SectionHeader,
+│   │   │                    #         ThemeSwitcher, LanguageSwitcher, DownloadResumeButton
+│   │   ├── sections/        # Header, Hero, About, Resume, Portfolio, Contact, Footer
+│   │   └── providers.tsx    # ThemeProvider (next-themes)
+│   ├── i18n/
+│   │   ├── routing.ts       # Locales: ['en', 'tr'], default: 'en'
+│   │   ├── request.ts       # getRequestConfig
+│   │   └── navigation.ts    # createNavigation (Link, useRouter, usePathname, etc.)
+│   ├── lib/
+│   │   ├── gsap.ts          # Register ScrollTrigger + SplitText + useGSAP once
+│   │   ├── site.ts          # Locale-neutral constants (EMAIL, SKILLS, SOCIAL_LINKS, AGE, etc.)
+│   │   ├── projects.ts      # PROJECTS array
+│   │   └── utils.ts         # cn()
+│   ├── schemas/
+│   │   └── contact.ts       # makeContactSchema (zod v4), ContactValues, ContactMessages
+│   ├── styles/
+│   │   └── globals.css      # @import "tailwindcss" + CSS tokens (dark default, emerald)
+│   └── proxy.ts             # next-intl middleware (Next.js 16 convention - do NOT rename)
+```
 
-## Commit & Pull Request Guidelines
-- Commits: Follow Conventional Commits (e.g., `feat: add ThemeSwitcher`, `fix: address navbar overflow`). Keep changes focused.
-- PRs: Provide a concise description, screenshots for UI changes, steps to verify locally, and link related issues. Ensure `npm run lint` and `npm run build` pass.
+## Key Conventions
 
-## Security & Configuration Tips
-- Do not hardcode secrets (e.g., external API keys). The Font Awesome kit in `index.html` is client-only and safe to expose.
-- When adding new files, ensure Tailwind `@source` globs in `src/index.css` cover them.
-- Persist state carefully: the Zustand store uses devtools under the name `app-store`.
-- EmailJS: configure keys via Vite env vars `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, and `VITE_EMAILJS_PUBLIC_KEY` (place them in `.env.local`). See `.env.example` for placeholders.
-- Google Analytics: optional `VITE_GA_MEASUREMENT_ID` loads GA via `initGoogleAnalytics` in `src/utils/googleAnalytics.ts`; leave unset locally.
+### Routing & i18n
+- Locale prefix required: all pages are under `/[locale]`.
+- `src/proxy.ts` is the middleware file (Next.js 16). Do not rename to `middleware.ts`.
+- All human-readable strings belong in `messages/en.json` and `messages/tr.json`. Locale-neutral data (URLs, tech strings, computed values) belongs in `src/lib/`.
+- Use `setRequestLocale(locale)` in Server Components; `useTranslations()` in Client Components.
 
-## Tech Stack
-- React 19, Vite 7, TypeScript 5.8 (strict), TailwindCSS 4, HeroUI 2.
-- Additional libs: Zustand 5 (state), `@heroui/use-theme` (theme), Luxon (date math), `react-simple-typewriter` (typewriter), Framer Motion (available for animations).
+### Components
+- All components that use GSAP, hooks, event handlers, or browser APIs must be `'use client'`.
+- Server Components: page.tsx, layout.tsx, About, Resume, Footer (no interactivity needed).
+- GSAP animations: always inside `useGSAP(() => { ... }, {scope: ref})` from `@gsap/react`.
+- Reduced motion: wrap ALL `gsap.from/to/timeline` calls in `gsap.matchMedia('(prefers-reduced-motion: no-preference)', ...)`.
+- Import GSAP from `@/lib/gsap` (not directly from `gsap`) to ensure plugins are registered.
 
-## Notes & Conventions
-- Sections and anchors: use `toSectionHref` to generate stable IDs from menu labels (handles Turkish diacritics).
-- Assets: import via `@/assets/...` for bundling; example `me.png` used in `Home`.
-- Dist output: built files output to `dist/` via Vite.
-- Header brand: site name in `Header` is clickable; clicking scrolls smoothly to top.
-- Testimonial: arrow buttons are inset on mobile; slide container uses side padding to avoid touching the card.
-- Contact form textarea uses HeroUI's `disableAutosize` to avoid rendering hidden measurement nodes; re-enable autosize only if truly needed.
+### Styling
+- Tailwind v4 - CSS token approach (no tailwind.config.js).
+- Tokens are in `src/styles/globals.css` under `:root` (light) and `.dark` (dark).
+- Single emerald accent: `--primary` and `--ring` are `oklch(0.72 0.19 150)` in dark mode.
+- shadcn/ui components live in `src/components/ui/`. Use `npx shadcn@latest add <component>` to add new ones.
+- `cn()` from `@/lib/utils` for conditional class merging.
 
-## Maintenance
-- Keep this AGENTS.md up to date when making significant changes (adding/removing/renaming top-level folders, modifying anchors/section IDs, adding store state keys, or introducing/removing i18n keys/components).
-- After major UI or structure changes, verify Tailwind `@source` globs in `src/index.css` still cover new files and that barrel exports remain in sync.
- - When adding animations to new components, prefer the existing primitives in `common/Animations.tsx` and re-export from `common/index.ts` if new patterns are introduced.
+### Forms & Validation
+- Contact form: react-hook-form + `zodResolver` + `makeContactSchema` from `@/schemas/contact`.
+- Zod v4 idiom: use `{error: message}` param (not positional string) to avoid deprecation warnings.
+- EmailJS field names (`name`, `email`, `message`) match the registered EmailJS template variables.
+
+### Icons
+- UI/functional icons: `lucide-react`.
+- Brand icons (GitHub, LinkedIn, X/Twitter, etc.): `@icons-pack/react-simple-icons`. Lucide does not include brand icons.
+- LinkedIn uses an inline SVG (no @icons-pack export available for all providers).
+
+### Assets
+- Project images: `src/assets/*.png/.jpeg` (imported with `next/image`).
+- Static files (PDF, favicon): `public/` directory.
+- Resume URL: `/resume.pdf` (set in `src/lib/site.ts` as `RESUME_URL`).
+
+## Verification Gates
+
+Run before every commit:
+```bash
+npx tsc --noEmit   # must be clean
+npm run lint        # must be clean (eslint .)
+npm run build       # must succeed
+```
+
+## Adding Content
+
+### New project
+1. Add image to `src/assets/`.
+2. Add entry to `PROJECTS` in `src/lib/projects.ts`.
+3. Add `items.<key>` to both `messages/en.json` and `messages/tr.json`.
+
+### New section
+1. Create `src/components/sections/<name>.tsx`.
+2. Add `id` to `SECTION_IDS` in `src/lib/site.ts`.
+3. Add translations to `messages/en.json` and `messages/tr.json`.
+4. Add nav entry in `src/components/sections/header.tsx` NAV array.
+5. Import + render in `src/app/[locale]/page.tsx`.
+
+### New i18n strings
+Always add to BOTH `messages/en.json` and `messages/tr.json` simultaneously.
+
+## Environment Variables
+
+| Key | Required | Description |
+| --- | --- | --- |
+| `NEXT_PUBLIC_EMAILJS_SERVICE_ID` | Yes (contact form) | EmailJS service ID |
+| `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID` | Yes (contact form) | EmailJS template ID |
+| `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY` | Yes (contact form) | EmailJS public key |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | No | Google Analytics 4 ID |
+
+Copy `.env.example` to `.env.local` and fill in values. Never commit secrets.
+
+## Dev Commands
+
+```bash
+npm run dev        # http://localhost:3000/en
+npm run build      # production build
+npm run start      # serve production build
+npm run lint       # eslint .
+npm run typecheck  # tsc --noEmit
+```
+
+## Deploy
+
+Vercel. Set `NEXT_PUBLIC_*` vars in Vercel project settings. Build command: `npm run build`.
