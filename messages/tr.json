@@ -1,0 +1,146 @@
+{
+  "metadata": {
+    "title": "Teoman Kırma • Fullstack Developer",
+    "description": "UI'dan altyapıya kadar scalable web uygulamaları ve distributed sistemler geliştiren fullstack developer. İzmir, Türkiye merkezli."
+  },
+  "header": {
+    "name": "Teoman Kırma",
+    "menu": {
+      "home": "Anasayfa",
+      "about": "Hakkımda",
+      "resume": "Özgeçmiş",
+      "portfolio": "Portföy",
+      "contact": "İletişim"
+    }
+  },
+  "hero": {
+    "prompt": "~/teoman",
+    "name": "Teoman Kırma",
+    "role": "Fullstack Developer",
+    "tagline": "Performanslı arayüzler ve güvenilir backend'ler geliştiriyorum, uçtan uca.",
+    "location": "İzmir, Türkiye",
+    "ctaContact": "İletişime geç",
+    "ctaResume": "CV indir"
+  },
+  "about": {
+    "heading": "Hakkımda",
+    "whoAmI": "Bir Full-Stack Developer'ım",
+    "bodyA": "Scalable web uygulamaları ve distributed sistemler geliştiren bir Full-Stack Developer'ım. Frontend tarafında React, Next.js ve TypeScript kullanarak performanslı ve erişilebilir kullanıcı arayüzleri geliştiriyorum. Backend tarafında ise Python ve Node.js ile API'lar tasarlayıp geliştiriyor, veritabanları, background job süreçleri ve sistem güvenilirliği konularında çalışıyorum.",
+    "bodyB": "UI'dan altyapıya kadar sistemleri uçtan uca geliştirmeyi seviyorum; performans, sürdürülebilirlik ve clean architecture prensiplerini ön planda tutuyorum.",
+    "facts": {
+      "nameLabel": "İsim",
+      "emailLabel": "E-posta",
+      "ageLabel": "Yaş",
+      "fromLabel": "Konum",
+      "from": "İzmir, Türkiye"
+    },
+    "stats": {
+      "experienceText": "Yıllık deneyim",
+      "projectsNumber": "40",
+      "projectsLabel": "Tamamlanan proje"
+    }
+  },
+  "resume": {
+    "heading": "Özgeçmiş",
+    "eduTitle": "Eğitim",
+    "expTitle": "Deneyim",
+    "schoolName": "Nişantaşı Üniversitesi",
+    "degree": "Yazılım Mühendisliği, Lisans",
+    "eduYears": "2020-2025",
+    "gpaLabel": "GNO",
+    "expRole": "Full-Stack Geliştirici",
+    "companyName": "BytesandPixels",
+    "expDates": "Mayıs 2023 - Günümüz",
+    "expLocation": "Los Angeles, CA, ABD · Uzaktan",
+    "skillsLabel": "Kullandığım teknolojiler"
+  },
+  "portfolio": {
+    "heading": "Portföy",
+    "subtitle": "Sergilemek istediğim seçilmiş projelerden bazıları.",
+    "labels": {
+      "technologies": "Teknolojiler",
+      "industry": "Sektör",
+      "date": "Tarih",
+      "link": "Bağlantı"
+    },
+    "items": {
+      "atm": {
+        "description": "Kayıt olup giriş yaparak para yatırıp çekebilir, başarılı girişten sonra şifrenizi değiştirebilirsiniz.",
+        "industry": "Finans",
+        "date": "12 Şubat 2022",
+        "linkLabel": "GitHub'da görüntüle"
+      },
+      "keeper": {
+        "description": "Yeni notlar oluşturabileceğiniz ve mevcut olanları silebileceğiniz bir web sitesi.",
+        "industry": "Üretkenlik",
+        "date": "26 Ocak 2023",
+        "linkLabel": "GitHub'da görüntüle"
+      },
+      "quizApp": {
+        "description": "Yapılandırılabilir oturumlar, Open Trivia DB soruları, kalıcı lider tablosu ve API Ninjas üzerinden motivasyon alıntıları sunan, Vite ile geliştirilmiş bir quiz deneyimi.",
+        "industry": "Eğitim Teknolojileri",
+        "date": "18 Mayıs 2024",
+        "linkLabel": "Web sitesini görüntüle"
+      },
+      "mongodbCrud": {
+        "description": "Onboarding, kayıtlı kart ve bilet fiyatlandırma için REST akışlarıyla bir tema parkı rezervasyon panelini çalıştıran minimal bir Express + MongoDB uygulaması.",
+        "industry": "Tema Parkı Biletleme",
+        "date": "20 Ağustos 2024",
+        "linkLabel": "GitHub'da görüntüle"
+      },
+      "teoAi": {
+        "description": "Next.js App Router üzerinde; animasyonlu hero anlatımı, vaka çalışmaları, entegrasyonlar ve yönetilebilir giriş hunisi sunan, Prismic tabanlı teo.ai pazarlama sitesi.",
+        "industry": "SaaS Pazarlama",
+        "date": "14 Nisan 2025",
+        "linkLabel": "Web sitesini görüntüle"
+      },
+      "productListing": {
+        "description": "Ürün fotoğraflarını yüklersiniz, yapay zeka analiz eder, sorular sorar ve fiyat önerileriyle satışa hazır ilanlar üretir; sohbet ederek detayları düzenlersiniz.",
+        "industry": "E-ticaret",
+        "date": "3 Eylül 2025",
+        "linkLabel": "Web sitesini görüntüle"
+      },
+      "jobFlow": {
+        "description": "Dağıtık bir background job sistemi: görevleri API ile kuyruğa alın ve gerçek zamanlı izleyin; retry, idempotency, rate limiting ve dead-letter queue desteğiyle.",
+        "industry": "Altyapı / Developer Tools",
+        "date": "24 Şubat 2026",
+        "linkLabel": "Web sitesini görüntüle"
+      }
+    }
+  },
+  "contact": {
+    "heading": "İletişim",
+    "pitch": "Aklında bir proje mi var ya da sadece merhaba mı demek istiyorsun? Bana bir not gönder.",
+    "followMe": "Beni takip edin",
+    "nameLabel": "İsminiz",
+    "emailLabel": "E-posta",
+    "messageLabel": "Mesaj",
+    "messagePlaceholder": "Mesajınızı buraya yazınız...",
+    "submit": "Mesaj gönder",
+    "submitting": "Gönderiliyor...",
+    "toast": {
+      "notConfiguredTitle": "E-posta yapılandırılmadı",
+      "notConfiguredDescription": ".env.local dosyasında EmailJS ortam değişkenleri eksik.",
+      "successTitle": "Mesaj gönderildi",
+      "successDescription": "Teşekkürler! En kısa sürede dönüş yapacağım.",
+      "failedTitle": "Gönderim başarısız",
+      "failedDescription": "Mesajınız gönderilemedi. Lütfen daha sonra tekrar deneyin."
+    }
+  },
+  "validation": {
+    "name_required": "İsim zorunludur",
+    "name_min": "İsim en az 2 karakter olmalıdır",
+    "name_max": "İsim en fazla 100 karakter olabilir",
+    "email_required": "E-posta zorunludur",
+    "email_invalid": "Lütfen geçerli bir e-posta girin",
+    "email_max": "E-posta en fazla 254 karakter olabilir",
+    "message_required": "Mesaj zorunludur",
+    "message_min": "Mesaj en az 10 karakter olmalıdır",
+    "message_max": "Mesaj en fazla 2000 karakter olabilir"
+  },
+  "footer": {
+    "copyright": "Tüm hakları saklıdır.",
+    "copyrightLabel": "Telif Hakkı"
+  },
+  "downloadResume": "CV indir"
+}
