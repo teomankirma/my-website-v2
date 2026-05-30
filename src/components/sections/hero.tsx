@@ -30,6 +30,17 @@ export function Hero() {
           .from('.hero-portrait', {opacity: 0, scale: 0.94, duration: 0.8}, 0.2);
         return () => split.revert();
       });
+      mm.add('(min-width: 768px) and (prefers-reduced-motion: no-preference)', () => {
+        gsap.set('.hero-glow', {xPercent: -50});
+        const st = {
+          trigger: ref.current!,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 1,
+        } as const;
+        gsap.to('.hero-dotgrid', {yPercent: 12, ease: 'none', scrollTrigger: st});
+        gsap.to('.hero-glow', {yPercent: 30, ease: 'none', scrollTrigger: st});
+      });
       return () => mm.revert();
     },
     {scope: ref},
@@ -41,8 +52,8 @@ export function Hero() {
       ref={ref}
       className="relative flex min-h-[100dvh] items-center overflow-hidden pt-16 pb-12"
     >
-      <div className="dot-grid pointer-events-none absolute inset-0 text-foreground/[0.12]" />
-      <div className="pointer-events-none absolute left-1/4 top-1/3 size-[36rem] -translate-x-1/2 rounded-full bg-primary/15 blur-[120px]" />
+      <div className="hero-dotgrid dot-grid pointer-events-none absolute inset-0 text-foreground/[0.12]" />
+      <div className="hero-glow pointer-events-none absolute left-1/4 top-1/3 size-[36rem] rounded-full bg-primary/15 blur-[120px]" />
 
       <div className="mx-auto grid w-full max-w-6xl items-center gap-12 px-5 md:px-8 lg:grid-cols-[1.2fr_1fr]">
         <div>
