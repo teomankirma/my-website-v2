@@ -42,7 +42,12 @@ export function Reveal({
           delay,
           ease: 'power3.out',
           stagger: stagger ?? 0,
-          scrollTrigger: {trigger: ref.current!, start: 'top 80%', once: true},
+          scrollTrigger: {
+              trigger: ref.current!,
+              start: 'top 80%',
+              end: 'bottom 20%',
+              toggleActions: 'play none none reverse',
+            },
         });
       });
       return () => mm.revert();
