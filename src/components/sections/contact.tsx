@@ -7,7 +7,6 @@ import emailjs from '@emailjs/browser';
 import {toast} from 'sonner';
 import {SiGithub, SiX} from '@icons-pack/react-simple-icons';
 import {Section} from '@/components/common/section';
-import {SectionHeader} from '@/components/common/section-header';
 import {Reveal} from '@/components/common/reveal';
 import {Button} from '@/components/ui/button';
 import {Input} from '@/components/ui/input';
@@ -68,10 +67,10 @@ export function Contact() {
 
   return (
     <Section id={SECTION_IDS.contact}>
-      <SectionHeader title={t('heading')} />
       <div className="grid gap-12 md:grid-cols-2 md:items-start">
         <Reveal variant="slideRight">
-          <p className="max-w-[42ch] text-muted-foreground">{t('pitch')}</p>
+          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">{t('heading')}</h2>
+          <p className="mt-6 max-w-[42ch] text-muted-foreground">{t('pitch')}</p>
           <a
             href={`mailto:${EMAIL}`}
             className="mt-5 inline-block font-mono text-primary underline-offset-4 hover:underline"
@@ -98,7 +97,7 @@ export function Contact() {
           <form
             id="contact-form"
             onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col gap-5"
+            className="flex max-w-md flex-col gap-5"
             noValidate
           >
             <div className="flex flex-col gap-2">
