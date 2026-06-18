@@ -40,7 +40,7 @@ export default function OGImage() {
             width: '500px',
             height: '500px',
             borderRadius: '50%',
-            background: 'rgba(52, 211, 153, 0.12)',
+            background: 'rgba(52, 211, 153, 0.14)',
             filter: 'blur(120px)',
           }}
         />
