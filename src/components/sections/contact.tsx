@@ -7,6 +7,7 @@ import emailjs from '@emailjs/browser';
 import {toast} from 'sonner';
 import {SiGithub, SiX} from '@icons-pack/react-simple-icons';
 import {Section} from '@/components/common/section';
+import {SectionHeader} from '@/components/common/section-header';
 import {Reveal} from '@/components/common/reveal';
 import {Button} from '@/components/ui/button';
 import {Input} from '@/components/ui/input';
@@ -70,27 +71,32 @@ export function Contact() {
 
   return (
     <Section id={SECTION_IDS.contact}>
-      <div className="grid gap-12 md:grid-cols-2 md:items-start">
+      <SectionHeader index="04" title={t('heading')} description={t('pitch')} />
+
+      <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
         <Reveal variant="slideRight">
-          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">{t('heading')}</h2>
-          <p className="mt-6 max-w-[42ch] text-muted-foreground">{t('pitch')}</p>
           <a
             href={`mailto:${EMAIL}`}
-            className="mt-5 inline-block font-mono text-primary underline-offset-4 hover:underline"
+            className="group block w-fit text-balance text-3xl font-semibold tracking-tighter md:text-5xl"
           >
-            {EMAIL}
+            <span className="bg-[length:100%_1px] bg-bottom bg-no-repeat pb-1 [background-image:linear-gradient(var(--color-primary),var(--color-primary))] [background-size:0%_1px] transition-[background-size] duration-300 group-hover:[background-size:100%_1px]">
+              {EMAIL}
+            </span>
           </a>
-          <div className="mt-6">
-            <p className="mb-3 font-mono text-xs uppercase tracking-wider text-muted-foreground">{t('followMe')}</p>
-            <div className="flex gap-3">
+
+          <div className="mt-12">
+            <p className="mb-4 font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground">
+              {t('followMe')}
+            </p>
+            <div className="flex flex-wrap gap-3">
               <Social href={SOCIAL_LINKS.github} label="GitHub">
-                <SiGithub className="size-[1.1rem]" />
+                <SiGithub className="size-[1.1rem]" /> GitHub
               </Social>
               <Social href={SOCIAL_LINKS.linkedin} label="LinkedIn">
-                <SiLinkedin className="size-[1.1rem]" />
+                <SiLinkedin className="size-[1.1rem]" /> LinkedIn
               </Social>
               <Social href={SOCIAL_LINKS.x} label="X">
-                <SiX className="size-[1.1rem]" />
+                <SiX className="size-[1.1rem]" /> X
               </Social>
             </div>
           </div>
@@ -100,7 +106,7 @@ export function Contact() {
           <form
             id="contact-form"
             onSubmit={handleSubmit(onSubmit)}
-            className="flex max-w-md flex-col gap-5"
+            className="flex flex-col gap-5"
             noValidate
           >
             <div className="flex flex-col gap-2">
@@ -135,7 +141,7 @@ function Social({href, label, children}: {href: string; label: string; children:
       target="_blank"
       rel="noreferrer"
       aria-label={label}
-      className="grid size-10 place-items-center rounded-lg border border-border text-muted-foreground transition-colors hover:border-primary/60 hover:text-foreground"
+      className="inline-flex items-center gap-2 border border-border px-4 py-2.5 text-sm text-muted-foreground transition-colors hover:border-primary/60 hover:bg-secondary/50 hover:text-foreground"
     >
       {children}
     </a>
