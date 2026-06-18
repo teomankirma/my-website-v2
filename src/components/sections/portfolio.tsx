@@ -46,6 +46,7 @@ export function Portfolio() {
   }
 
   function show(i: number) {
+    if (!xTo.current) return; // only on hover-capable devices where the preview is enabled
     setActive(i);
     gsap.to(preview.current, {opacity: 1, scale: 1, duration: 0.3, ease: 'power3.out'});
   }
@@ -64,7 +65,7 @@ export function Portfolio() {
         <div
           ref={preview}
           aria-hidden
-          className="pointer-events-none fixed left-0 top-0 z-40 hidden aspect-[16/10] w-[24rem] overflow-hidden border border-border bg-card shadow-2xl will-change-transform md:block"
+          className="pointer-events-none fixed left-0 top-0 z-40 hidden aspect-[16/10] w-[24rem] overflow-hidden border border-border bg-card opacity-0 shadow-2xl will-change-transform md:block"
         >
           {active !== null && (
             <Image
