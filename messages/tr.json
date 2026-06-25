@@ -111,6 +111,12 @@
         "industry": "Topluluk Pazaryeri",
         "date": "9 Mayıs 2026",
         "linkLabel": "Web sitesini görüntüle"
+      },
+      "clueClash": {
+        "description": "Aynı anda birden fazla telefonda oynanan, takım tabanlı bir kelime çağrışım partisi oyunu. 45 saniye içinde tek kelimelik ipuçlarından gizli kelimeleri bulmaya çalışırken tehlike kutucuğundan kaçının. Hızlı ipuçları, gürültülü tahminler, tam bir kaos.",
+        "industry": "Mobil Oyun / Parti Oyunu",
+        "date": "25 Haziran 2026",
+        "linkLabel": "Pazarlama sayfasını görüntüle"
       }
     }
   },
