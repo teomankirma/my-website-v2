@@ -111,6 +111,12 @@
         "industry": "Community Marketplace",
         "date": "May 9, 2026",
         "linkLabel": "Visit website"
+      },
+      "clueClash": {
+        "description": "A team-based word association party game played across multiple phones at once. Race to identify hidden words from one-word clues within 45 seconds while dodging the danger tile. Fast clues, loud guesses, total chaos.",
+        "industry": "Mobile Game / Party Game",
+        "date": "June 25, 2026",
+        "linkLabel": "Visit marketing page"
       }
     }
   },
