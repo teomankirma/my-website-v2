@@ -1,11 +1,11 @@
 import {ImageResponse} from 'next/og';
-
-export const runtime = 'edge';
-export const alt = 'Teoman Kirma - Fullstack Developer';
+import {getTranslations} from 'next-intl/server';
+export const alt = 'Teoman Kirma';
 export const size = {width: 1200, height: 630};
 export const contentType = 'image/png';
-
-export default function OGImage() {
+export default async function OGImage({params}: {params: Promise<{locale: string}>}) {
+  const {locale} = await params;
+  const t = await getTranslations({locale, namespace: 'socialImage'});
   return new ImageResponse(
     (
       <div
@@ -14,114 +14,56 @@ export default function OGImage() {
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center',
           justifyContent: 'center',
-          backgroundColor: '#0a0a0b',
-          fontFamily: 'monospace',
-          padding: '60px',
+          background: '#2738ee',
+          padding: 75,
+          color: '#fff',
+          fontFamily: 'sans-serif',
         }}
       >
-        {/* Subtle dot grid accent */}
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            backgroundImage:
-              'radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px)',
-            backgroundSize: '24px 24px',
-          }}
-        />
-        {/* Emerald glow blob */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '10%',
-            left: '15%',
-            width: '500px',
-            height: '500px',
-            borderRadius: '50%',
-            background: 'rgba(52, 211, 153, 0.14)',
-            filter: 'blur(120px)',
-          }}
-        />
-
-        {/* Content */}
         <div
           style={{
             display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: '16px',
-            position: 'relative',
+            position: 'absolute',
+            right: -160,
+            bottom: -230,
+            width: 650,
+            height: 650,
+            borderRadius: '50%',
+            background: '#ff957b',
+          }}
+        />
+        <div style={{fontSize: 21, letterSpacing: 3, marginBottom: 45, display: 'flex'}}>
+          {t('role')}
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            fontSize: 105,
+            letterSpacing: -7,
+            fontWeight: 600,
+            lineHeight: 1,
           }}
         >
-          {/* Prompt eyebrow */}
-          <div
-            style={{
-              color: '#34d399',
-              fontSize: '20px',
-              fontFamily: 'monospace',
-              letterSpacing: '0.05em',
-              marginBottom: '8px',
-            }}
-          >
-            ~/teoman
-          </div>
-
-          {/* Name */}
-          <div
-            style={{
-              color: '#f5f5f5',
-              fontSize: '80px',
-              fontWeight: 700,
-              letterSpacing: '-0.04em',
-              lineHeight: 1,
-              textAlign: 'center',
-            }}
-          >
-            Teoman Kirma
-          </div>
-
-          {/* Role */}
-          <div
-            style={{
-              color: '#a1a1aa',
-              fontSize: '32px',
-              fontFamily: 'monospace',
-              letterSpacing: '0.02em',
-              marginTop: '8px',
-            }}
-          >
-            Fullstack Developer
-          </div>
-
-          {/* Divider */}
-          <div
-            style={{
-              width: '80px',
-              height: '3px',
-              backgroundColor: '#34d399',
-              borderRadius: '2px',
-              marginTop: '24px',
-            }}
-          />
-
-          {/* Location */}
-          <div
-            style={{
-              color: '#71717a',
-              fontSize: '20px',
-              fontFamily: 'monospace',
-              marginTop: '8px',
-            }}
-          >
-            Izmir, Türkiye
-          </div>
+          {t('nameFirst')}
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            fontSize: 105,
+            letterSpacing: -7,
+            fontWeight: 600,
+            lineHeight: 1,
+          }}
+        >
+          {t('nameLast')}
+          <span style={{color: '#ffc5a5'}}>.</span>
+        </div>
+        <div style={{display: 'flex', fontSize: 23, marginTop: 40, color: '#e7e5ff'}}>
+          {t('tagline')}
         </div>
       </div>
     ),
-    {
-      ...size,
-    },
+    size,
   );
 }

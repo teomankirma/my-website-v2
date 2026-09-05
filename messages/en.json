@@ -3,42 +3,19 @@
     "title": "Teoman Kirma • Fullstack Developer",
     "description": "Fullstack developer building scalable web apps and distributed systems, from UI to infrastructure. Based in Izmir, Türkiye."
   },
-  "header": {
-    "name": "Teoman Kirma",
-    "menu": {
-      "home": "Home",
-      "about": "About",
-      "resume": "Resume",
-      "portfolio": "Portfolio",
-      "contact": "Contact"
-    }
-  },
-  "hero": {
-    "prompt": "~/teoman",
-    "name": "Teoman Kirma",
-    "role": "Fullstack Developer",
-    "tagline": "I build performant interfaces and reliable backends, end to end.",
-    "location": "Izmir, Türkiye",
-    "ctaContact": "Get in touch"
-  },
   "about": {
     "heading": "About",
     "whoAmI": "I'm a Full-Stack Developer",
     "bodyA": "I'm a Full-Stack Developer building scalable web applications and distributed systems. On the frontend, I work with React, Next.js, and TypeScript to create performant and accessible user interfaces. On the backend, I design and implement APIs using Python and Node.js, working with databases, background jobs, and system reliability patterns.",
     "bodyB": "I enjoy building systems end-to-end, from UI to infrastructure, with a strong focus on performance, maintainability, and clean architecture.",
     "facts": {
-      "nameLabel": "Name",
-      "name": "Teoman Kirma",
-      "emailLabel": "Email",
-      "ageLabel": "Age",
-      "fromLabel": "From",
       "from": "Izmir, Türkiye"
     },
-    "stats": {
-      "experienceText": "Years experience",
-      "projectsNumber": "40",
-      "projectsLabel": "Projects done"
-    }
+    "headlineA": "Thoughtful interfaces.",
+    "headlineB": "Reliable foundations.",
+    "download": "Download résumé",
+    "skillsLabel": "Tools I work with",
+    "symbolCaption": "Curiosity, connected to craft."
   },
   "resume": {
     "heading": "Resume",
@@ -52,92 +29,32 @@
     "companyName": "BytesandPixels",
     "expDates": "May 2023 - Present",
     "expLocation": "Los Angeles, CA, US · Remote",
-    "skillsLabel": "Tools I work with"
-  },
-  "portfolio": {
-    "heading": "Selected Work",
-    "subtitle": "A selection of projects I would like to showcase.",
-    "labels": {
-      "technologies": "Technologies",
-      "industry": "Industry",
-      "date": "Date",
-      "link": "Link"
-    },
-    "items": {
-      "atm": {
-        "description": "Sign up or sign in, then deposit and withdraw money. You can also change your password after logging in.",
-        "industry": "Finance",
-        "date": "February 12, 2022",
-        "linkLabel": "View on GitHub"
-      },
-      "keeper": {
-        "description": "A website where you can create new notes and delete existing ones.",
-        "industry": "Productivity",
-        "date": "January 26, 2023",
-        "linkLabel": "View on GitHub"
-      },
-      "quizApp": {
-        "description": "A Vite-powered quiz with configurable sessions, Open Trivia DB questions, persistent leaderboards, and optional motivational quotes via API Ninjas.",
-        "industry": "EdTech",
-        "date": "May 18, 2024",
-        "linkLabel": "Visit website"
-      },
-      "mongodbCrud": {
-        "description": "A minimal Express + MongoDB app powering a theme-park reservations dashboard with REST flows for onboarding, saved cards, and ticket pricing.",
-        "industry": "Theme Park Ticketing",
-        "date": "August 20, 2024",
-        "linkLabel": "View on GitHub"
-      },
-      "teoAi": {
-        "description": "A Prismic-powered marketing site for teo.ai with animated hero storytelling, case studies, integrations, and a managed login funnel on Next.js App Router.",
-        "industry": "SaaS Marketing",
-        "date": "April 14, 2025",
-        "linkLabel": "Visit website"
-      },
-      "productListing": {
-        "description": "Upload product photos, the AI analyzes them, asks follow-ups, and generates pricing suggestions and ready-to-use marketplace listings you refine through chat.",
-        "industry": "E-commerce",
-        "date": "September 3, 2025",
-        "linkLabel": "Visit website"
-      },
-      "jobFlow": {
-        "description": "A distributed background job system: enqueue tasks via an API and monitor execution in real time, with retries, idempotency, rate limiting, and dead-letter queues.",
-        "industry": "Infrastructure / Developer Tools",
-        "date": "February 24, 2026",
-        "linkLabel": "Visit website"
-      },
-      "cirkle": {
-        "description": "A community marketplace platform where people spin up focused marketplaces for their apartment, university, company, or neighborhood. Features AI-assisted listing creation from a photo or product URL. No commissions, no middleman.",
-        "industry": "Community Marketplace",
-        "date": "May 9, 2026",
-        "linkLabel": "Visit website"
-      },
-      "clueClash": {
-        "description": "A team-based word association party game played across multiple phones at once. Race to identify hidden words from one-word clues within 45 seconds while dodging the danger tile. Fast clues, loud guesses, total chaos.",
-        "industry": "Mobile Game / Party Game",
-        "date": "June 25, 2026",
-        "linkLabel": "Visit marketing page"
-      }
-    }
+    "headlineA": "Always building.",
+    "headlineB": "Always learning.",
+    "intro": "The work and the learning that shape how I approach a problem.",
+    "download": "Full résumé",
+    "experienceDescription": "Building web applications from frontend experiences to backend systems, with a focus on performance and maintainability."
   },
   "contact": {
     "heading": "Contact",
     "pitch": "Have a project in mind or just want to say hi? Send me a note.",
-    "followMe": "Follow me",
     "nameLabel": "Your name",
     "emailLabel": "Email",
     "messageLabel": "Message",
-    "messagePlaceholder": "Please write your message here...",
+    "messagePlaceholder": "Tell me a little about what you have in mind.",
     "submit": "Send message",
     "submitting": "Sending...",
     "toast": {
-      "notConfiguredTitle": "Email not configured",
-      "notConfiguredDescription": "EmailJS environment variables are missing. Please set them in .env.local.",
+      "notConfiguredTitle": "Send me an email",
+      "notConfiguredDescription": "The form is temporarily unavailable. You can reach me at teomankirma@gmail.com.",
       "successTitle": "Message sent",
       "successDescription": "Thanks! I will get back to you soon.",
       "failedTitle": "Send failed",
       "failedDescription": "Unable to send your message. Please try again later."
-    }
+    },
+    "headlineA": "Have an idea?",
+    "headlineB": "Let’s make it.",
+    "note": "Prefer email? My inbox is always a good place to start."
   },
   "validation": {
     "name_required": "Name is required",
@@ -152,18 +69,103 @@
   },
   "footer": {
     "copyright": "All rights reserved.",
-    "copyrightLabel": "Copyright"
+    "backTop": "Back to top",
+    "name": "Teoman Kirma"
   },
-  "downloadResume": "Download résumé",
-  "theme": {
-    "light": "Light",
-    "dark": "Dark",
-    "system": "System",
-    "toggle": "Toggle theme"
+  "story": {
+    "nameFirst": "TEOMAN",
+    "nameLast": "KIRMA",
+    "role": "Fullstack developer",
+    "introLineA": "It starts with",
+    "introLineB": "an idea.",
+    "introDescription": "I turn ideas into interfaces, systems, and things people use.",
+    "storyLabel": "From an idea to the finished work",
+    "sequenceDescription": "A MacBook opens, code becomes three featured projects, and the laptop closes to reveal a portrait of Teoman Kirma. All projects, biography, experience, and contact details follow below.",
+    "codeTag": "The process",
+    "codeHeading": "A few lines. A beginning.",
+    "codeDescription": "An interface on the surface. Thoughtful engineering underneath.",
+    "codeLabel": "Code study",
+    "screenCaption": "From interface to infrastructure",
+    "chapterNavigation": "Explore the story",
+    "chapters": {
+      "open": "The idea",
+      "build": "The build",
+      "work": "The work",
+      "signature": "The maker"
+    },
+    "signatureDescription": "A developer who cares how it feels, and how it works.",
+    "projects": {
+      "cirkle": {
+        "category": "Community marketplace",
+        "short": "A place for your community to find, share, and connect."
+      },
+      "jobFlow": {
+        "category": "Infrastructure & developer tools",
+        "short": "Complexity behind the scenes. Clarity on the surface."
+      },
+      "clueClash": {
+        "category": "Mobile party game",
+        "short": "One clue. A room full of possibilities."
+      }
+    },
+    "scrollHint": "Scroll to explore",
+    "skipShort": "Skip to projects",
+    "screenMenu": "File|Edit|View|Go|Window|Help",
+    "finderTitle": "Selected work",
+    "finderSidebar": "Favorites|Recents|Applications|Desktop|Documents|Downloads",
+    "screenDate": "Fri 9:41",
+    "makerLabel": "The person behind the pixels",
+    "codeMenu": "File|Edit|Selection|View|Go|Run|Terminal|Window|Help",
+    "safariMenu": "File|Edit|View|History|Bookmarks|Window|Help"
   },
-  "a11y": {
+  "navigation": {
+    "name": "Teoman Kirma",
+    "label": "Main navigation",
+    "portfolio": "Work",
+    "about": "About",
+    "resume": "Experience",
+    "contact": "Let’s talk",
+    "skip": "Skip to projects",
+    "language": "Türkçe görüntüle",
+    "reduceMotion": "Reduce motion",
+    "enableMotion": "Enable motion",
+    "systemMotion": "Reduced motion follows your device settings",
     "openMenu": "Open menu",
-    "changeLanguage": "Change language",
-    "siteNavigation": "Site navigation"
+    "closeMenu": "Close menu",
+    "motionReduced": "Motion reduced"
+  },
+  "work": {
+    "eyebrow": "Selected work",
+    "headingA": "Ideas, out",
+    "headingB": "in the world.",
+    "intro": "Different problems. Different possibilities. A few things I’ve built from the first line to the final detail.",
+    "visit": "Explore project",
+    "newTab": "opens in a new tab",
+    "technologyLabel": "Technologies",
+    "archiveEyebrow": "There’s more where that came from",
+    "archiveHeading": "More things I’ve made.",
+    "projects": {
+      "cirkle": {
+        "category": "Community marketplace",
+        "description": "Focused marketplaces for neighborhoods, universities, and communities, with AI-assisted listing creation.",
+        "imageAlt": "Cirkle marketplace showing community product listings"
+      },
+      "jobFlow": {
+        "category": "Infrastructure & developer tools",
+        "description": "A distributed background job system with real-time monitoring, retries, and reliable task execution.",
+        "imageAlt": "Job Flow dashboard showing queued and completed background jobs"
+      },
+      "clueClash": {
+        "category": "Mobile party game",
+        "description": "A team-based word association game across multiple phones. Fast clues, loud guesses, and a race against the clock.",
+        "imageAlt": "Clue Clash mobile app with Team Koala and Team Panda"
+      }
+    }
+  },
+  "socialImage": {
+    "role": "FULLSTACK DEVELOPER",
+    "tagline": "Thoughtful interfaces. Reliable foundations.",
+    "nameFirst": "Teoman",
+    "nameLast": "Kirma"
   }
 }

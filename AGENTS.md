@@ -1,129 +1,64 @@
 # Repository Guidelines
 
-## Project Overview
+## Project
 
-Personal portfolio for Teoman Kirma. Next.js 16 App Router, React 19, TypeScript strict, Tailwind v4, shadcn/ui, GSAP, next-intl (EN/TR), next-themes, sonner, Geist fonts, EmailJS.
+Teoman Kirma's bilingual portfolio: Next.js 16 App Router, React 19, strict TypeScript, Tailwind v4, GSAP, Three.js / React Three Fiber, next-intl, Geist, sonner, react-hook-form, Zod, EmailJS.
 
 **Branch:** All feature work happens on `redesign/dark-technical`. Do NOT merge to `main` without explicit user approval.
 
-## Project Structure
+## Structure
 
-```
-├── messages/               # i18n strings - en.json and tr.json
-├── public/                 # Static assets (resume.pdf, favicon.png)
-├── src/
-│   ├── app/
-│   │   ├── layout.tsx               # Root passthrough (no <html> tag)
-│   │   └── [locale]/
-│   │       ├── layout.tsx           # Locale layout - owns <html lang>, Geist, Providers, Toaster
-│   │       ├── page.tsx             # Full page assembly (all 6 sections)
-│   │       └── opengraph-image.tsx  # Edge OG image 1200x630
-│   ├── components/
-│   │   ├── ui/              # shadcn/ui primitives (auto-generated, do not hand-edit)
-│   │   ├── common/          # Shared: Reveal, SkillsMarquee, Section, SectionHeader,
-│   │   │                    #         ThemeSwitcher, LanguageSwitcher, DownloadResumeButton
-│   │   ├── sections/        # Header, Hero, About, Resume, Portfolio, Contact, Footer
-│   │   └── providers.tsx    # ThemeProvider (next-themes)
-│   ├── i18n/
-│   │   ├── routing.ts       # Locales: ['en', 'tr'], default: 'en'
-│   │   ├── request.ts       # getRequestConfig
-│   │   └── navigation.ts    # createNavigation (Link, useRouter, usePathname, etc.)
-│   ├── lib/
-│   │   ├── gsap.ts          # Register ScrollTrigger + SplitText + useGSAP once
-│   │   ├── site.ts          # Locale-neutral constants (EMAIL, SKILLS, SOCIAL_LINKS, AGE, etc.)
-│   │   ├── projects.ts      # PROJECTS array
-│   │   └── utils.ts         # cn()
-│   ├── schemas/
-│   │   └── contact.ts       # makeContactSchema (zod v4), ContactValues, ContactMessages
-│   ├── styles/
-│   │   └── globals.css      # @import "tailwindcss" + CSS tokens (dark default, emerald)
-│   └── proxy.ts             # next-intl middleware (Next.js 16 convention - do NOT rename)
-```
+- `src/app/layout.tsx`: root HTML, fonts, global styles.
+- `src/app/[locale]/`: localized homepage, locale provider/metadata, OG image.
+- `src/components/experience/`: hero scroll story, motion provider, laptop geometry/scene, screen canvas.
+- `src/components/sections/`: Header, Portfolio, About, Resume, Contact, Footer.
+- `src/components/common/`: HTML language synchronization and toast host.
+- `src/lib/`: site/project constants, GSAP registration, MacBook dimensions, story poses.
+- `src/assets/`: source project screenshots and portrait.
+- `public/experience/`: compressed screen images and fallback posters; credits alongside.
+- `messages/en.json`, `messages/tr.json`: localized strings.
+- `src/schemas/contact.ts`: localized Zod schema.
+- `src/styles/globals.css`: single vivid palette and responsive page styling.
+- `src/proxy.ts`: next-intl middleware. Do not rename to middleware.ts.
+- `tests/`: meaningful design and validation contracts.
 
-## Key Conventions
+## Conventions
 
-### Routing & i18n
-- Locale prefix required: all pages are under `/[locale]`.
-- `src/proxy.ts` is the middleware file (Next.js 16). Do not rename to `middleware.ts`.
-- All human-readable strings belong in `messages/en.json` and `messages/tr.json`. Locale-neutral data (URLs, tech strings, computed values) belongs in `src/lib/`.
-- Use `setRequestLocale(locale)` in Server Components; `useTranslations()` in Client Components.
+- Locale-prefixed pages; `setRequestLocale(locale)` in server pages, `useTranslations()` in client components. Update both translation files together.
+- Locale-neutral URLs, technology names, physical ANSI key legends and model measurements belong in `src/lib/`.
+- Server components by default. Hooks, event handlers and browser APIs require `'use client'`.
+- Import GSAP from `@/lib/gsap`; keep animation setup inside scoped `useGSAP` with cleanup. Gate all timelines/tweens with `gsap.matchMedia('(prefers-reduced-motion: no-preference)', ...)` and the global manual preference.
+- WebGL is decorative and optional. Keep real content outside the canvas, demand rendering, responsive camera framing and static posters.
+- No theme toggle: use the shared vivid palette. No shadcn/ui layer or cn utility remains. Functional icons use lucide-react; brand links use text, Apple hardware uses the credited vector.
+- Forms use react-hook-form, zodResolver, and `makeContactSchema`; Zod v4 `{error: message}`. Preserve EmailJS `name`, `email`, `message` variables. Mock requests during QA; do not send test emails without authorization.
+- Project images use next/image; resume stays `/resume.pdf`.
+- Add projects to `src/lib/projects.ts`, their assets to `src/assets/`, and featured descriptions to both `work.projects` namespaces. Featured story projects also need both `story.projects` entries and compressed screen assets.
 
-### Components
-- All components that use GSAP, hooks, event handlers, or browser APIs must be `'use client'`.
-- Server Components: page.tsx, layout.tsx, About, Resume, Footer (no interactivity needed).
-- GSAP animations: always inside `useGSAP(() => { ... }, {scope: ref})` from `@gsap/react`.
-- Reduced motion: wrap ALL `gsap.from/to/timeline` calls in `gsap.matchMedia('(prefers-reduced-motion: no-preference)', ...)`.
-- Import GSAP from `@/lib/gsap` (not directly from `gsap`) to ensure plugins are registered.
+## Verification gates
 
-### Styling
-- Tailwind v4 - CSS token approach (no tailwind.config.js).
-- Tokens are in `src/styles/globals.css` under `:root` (light) and `.dark` (dark).
-- Single emerald accent: `--primary` and `--ring` are `oklch(0.72 0.19 150)` in dark mode.
-- shadcn/ui components live in `src/components/ui/`. Use `npx shadcn@latest add <component>` to add new ones.
-- `cn()` from `@/lib/utils` for conditional class merging.
+Before every commit, all must pass:
 
-### Forms & Validation
-- Contact form: react-hook-form + `zodResolver` + `makeContactSchema` from `@/schemas/contact`.
-- Zod v4 idiom: use `{error: message}` param (not positional string) to avoid deprecation warnings.
-- EmailJS field names (`name`, `email`, `message`) match the registered EmailJS template variables.
-
-### Icons
-- UI/functional icons: `lucide-react`.
-- Brand icons (GitHub, LinkedIn, X/Twitter, etc.): `@icons-pack/react-simple-icons`. Lucide does not include brand icons.
-- LinkedIn uses an inline SVG (no @icons-pack export available for all providers).
-
-### Assets
-- Project images: `src/assets/*.png/.jpeg` (imported with `next/image`).
-- Static files (PDF, favicon): `public/` directory.
-- Resume URL: `/resume.pdf` (set in `src/lib/site.ts` as `RESUME_URL`).
-
-## Verification Gates
-
-Run before every commit:
-```bash
-npx tsc --noEmit   # must be clean
-npm run lint        # must be clean (eslint .)
-npm run build       # must succeed
+```sh
+npm run typecheck
+npm run lint
+npm test
+npm run build
 ```
 
-## Adding Content
+Verify visual changes in both locales on desktop and mobile, including reduced-motion behavior. Keep reference sources and browser checks in `docs/redesign/` current.
 
-### New project
-1. Add image to `src/assets/`.
-2. Add entry to `PROJECTS` in `src/lib/projects.ts`.
-3. Add `items.<key>` to both `messages/en.json` and `messages/tr.json`.
+## Environment and deployment
 
-### New section
-1. Create `src/components/sections/<name>.tsx`.
-2. Add `id` to `SECTION_IDS` in `src/lib/site.ts`.
-3. Add translations to `messages/en.json` and `messages/tr.json`.
-4. Add nav entry in `src/components/sections/header.tsx` NAV array.
-5. Import + render in `src/app/[locale]/page.tsx`.
+Copy `.env.example` to `.env.local`; never commit secrets. EmailJS needs `NEXT_PUBLIC_EMAILJS_SERVICE_ID`, `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID`, `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY`. Optional `NEXT_PUBLIC_SITE_URL` controls canonical URLs.
 
-### New i18n strings
-Always add to BOTH `messages/en.json` and `messages/tr.json` simultaneously.
+`npm run dev` starts port 3000; `npm run start` serves the production build. Vercel uses `npm run build`. PR review is required before merging to main.
 
-## Environment Variables
+<!-- BEGIN:nextjs-agent-rules -->
 
-| Key | Required | Description |
-| --- | --- | --- |
-| `NEXT_PUBLIC_EMAILJS_SERVICE_ID` | Yes (contact form) | EmailJS service ID |
-| `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID` | Yes (contact form) | EmailJS template ID |
-| `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY` | Yes (contact form) | EmailJS public key |
-| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | No | Google Analytics 4 ID |
+# This is NOT the Next.js you know
 
-Copy `.env.example` to `.env.local` and fill in values. Never commit secrets.
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
 
-## Dev Commands
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
-```bash
-npm run dev        # http://localhost:3000/en
-npm run build      # production build
-npm run start      # serve production build
-npm run lint       # eslint .
-npm run typecheck  # tsc --noEmit
-```
-
-## Deploy
-
-Vercel. Set `NEXT_PUBLIC_*` vars in Vercel project settings. Build command: `npm run build`.
+<!-- END:nextjs-agent-rules -->

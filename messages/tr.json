@@ -3,42 +3,19 @@
     "title": "Teoman Kırma • Fullstack Developer",
     "description": "UI'dan altyapıya kadar scalable web uygulamaları ve distributed sistemler geliştiren fullstack developer. İzmir, Türkiye merkezli."
   },
-  "header": {
-    "name": "Teoman Kırma",
-    "menu": {
-      "home": "Anasayfa",
-      "about": "Hakkımda",
-      "resume": "Özgeçmiş",
-      "portfolio": "Portföy",
-      "contact": "İletişim"
-    }
-  },
-  "hero": {
-    "prompt": "~/teoman",
-    "name": "Teoman Kırma",
-    "role": "Fullstack Developer",
-    "tagline": "Uçtan uca performanslı arayüzler ve güvenilir backend'ler geliştiriyorum.",
-    "location": "İzmir, Türkiye",
-    "ctaContact": "İletişime geç"
-  },
   "about": {
     "heading": "Hakkımda",
     "whoAmI": "Bir Full-Stack Developer'ım",
     "bodyA": "Scalable web uygulamaları ve distributed sistemler geliştiren bir Full-Stack Developer'ım. Frontend tarafında React, Next.js ve TypeScript kullanarak performanslı ve erişilebilir kullanıcı arayüzleri geliştiriyorum. Backend tarafında ise Python ve Node.js ile API'lar tasarlayıp geliştiriyor, veritabanları, background job süreçleri ve sistem güvenilirliği konularında çalışıyorum.",
     "bodyB": "UI'dan altyapıya kadar sistemleri uçtan uca geliştirmeyi seviyorum; performans, sürdürülebilirlik ve clean architecture prensiplerini ön planda tutuyorum.",
     "facts": {
-      "nameLabel": "İsim",
-      "name": "Teoman Kırma",
-      "emailLabel": "E-posta",
-      "ageLabel": "Yaş",
-      "fromLabel": "Konum",
       "from": "İzmir, Türkiye"
     },
-    "stats": {
-      "experienceText": "Yıllık deneyim",
-      "projectsNumber": "40",
-      "projectsLabel": "Tamamlanan proje"
-    }
+    "headlineA": "Özenli arayüzler.",
+    "headlineB": "Sağlam temeller.",
+    "download": "Özgeçmişi indir",
+    "skillsLabel": "Kullandığım araçlar",
+    "symbolCaption": "Meraktan üretime."
   },
   "resume": {
     "heading": "Özgeçmiş",
@@ -52,92 +29,32 @@
     "companyName": "BytesandPixels",
     "expDates": "Mayıs 2023 - Günümüz",
     "expLocation": "Los Angeles, CA, ABD · Uzaktan",
-    "skillsLabel": "Kullandığım teknolojiler"
-  },
-  "portfolio": {
-    "heading": "Seçili Çalışmalar",
-    "subtitle": "Sergilemek istediğim seçilmiş projelerden bazıları.",
-    "labels": {
-      "technologies": "Teknolojiler",
-      "industry": "Sektör",
-      "date": "Tarih",
-      "link": "Bağlantı"
-    },
-    "items": {
-      "atm": {
-        "description": "Kayıt olup giriş yaparak para yatırıp çekebilir, başarılı girişten sonra şifrenizi değiştirebilirsiniz.",
-        "industry": "Finans",
-        "date": "12 Şubat 2022",
-        "linkLabel": "GitHub'da görüntüle"
-      },
-      "keeper": {
-        "description": "Yeni notlar oluşturabileceğiniz ve mevcut olanları silebileceğiniz bir web sitesi.",
-        "industry": "Üretkenlik",
-        "date": "26 Ocak 2023",
-        "linkLabel": "GitHub'da görüntüle"
-      },
-      "quizApp": {
-        "description": "Yapılandırılabilir oturumlar, Open Trivia DB soruları, kalıcı lider tablosu ve API Ninjas üzerinden motivasyon alıntıları sunan, Vite ile geliştirilmiş bir quiz deneyimi.",
-        "industry": "Eğitim Teknolojileri",
-        "date": "18 Mayıs 2024",
-        "linkLabel": "Web sitesini görüntüle"
-      },
-      "mongodbCrud": {
-        "description": "Onboarding, kayıtlı kart ve bilet fiyatlandırma için REST akışlarıyla bir tema parkı rezervasyon panelini çalıştıran minimal bir Express + MongoDB uygulaması.",
-        "industry": "Tema Parkı Biletleme",
-        "date": "20 Ağustos 2024",
-        "linkLabel": "GitHub'da görüntüle"
-      },
-      "teoAi": {
-        "description": "Next.js App Router üzerinde; animasyonlu hero anlatımı, vaka çalışmaları, entegrasyonlar ve yönetilebilir giriş hunisi sunan, Prismic tabanlı teo.ai pazarlama sitesi.",
-        "industry": "SaaS Pazarlama",
-        "date": "14 Nisan 2025",
-        "linkLabel": "Web sitesini görüntüle"
-      },
-      "productListing": {
-        "description": "Ürün fotoğraflarını yüklersiniz, yapay zeka analiz eder, sorular sorar ve fiyat önerileriyle satışa hazır ilanlar üretir; sohbet ederek detayları düzenlersiniz.",
-        "industry": "E-ticaret",
-        "date": "3 Eylül 2025",
-        "linkLabel": "Web sitesini görüntüle"
-      },
-      "jobFlow": {
-        "description": "Dağıtık bir background job sistemi: görevleri API ile kuyruğa alın ve gerçek zamanlı izleyin; retry, idempotency, rate limiting ve dead-letter queue desteğiyle.",
-        "industry": "Altyapı / Developer Tools",
-        "date": "24 Şubat 2026",
-        "linkLabel": "Web sitesini görüntüle"
-      },
-      "cirkle": {
-        "description": "İnsanların kendi apartmanı, üniversitesi, şirketi veya mahallesi için odaklı pazaryerleri oluşturabildiği bir topluluk pazaryeri platformu. Fotoğraftan veya ürün bağlantısından yapay zeka destekli ilan oluşturma sunar. Komisyon yok, aracı yok.",
-        "industry": "Topluluk Pazaryeri",
-        "date": "9 Mayıs 2026",
-        "linkLabel": "Web sitesini görüntüle"
-      },
-      "clueClash": {
-        "description": "Aynı anda birden fazla telefonda oynanan, takım tabanlı bir kelime çağrışım partisi oyunu. 45 saniye içinde tek kelimelik ipuçlarından gizli kelimeleri bulmaya çalışırken tehlike kutucuğundan kaçının. Hızlı ipuçları, gürültülü tahminler, tam bir kaos.",
-        "industry": "Mobil Oyun / Parti Oyunu",
-        "date": "25 Haziran 2026",
-        "linkLabel": "Pazarlama sayfasını görüntüle"
-      }
-    }
+    "headlineA": "Hep üretiyorum.",
+    "headlineB": "Hep öğreniyorum.",
+    "intro": "Bir probleme yaklaşımımı şekillendiren çalışmalar ve öğrenme yolculuğum.",
+    "download": "Özgeçmişin tamamı",
+    "experienceDescription": "Performans ve sürdürülebilirliğe odaklanarak, ön yüz deneyimlerinden arka uç sistemlerine kadar web uygulamaları geliştiriyorum."
   },
   "contact": {
     "heading": "İletişim",
     "pitch": "Aklınızda bir proje mi var ya da sadece merhaba mı demek istiyorsunuz? Bana bir not gönderin.",
-    "followMe": "Beni takip edin",
     "nameLabel": "İsminiz",
     "emailLabel": "E-posta",
     "messageLabel": "Mesaj",
-    "messagePlaceholder": "Mesajınızı buraya yazınız...",
+    "messagePlaceholder": "Aklındakinden biraz bahset.",
     "submit": "Mesaj gönder",
     "submitting": "Gönderiliyor...",
     "toast": {
-      "notConfiguredTitle": "E-posta yapılandırılmadı",
-      "notConfiguredDescription": ".env.local dosyasında EmailJS ortam değişkenleri eksik.",
+      "notConfiguredTitle": "Bana e-posta gönder",
+      "notConfiguredDescription": "Form şu anda kullanılamıyor. Bana teomankirma@gmail.com adresinden ulaşabilirsin.",
       "successTitle": "Mesaj gönderildi",
       "successDescription": "Teşekkürler! En kısa sürede dönüş yapacağım.",
       "failedTitle": "Gönderim başarısız",
       "failedDescription": "Mesajınız gönderilemedi. Lütfen daha sonra tekrar deneyin."
-    }
+    },
+    "headlineA": "Bir fikrin mi var?",
+    "headlineB": "Hayata geçirelim.",
+    "note": "E-posta mı tercih edersin? Gelen kutum iyi bir başlangıç noktası."
   },
   "validation": {
     "name_required": "İsim zorunludur",
@@ -152,18 +69,103 @@
   },
   "footer": {
     "copyright": "Tüm hakları saklıdır.",
-    "copyrightLabel": "Telif Hakkı"
+    "backTop": "Başa dön",
+    "name": "Teoman Kirma"
   },
-  "downloadResume": "CV indir",
-  "theme": {
-    "light": "Açık",
-    "dark": "Koyu",
-    "system": "Sistem",
-    "toggle": "Temayı değiştir"
+  "story": {
+    "nameFirst": "TEOMAN",
+    "nameLast": "KIRMA",
+    "role": "Fullstack geliştirici",
+    "introLineA": "Her şey bir",
+    "introLineB": "fikirle başlar.",
+    "introDescription": "Fikirleri arayüzlere, sistemlere ve insanların kullandığı ürünlere dönüştürüyorum.",
+    "storyLabel": "Bir fikirden tamamlanmış projelere",
+    "sequenceDescription": "Bir MacBook açılır, kodlar üç seçilmiş projeye dönüşür ve bilgisayar kapanırken Teoman Kirma’nın portresi belirir. Tüm projeler, hakkımda, deneyim ve iletişim bilgileri aşağıda yer alır.",
+    "codeTag": "Süreç",
+    "codeHeading": "Birkaç satır. Bir başlangıç.",
+    "codeDescription": "Yüzeyde bir arayüz. Arkasında özenli bir mühendislik.",
+    "codeLabel": "Kod çalışması",
+    "screenCaption": "Arayüzden altyapıya",
+    "chapterNavigation": "Hikâyeyi keşfet",
+    "chapters": {
+      "open": "Fikir",
+      "build": "Geliştirme",
+      "work": "Projeler",
+      "signature": "Geliştirici"
+    },
+    "signatureDescription": "Hem nasıl hissettirdiğini hem nasıl çalıştığını önemseyen bir geliştirici.",
+    "projects": {
+      "cirkle": {
+        "category": "Topluluk pazaryeri",
+        "short": "Topluluğunun buluştuğu, paylaştığı ve bağ kurduğu yer."
+      },
+      "jobFlow": {
+        "category": "Altyapı ve geliştirici araçları",
+        "short": "Arka planda karmaşık sistemler. Ön planda netlik."
+      },
+      "clueClash": {
+        "category": "Mobil parti oyunu",
+        "short": "Tek ipucu. Bir oda dolusu olasılık."
+      }
+    },
+    "scrollHint": "Keşfetmek için kaydır",
+    "skipShort": "Projelere geç",
+    "screenMenu": "Dosya|Düzen|Görüntü|Git|Pencere|Yardım",
+    "finderTitle": "Seçilmiş projeler",
+    "finderSidebar": "Favoriler|Son Kullanılanlar|Uygulamalar|Masaüstü|Belgeler|İndirilenler",
+    "screenDate": "Cum 9:41",
+    "makerLabel": "Piksellerin arkasındaki kişi",
+    "codeMenu": "Dosya|Düzen|Seçim|Görünüm|Git|Çalıştır|Terminal|Pencere|Yardım",
+    "safariMenu": "Dosya|Düzen|Görüntü|Geçmiş|Yer İşaretleri|Pencere|Yardım"
   },
-  "a11y": {
+  "navigation": {
+    "name": "Teoman Kirma",
+    "label": "Ana gezinme",
+    "portfolio": "Projeler",
+    "about": "Hakkımda",
+    "resume": "Deneyim",
+    "contact": "Konuşalım",
+    "skip": "Projelere geç",
+    "language": "View in English",
+    "reduceMotion": "Hareketi azalt",
+    "enableMotion": "Hareketi aç",
+    "systemMotion": "Hareket azaltma, cihaz ayarlarınıza göre açık",
     "openMenu": "Menüyü aç",
-    "changeLanguage": "Dili değiştir",
-    "siteNavigation": "Site navigasyonu"
+    "closeMenu": "Menüyü kapat",
+    "motionReduced": "Hareket azaltıldı"
+  },
+  "work": {
+    "eyebrow": "Seçilmiş projeler",
+    "headingA": "Fikirler, artık",
+    "headingB": "gerçek hayatta.",
+    "intro": "Farklı problemler, farklı olasılıklar. İlk satırından son detayına kadar geliştirdiğim projelerden birkaçı.",
+    "visit": "Projeyi keşfet",
+    "newTab": "yeni sekmede açılır",
+    "technologyLabel": "Teknolojiler",
+    "archiveEyebrow": "Bunlarla sınırlı değil",
+    "archiveHeading": "Diğer çalışmalarım.",
+    "projects": {
+      "cirkle": {
+        "category": "Topluluk pazaryeri",
+        "description": "Mahalleler, üniversiteler ve topluluklar için yapay zekâ destekli ilan oluşturma özelliğine sahip pazaryerleri.",
+        "imageAlt": "Cirkle topluluk pazaryerindeki ürün ilanları"
+      },
+      "jobFlow": {
+        "category": "Altyapı ve geliştirici araçları",
+        "description": "Gerçek zamanlı izleme, yeniden deneme ve güvenilir görev yürütme özelliklerine sahip dağıtık bir arka plan iş sistemi.",
+        "imageAlt": "Kuyruktaki ve tamamlanan görevleri gösteren Job Flow paneli"
+      },
+      "clueClash": {
+        "category": "Mobil parti oyunu",
+        "description": "Birden çok telefonla oynanan, zamana karşı yarışılan takım tabanlı kelime çağrışım oyunu. Hızlı ipuçları ve yüksek sesli tahminler.",
+        "imageAlt": "Koala ve Panda takımlarını gösteren Clue Clash mobil uygulaması"
+      }
+    }
+  },
+  "socialImage": {
+    "role": "FULLSTACK GELİŞTİRİCİ",
+    "tagline": "Özenli arayüzler. Sağlam temeller.",
+    "nameFirst": "Teoman",
+    "nameLast": "Kirma"
   }
 }
