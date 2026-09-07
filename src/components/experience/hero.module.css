@@ -1,0 +1,467 @@
+.heroRoot {
+  --studio: #0c0d0f;
+  --studio-ink: #ffffff;
+  --studio-muted: #aeb4ba;
+  --studio-accent: #f1f1ee;
+  background: var(--studio);
+  color: var(--studio-ink);
+  isolation: isolate;
+  font-family: var(--font-geist-sans), sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.heroRoot * {
+  box-sizing: border-box;
+}
+.heroRoot a,
+.heroRoot button {
+  -webkit-tap-highlight-color: transparent;
+}
+.heroRoot a:focus-visible,
+.heroRoot button:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 7px;
+}
+.heroRoot button {
+  cursor: pointer;
+}
+.heroRoot a {
+  text-decoration: none;
+}
+.story {
+  height: 570svh;
+  position: relative;
+}
+.stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: clip;
+  background: var(--studio);
+}
+.studioLight {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 65% at 65% 58%, #ffffff09, transparent 80%);
+  transform-origin: 80% 80%;
+}
+.ground {
+  position: absolute;
+  height: 9%;
+  width: 53%;
+  left: 32%;
+  bottom: 17%;
+  border-radius: 50%;
+  background: #000000aa;
+  filter: blur(28px);
+  opacity: 0.8;
+}
+.canvas,
+.poster {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.canvas {
+  opacity: 0;
+  transition: opacity 600ms ease-out;
+}
+.laptopStage {
+  width: 100%;
+  height: 100%;
+}
+.poster {
+  transition: opacity 400ms ease-out;
+}
+.poster > picture {
+  position: absolute;
+  inset: 0;
+}
+.posterImage {
+  object-fit: cover;
+}
+.heroRoot[data-ready='true'][data-motion='on'] .canvas {
+  opacity: 1;
+}
+.heroRoot[data-ready='true'][data-motion='on'] .poster {
+  opacity: 0;
+}
+.intro {
+  position: absolute;
+  top: 24%;
+  left: 5.5vw;
+  z-index: 3;
+  max-width: 55%;
+}
+.role {
+  margin: 0 0 25px;
+  color: var(--studio-muted);
+  font-family: var(--font-geist-mono), monospace;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+}
+.intro h1 {
+  font-size: clamp(54px, 7.7vw, 122px);
+  line-height: 1.015;
+  font-weight: 460;
+  letter-spacing: -0.066em;
+  margin: 0;
+}
+.intro h1 > span {
+  color: var(--studio-accent);
+}
+.introDescription {
+  font-size: 13px;
+  line-height: 1.65;
+  max-width: 30ch;
+  margin: 27px 0 0;
+  color: var(--studio-muted);
+}
+.captions {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.caption {
+  position: absolute;
+  top: 30%;
+  left: 5.5vw;
+  opacity: 0;
+  visibility: hidden;
+  max-width: 230px;
+}
+.captionTag {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #ff9b6b;
+  margin-bottom: 11px;
+}
+.caption h2 {
+  font-size: clamp(26px, 3vw, 45px);
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+  font-weight: 450;
+  margin: 0 0 12px;
+}
+.caption > p:last-child {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--studio-muted);
+  max-width: 31ch;
+}
+.shards {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+.shard {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: clamp(180px, 25vw, 380px);
+  aspect-ratio: 16/10;
+  margin-left: clamp(-190px, -12.5vw, -90px);
+  margin-top: -80px;
+  visibility: hidden;
+  opacity: 0;
+  overflow: hidden;
+  border: 1px solid #ffffff88;
+  border-radius: 7px;
+  box-shadow: 0 20px 60px #0007;
+}
+.shard img {
+  object-fit: cover;
+  object-position: top;
+}
+.signature {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 6;
+  pointer-events: none;
+}
+.signatureName {
+  color: #f1f1ee;
+  font-size: clamp(58px, 7.5vw, 118px);
+  font-weight: 520;
+  letter-spacing: -0.072em;
+  line-height: 0.95;
+  margin: 0;
+}
+.signatureDot {
+  color: #ff854d;
+}
+.signatureDetail {
+  font-size: 14px;
+  line-height: 1.65;
+  max-width: 30ch;
+  margin: 24px 0 0;
+  color: #aeb4ba;
+  opacity: 0;
+}
+.revealLine {
+  position: absolute;
+  top: 50%;
+  width: 86%;
+  height: 1px;
+  background: #f1f1ee;
+  opacity: 0;
+  transform-origin: center;
+}
+.chapterNav {
+  position: absolute;
+  z-index: 10;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  white-space: nowrap;
+  padding: 13px 22px;
+  border: 1px solid #ffffff33;
+  border-radius: 40px;
+  background: #111315eb;
+  backdrop-filter: blur(12px);
+}
+.chapterNav button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 0;
+  background: transparent;
+  color: #aeb4ba;
+  font-size: 10px;
+  padding: 3px 0;
+  transition: color 150ms;
+}
+.chapterNav button[aria-current] {
+  color: #ffffff;
+}
+.chapterDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.35;
+}
+.chapterNav button[aria-current] .chapterDot {
+  background: #ff854d;
+  opacity: 1;
+}
+.heroRoot[data-motion='off'] .story {
+  height: 100svh;
+}
+.heroRoot[data-motion='off'] .stage {
+  position: relative;
+}
+.heroRoot[data-motion='off'] .chapterNav,
+.heroRoot[data-motion='off'] .captions,
+.heroRoot[data-motion='off'] .signature,
+.heroRoot[data-motion='off'] .shards {
+  display: none;
+}
+
+@media (min-width: 1800px) {
+  .intro {
+    top: 22%;
+  }
+  .caption {
+    top: 30%;
+  }
+}
+@media (max-width: 767px) {
+  .story {
+    height: 500svh;
+  }
+  .intro {
+    top: 18%;
+    left: 6vw;
+    max-width: 88%;
+  }
+  .role {
+    font-size: 9px;
+    margin-bottom: 20px;
+  }
+  .intro h1 {
+    font-size: clamp(46px, 12.4vw, 82px);
+    line-height: 1.04;
+    letter-spacing: -0.063em;
+  }
+  .introDescription {
+    font-size: 11px;
+    margin-top: 21px;
+    max-width: 29ch;
+  }
+  .ground {
+    width: 72%;
+    left: 14%;
+    bottom: 25%;
+    height: 5%;
+    filter: blur(18px);
+  }
+  .caption {
+    top: 20%;
+    left: 6vw;
+    bottom: auto;
+    max-width: 88%;
+  }
+  .captionTag {
+    font-size: 8px;
+    margin-bottom: 8px;
+  }
+  .caption h2 {
+    font-size: 29px;
+    margin-bottom: 9px;
+  }
+  .caption > p:last-child {
+    font-size: 11px;
+    line-height: 1.7;
+    max-width: 33ch;
+  }
+  .chapterNav {
+    bottom: 22px;
+    gap: 18px;
+    padding: 3px 17px;
+  }
+  .chapterNav button {
+    font-size: 9px;
+    min-height: 40px;
+  }
+  .shard {
+    width: 41vw;
+    min-width: 0;
+    margin-left: -20.5vw;
+    margin-top: -45px;
+  }
+  .signatureName {
+    font-size: clamp(43px, 11.4vw, 72px);
+    line-height: 0.98;
+    text-align: center;
+  }
+
+  .signatureDetail {
+    font-size: 11px;
+    text-align: center;
+    margin: 15px auto 0;
+  }
+  .posterImage {
+    object-position: center;
+  }
+}
+@media (max-height: 600px) and (min-width: 768px) {
+  .intro {
+    top: 22%;
+  }
+  .intro h1 {
+    font-size: 64px;
+  }
+  .role {
+    margin-bottom: 12px;
+  }
+  .introDescription {
+    margin-top: 15px;
+  }
+  .caption {
+    top: 28%;
+  }
+  .caption h2 {
+    font-size: 26px;
+  }
+  .chapterNav {
+    bottom: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .heroRoot *,
+  .heroRoot *::before,
+  .heroRoot *::after {
+    transition: none !important;
+  }
+  .story {
+    height: 100svh;
+  }
+}
+
+.explore {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 26px;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 10px;
+}
+.explore > span,
+.explore a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.explore a {
+  color: #ff9b6b;
+}
+.heroRoot[data-motion='off'] .explore > span {
+  display: none;
+}
+@media (max-width: 767px) {
+  .explore {
+    gap: 16px;
+    margin-top: 22px;
+    font-size: 9px;
+  }
+}
+
+.signatureComposition {
+  width: 82%;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  align-items: center;
+  gap: 7vw;
+  opacity: 0;
+}
+.signaturePortrait {
+  position: relative;
+  width: 100%;
+  max-width: 355px;
+  aspect-ratio: 1;
+  border-radius: 50% 50% 10% 50%;
+  overflow: hidden;
+  transform: rotate(-6deg);
+  background: #24282c;
+}
+.signaturePortrait img {
+  object-fit: cover;
+  transform: rotate(6deg) scale(1.14);
+}
+.signatureEyebrow {
+  font-family: var(--font-geist-mono);
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.13em;
+  color: #aeb4ba;
+  margin-bottom: 24px;
+}
+@media (max-width: 767px) {
+  .signatureComposition {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    width: 85%;
+  }
+  .signaturePortrait {
+    width: 42vw;
+    max-width: 200px;
+  }
+  .signatureEyebrow {
+    text-align: center;
+    font-size: 8px;
+    margin-bottom: 14px;
+  }
+}
