@@ -50,18 +50,27 @@ export function Header() {
           <button
             className="motion-toggle"
             type="button"
-            aria-pressed={reduced}
+            role="switch"
+            aria-checked={!reduced}
+            aria-label={t('animations')}
+            aria-describedby={system ? 'system-motion-note' : undefined}
             disabled={system}
             onClick={toggle}
-            title={system ? t('systemMotion') : undefined}
+            title={system ? t('systemMotion') : t('animations')}
           >
             <span className="motion-track" aria-hidden="true">
               <span />
             </span>
-            <span>
-              {system ? t('motionReduced') : reduced ? t('enableMotion') : t('reduceMotion')}
+            <span className="motion-label">{t('animations')}</span>
+            <span className="motion-state" aria-hidden="true">
+              {t(reduced ? 'motionOff' : 'motionOn')}
             </span>
           </button>
+          {system ? (
+            <span id="system-motion-note" className="sr-only">
+              {t('systemMotion')}
+            </span>
+          ) : null}
           <button
             id="menu-toggle"
             className="menu-toggle"

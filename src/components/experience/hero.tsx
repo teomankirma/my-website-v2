@@ -76,11 +76,11 @@ export function Hero() {
             },
           });
           tl.to(motion, {progress: 1, duration: 1}, 0)
-            .to('[data-stage]', {backgroundColor: '#5524c8', duration: 0.14}, 0.18)
-            .to('[data-stage]', {backgroundColor: '#2131c8', duration: 0.1}, 0.37)
-            .to('[data-stage]', {backgroundColor: '#6422bb', duration: 0.09}, 0.53)
-            .to('[data-stage]', {backgroundColor: '#8a2358', duration: 0.09}, 0.665)
-            .to('[data-stage]', {backgroundColor: '#ff795d', duration: 0.09}, 0.87)
+            .to('[data-stage]', {backgroundColor: '#101214', duration: 0.14}, 0.18)
+            .to('[data-stage]', {backgroundColor: '#0c0e10', duration: 0.1}, 0.37)
+            .to('[data-stage]', {backgroundColor: '#131517', duration: 0.09}, 0.53)
+            .to('[data-stage]', {backgroundColor: '#0d0f11', duration: 0.09}, 0.665)
+            .to('[data-stage]', {backgroundColor: '#151719', duration: 0.09}, 0.87)
             .to('[data-studio-light]', {rotation: 35, scale: 1.2, duration: 0.78}, 0.09)
             .to('[data-studio-light]', {opacity: 0, duration: 0.08}, 0.87)
             .to('[data-intro]', {autoAlpha: 0, y: -35, duration: 0.09}, 0.08)

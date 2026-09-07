@@ -3,7 +3,7 @@ import {Toaster} from 'sonner';
 export function SiteToaster() {
   return (
     <Toaster
-      theme="light"
+      theme="dark"
       richColors
       closeButton
       position="bottom-right"

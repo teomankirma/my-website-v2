@@ -2,7 +2,7 @@
 
 ## Project
 
-Teoman Kirma's bilingual portfolio: Next.js 16 App Router, React 19, strict TypeScript, Tailwind v4, GSAP, Three.js / React Three Fiber, next-intl, Geist, sonner, react-hook-form, Zod, EmailJS.
+Teoman Kirma's bilingual portfolio: Next.js 16 App Router, React 19, strict TypeScript, Tailwind v4, GSAP, Three.js, next-intl, Geist, sonner, react-hook-form, Zod, EmailJS.
 
 **Branch:** All feature work happens on `redesign/dark-technical`. Do NOT merge to `main` without explicit user approval.
 
@@ -18,7 +18,7 @@ Teoman Kirma's bilingual portfolio: Next.js 16 App Router, React 19, strict Type
 - `public/experience/`: compressed screen images and fallback posters; credits alongside.
 - `messages/en.json`, `messages/tr.json`: localized strings.
 - `src/schemas/contact.ts`: localized Zod schema.
-- `src/styles/globals.css`: single vivid palette and responsive page styling.
+- `src/styles/globals.css`: single near-black palette and responsive page styling.
 - `src/proxy.ts`: next-intl middleware. Do not rename to middleware.ts.
 - `tests/`: meaningful design and validation contracts.
 
@@ -29,7 +29,7 @@ Teoman Kirma's bilingual portfolio: Next.js 16 App Router, React 19, strict Type
 - Server components by default. Hooks, event handlers and browser APIs require `'use client'`.
 - Import GSAP from `@/lib/gsap`; keep animation setup inside scoped `useGSAP` with cleanup. Gate all timelines/tweens with `gsap.matchMedia('(prefers-reduced-motion: no-preference)', ...)` and the global manual preference.
 - WebGL is decorative and optional. Keep real content outside the canvas, demand rendering, responsive camera framing and static posters.
-- No theme toggle: use the shared vivid palette. No shadcn/ui layer or cn utility remains. Functional icons use lucide-react; brand links use text, Apple hardware uses the credited vector.
+- No theme toggle: use the shared near-black palette. No shadcn/ui layer or cn utility remains. Functional icons use lucide-react; brand links use text, Apple hardware uses the credited vector.
 - Forms use react-hook-form, zodResolver, and `makeContactSchema`; Zod v4 `{error: message}`. Preserve EmailJS `name`, `email`, `message` variables. Mock requests during QA; do not send test emails without authorization.
 - Project images use next/image; resume stays `/resume.pdf`.
 - Add projects to `src/lib/projects.ts`, their assets to `src/assets/`, and featured descriptions to both `work.projects` namespaces. Featured story projects also need both `story.projects` entries and compressed screen assets.

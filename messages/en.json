@@ -127,12 +127,12 @@
     "contact": "Let’s talk",
     "skip": "Skip to projects",
     "language": "Türkçe görüntüle",
-    "reduceMotion": "Reduce motion",
-    "enableMotion": "Enable motion",
     "systemMotion": "Reduced motion follows your device settings",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
-    "motionReduced": "Motion reduced"
+    "animations": "Animations",
+    "motionOn": "On",
+    "motionOff": "Off"
   },
   "work": {
     "eyebrow": "Selected work",

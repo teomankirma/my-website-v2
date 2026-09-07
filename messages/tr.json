@@ -127,12 +127,12 @@
     "contact": "Konuşalım",
     "skip": "Projelere geç",
     "language": "View in English",
-    "reduceMotion": "Hareketi azalt",
-    "enableMotion": "Hareketi aç",
     "systemMotion": "Hareket azaltma, cihaz ayarlarınıza göre açık",
     "openMenu": "Menüyü aç",
     "closeMenu": "Menüyü kapat",
-    "motionReduced": "Hareket azaltıldı"
+    "animations": "Animasyonlar",
+    "motionOn": "Açık",
+    "motionOff": "Kapalı"
   },
   "work": {
     "eyebrow": "Seçilmiş projeler",

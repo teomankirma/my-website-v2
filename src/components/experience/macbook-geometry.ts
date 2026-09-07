@@ -62,8 +62,18 @@ export function createMacBook(screen: Texture) {
   const textures: Texture[] = [];
   const metal = new MeshStandardMaterial({color: '#b9bdc5', metalness: 0.72, roughness: 0.28});
   const edge = new MeshStandardMaterial({color: '#8f959f', metalness: 0.8, roughness: 0.23});
-  const rubber = new MeshStandardMaterial({color: '#08090c', metalness: 0.08, roughness: 0.65});
-  const keys = new MeshStandardMaterial({color: '#15161b', roughness: 0.48, metalness: 0.05});
+  const rubber = new MeshStandardMaterial({
+    color: '#08090c',
+    metalness: 0.08,
+    roughness: 0.65,
+    envMapIntensity: 0.08,
+  });
+  const keys = new MeshStandardMaterial({
+    color: '#15161b',
+    roughness: 0.48,
+    metalness: 0.05,
+    envMapIntensity: 0.18,
+  });
   const add = (
     parent: Group,
     geometry: BufferGeometry,

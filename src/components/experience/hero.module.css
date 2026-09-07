@@ -1,8 +1,8 @@
 .heroRoot {
-  --studio: #2738ee;
+  --studio: #0c0d0f;
   --studio-ink: #ffffff;
-  --studio-muted: #e4e5ff;
-  --studio-accent: #ffc5a5;
+  --studio-muted: #aeb4ba;
+  --studio-accent: #f1f1ee;
   background: var(--studio);
   color: var(--studio-ink);
   isolation: isolate;
@@ -41,9 +41,7 @@
 .studioLight {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse 44% 75% at 100% 85%, #ff8d8e 0%, #c879fc 42%, transparent 75%),
-    radial-gradient(ellipse 60% 70% at 68% 130%, #bb7bfa 10%, transparent 75%);
+  background: radial-gradient(ellipse 60% 65% at 65% 58%, #ffffff09, transparent 80%);
   transform-origin: 80% 80%;
 }
 .ground {
@@ -53,7 +51,7 @@
   left: 32%;
   bottom: 17%;
   border-radius: 50%;
-  background: #12004488;
+  background: #000000aa;
   filter: blur(28px);
   opacity: 0.8;
 }
@@ -137,7 +135,7 @@
   font-size: 9px;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: var(--studio-accent);
+  color: #ff9b6b;
   margin-bottom: 11px;
 }
 .caption h2 {
@@ -189,7 +187,7 @@
   pointer-events: none;
 }
 .signatureName {
-  color: #321039;
+  color: #f1f1ee;
   font-size: clamp(58px, 7.5vw, 118px);
   font-weight: 520;
   letter-spacing: -0.072em;
@@ -197,14 +195,14 @@
   margin: 0;
 }
 .signatureDot {
-  color: #4e20d6;
+  color: #ff854d;
 }
 .signatureDetail {
   font-size: 14px;
   line-height: 1.65;
   max-width: 30ch;
   margin: 24px 0 0;
-  color: #512344;
+  color: #aeb4ba;
   opacity: 0;
 }
 .revealLine {
@@ -212,7 +210,7 @@
   top: 50%;
   width: 86%;
   height: 1px;
-  background: #321039;
+  background: #f1f1ee;
   opacity: 0;
   transform-origin: center;
 }
@@ -229,7 +227,7 @@
   padding: 13px 22px;
   border: 1px solid #ffffff33;
   border-radius: 40px;
-  background: #1b1047e0;
+  background: #111315eb;
   backdrop-filter: blur(12px);
 }
 .chapterNav button {
@@ -238,7 +236,7 @@
   gap: 7px;
   border: 0;
   background: transparent;
-  color: #cbc6e8;
+  color: #aeb4ba;
   font-size: 10px;
   padding: 3px 0;
   transition: color 150ms;
@@ -254,7 +252,7 @@
   opacity: 0.35;
 }
 .chapterNav button[aria-current] .chapterDot {
-  background: #ffc5a5;
+  background: #ff854d;
   opacity: 1;
 }
 .heroRoot[data-motion='off'] .story {
@@ -407,7 +405,7 @@
   gap: 7px;
 }
 .explore a {
-  color: #ffd0b7;
+  color: #ff9b6b;
 }
 .heroRoot[data-motion='off'] .explore > span {
   display: none;
@@ -436,7 +434,7 @@
   border-radius: 50% 50% 10% 50%;
   overflow: hidden;
   transform: rotate(-6deg);
-  background: #e4d9ec;
+  background: #24282c;
 }
 .signaturePortrait img {
   object-fit: cover;
@@ -447,7 +445,7 @@
   text-transform: uppercase;
   font-size: 10px;
   letter-spacing: 0.13em;
-  color: #512344;
+  color: #aeb4ba;
   margin-bottom: 24px;
 }
 @media (max-width: 767px) {

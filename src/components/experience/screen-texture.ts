@@ -38,14 +38,14 @@ function apple(ctx: CanvasRenderingContext2D, x: number, y: number, size: number
 }
 function desktop(ctx: CanvasRenderingContext2D, app: string, copy: ScreenCopy) {
   const g = ctx.createLinearGradient(0, 0, W, H);
-  g.addColorStop(0, '#111f85');
-  g.addColorStop(0.48, '#566def');
-  g.addColorStop(1, '#e994bf');
+  g.addColorStop(0, '#090c10');
+  g.addColorStop(0.48, '#303a43');
+  g.addColorStop(1, '#14191e');
   ctx.fillStyle = g;
   ctx.fillRect(0, 0, W, H);
   const wave = ctx.createLinearGradient(0, 400, 0, H);
-  wave.addColorStop(0, '#9585ef');
-  wave.addColorStop(1, '#22269d');
+  wave.addColorStop(0, '#65717a');
+  wave.addColorStop(1, '#11161b');
   ctx.fillStyle = wave;
   ctx.beginPath();
   ctx.moveTo(0, 500);
@@ -53,7 +53,7 @@ function desktop(ctx: CanvasRenderingContext2D, app: string, copy: ScreenCopy) {
   ctx.lineTo(W, H);
   ctx.lineTo(0, H);
   ctx.fill();
-  ctx.fillStyle = '#10194438';
+  ctx.fillStyle = '#080b0f80';
   ctx.fillRect(0, 0, W, 34);
   ctx.fillStyle = '#fff';
   apple(ctx, 22, 8, 17);
@@ -93,7 +93,7 @@ function desktop(ctx: CanvasRenderingContext2D, app: string, copy: ScreenCopy) {
   ctx.fillText(copy.screenDate, W - 20, 23);
   ctx.textAlign = 'left';
   // Glass dock with a compact, deliberately decorative set of application icons.
-  round(ctx, 535, 904, 442, 66, 19, '#e6e9ff5e');
+  round(ctx, 535, 904, 442, 66, 19, '#d5dbdf3d');
   ctx.strokeStyle = '#ffffff66';
   ctx.lineWidth = 1;
   ctx.stroke();
@@ -134,12 +134,12 @@ function desktop(ctx: CanvasRenderingContext2D, app: string, copy: ScreenCopy) {
 function chrome(ctx: CanvasRenderingContext2D, title: string, dark: boolean) {
   const {x, y, w, h} = BOX;
   ctx.save();
-  ctx.shadowColor = '#100c4059';
+  ctx.shadowColor = '#00000080';
   ctx.shadowBlur = 26;
   ctx.shadowOffsetY = 12;
   round(ctx, x, y, w, h, 18, dark ? '#171921' : '#fdfdff');
   ctx.restore();
-  round(ctx, x, y, w, 68, 18, dark ? '#31313de8' : '#e7eaf4eb');
+  round(ctx, x, y, w, 68, 18, dark ? '#2b3035ed' : '#e5e8eaeb');
   ctx.fillRect(x, y + 34, w, 34);
   ['#ff5f57', '#febc2e', '#28c840'].forEach((color, i) => {
     ctx.fillStyle = color;
@@ -171,7 +171,7 @@ function chrome(ctx: CanvasRenderingContext2D, title: string, dark: boolean) {
 function finder(ctx: CanvasRenderingContext2D, copy: ScreenCopy) {
   desktop(ctx, 'Finder', copy);
   chrome(ctx, copy.finderTitle, false);
-  round(ctx, BOX.x, BOX.y + 68, 230, BOX.h - 68, 0, '#e4e6f1');
+  round(ctx, BOX.x, BOX.y + 68, 230, BOX.h - 68, 0, '#e3e6e8');
   ctx.font = '18px -apple-system,sans-serif';
   ctx.fillStyle = '#616273';
   copy.finderSidebar
@@ -206,7 +206,7 @@ function code(ctx: CanvasRenderingContext2D, p: number, copy: ScreenCopy) {
         ctx.fillStyle = /^'/.test(token)
           ? '#ffe091'
           : /^(import|from|export|function|return|const)$/.test(token)
-            ? '#d69cff'
+            ? '#91c6e8'
             : /^[<>/{}()]$/.test(token)
               ? '#65ddff'
               : '#f2f3ff';
@@ -218,7 +218,7 @@ function code(ctx: CanvasRenderingContext2D, p: number, copy: ScreenCopy) {
       ctx.fillRect(x + 4, y - 25, 3, 31);
     }
   });
-  ctx.fillStyle = '#403dcc';
+  ctx.fillStyle = '#29353f';
   ctx.fillRect(BOX.x, BOX.y + BOX.h - 35, BOX.w, 23);
   ctx.fillStyle = '#fff';
   ctx.font = '15px monospace';

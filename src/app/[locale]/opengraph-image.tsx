@@ -15,7 +15,7 @@ export default async function OGImage({params}: {params: Promise<{locale: string
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          background: '#2738ee',
+          background: '#0c0d0f',
           padding: 75,
           color: '#fff',
           fontFamily: 'sans-serif',
@@ -30,7 +30,7 @@ export default async function OGImage({params}: {params: Promise<{locale: string
             width: 650,
             height: 650,
             borderRadius: '50%',
-            background: '#ff957b',
+            background: '#202529',
           }}
         />
         <div style={{fontSize: 21, letterSpacing: 3, marginBottom: 45, display: 'flex'}}>
@@ -57,9 +57,9 @@ export default async function OGImage({params}: {params: Promise<{locale: string
           }}
         >
           {t('nameLast')}
-          <span style={{color: '#ffc5a5'}}>.</span>
+          <span style={{color: '#ff854d'}}>.</span>
         </div>
-        <div style={{display: 'flex', fontSize: 23, marginTop: 40, color: '#e7e5ff'}}>
+        <div style={{display: 'flex', fontSize: 23, marginTop: 40, color: '#aeb4ba'}}>
           {t('tagline')}
         </div>
       </div>

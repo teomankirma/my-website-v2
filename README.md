@@ -1,6 +1,6 @@
 # Teoman Kirma — Portfolio
 
-A bilingual portfolio with a scroll-driven MacBook story, vivid project pages, and a portrait reveal. Built with Next.js 16, React 19, TypeScript, GSAP, Three.js / React Three Fiber, next-intl, and Geist.
+A bilingual portfolio with a scroll-driven MacBook story, dark project sections, and a portrait reveal. Built with Next.js 16, React 19, TypeScript, GSAP, Three.js, next-intl, and Geist.
 
 ## Run locally
 
@@ -16,9 +16,9 @@ Open `/en` or `/tr` on http://localhost:3000. The root redirects to the preferre
 
 ## Design and motion
 
-The homepage moves from cobalt to violet and coral, then into cream project stories, a lavender biography, deep-violet experience, and a blue contact section. All nine projects and the résumé remain available without playing through the opening.
+The homepage uses near-black and charcoal surfaces, off-white type, neutral aluminum lighting, and restrained orange accents. Project screenshots supply the main color. All nine projects and the résumé remain available without playing through the opening.
 
-Scrolling drives the laptop; there is no autoplay or hijacked scroll. Chapter buttons and a skip link provide shortcuts. **Reduce motion** persists across visits, and the operating system's reduced-motion preference takes priority. Static posters replace WebGL when motion is reduced or rendering fails. Content remains readable without JavaScript.
+Scrolling drives the laptop; there is no autoplay or hijacked scroll. Chapter buttons and a skip link provide shortcuts. The **Animations On / Off** switch persists across visits, and the operating system's reduced-motion preference takes priority. Static posters replace WebGL when motion is reduced or rendering fails. Content remains readable without JavaScript.
 
 The custom model follows Apple's published 14-inch MacBook Pro chassis dimensions, 3024:1964 display ratio, 78-key ANSI keyboard layout, and current notch design. Smaller details are visual approximations, not CAD measurements. The macOS-inspired interface is a canvas illustration with real project screenshots, not an embedded operating system. See [design references](docs/redesign/PLAN.md) and [asset credits](public/experience/CREDITS.md).
 
@@ -31,7 +31,7 @@ The custom model follows Apple's published 14-inch MacBook Pro chassis dimension
 - `src/lib/scroll-story.ts`: scroll poses and screen timeline.
 - `src/lib/projects.ts`: project records; original screenshots in `src/assets/`.
 - `messages/en.json` and `messages/tr.json`: localized copy; update together.
-- `src/styles/globals.css`: the single vivid palette and page layout; hero styles are colocated.
+- `src/styles/globals.css`: the single near-black palette and page layout; hero styles are colocated.
 - `src/proxy.ts`: next-intl locale routing.
 - `public/experience/`: compressed screen images and static fallback posters.
 
